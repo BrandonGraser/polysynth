@@ -3,200 +3,233 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Polysynth Landing Page</title>
+  <title>Polysynth</title>
 
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="bg-zinc-950 text-white overflow-x-hidden scroll-smooth">
+<body class="bg-zinc-950 text-white overflow-x-hidden">
 
-  <!-- BACKGROUND GLOW (FIXED) -->
-  <div class="fixed inset-0 -z-10 overflow-hidden">
-    <div class="absolute bottom-[-18rem] left-1/2 h-[50rem] w-[80rem] -translate-x-1/2 rounded-full bg-red-500/20 blur-[220px]"></div>
-  </div>
+<!-- BACKGROUND (matches React intent) -->
+<div class="fixed inset-0 -z-10">
+  <div class="absolute bottom-[-10rem] left-1/2 h-[45rem] w-[70rem] -translate-x-1/2 rounded-full bg-red-500/20 blur-[180px]"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-red-500/10 via-transparent to-transparent"></div>
+</div>
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/70 backdrop-blur-xl">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <div class="text-xl font-semibold tracking-[0.25em]">POLYSYNTH</div>
+<!-- HEADER -->
+<header class="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/70 backdrop-blur-xl">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
-      <nav class="hidden md:flex gap-8 text-sm text-zinc-300">
-        <a href="#applications" class="hover:text-white">Applications</a>
-        <a href="#materials" class="hover:text-white">Materials</a>
-        <a href="#software" class="hover:text-white">Software</a>
-        <a href="#" class="hover:text-white">Company</a>
-      </nav>
-
-      <div class="flex gap-3">
-        <button class="border border-white/15 px-4 py-2 rounded-full text-sm">
-          Contact Sales
-        </button>
-        <button class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">
-          Pre Order Now
-        </button>
-      </div>
+    <div class="text-xl font-semibold tracking-[0.25em]">
+      POLYSYNTH
     </div>
-  </header>
 
-  <main>
+    <nav class="hidden md:flex gap-8 text-sm text-zinc-300">
+      <a href="#applications" class="hover:text-white">Applications</a>
+      <a href="#materials" class="hover:text-white">Materials</a>
+      <a href="#software" class="hover:text-white">Software</a>
+      <a href="#" class="hover:text-white">Company</a>
+    </nav>
 
-    <!-- HERO -->
-    <section class="max-w-7xl mx-auto px-6 py-28 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="flex gap-4">
+      <button class="border border-white/15 px-4 py-2 rounded-full text-sm">
+        Contact Sales
+      </button>
+      <button class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">
+        Pre Order Now
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12">
+
+  <div>
+
+    <div class="text-sm text-red-400 uppercase mb-4">
+      First multi-color resin system
+    </div>
+
+    <h1 class="text-6xl md:text-7xl font-semibold leading-tight">
+      The first <span class="text-red-400">multi-material</span> resin printer.
+    </h1>
+
+    <p class="mt-6 text-zinc-400 text-lg max-w-2xl">
+      Polysynth 1 introduces a new category of 3D printing—combining multiple materials in a single print with a proprietary vat cleaning system that resets between layers for cleaner transitions and higher fidelity output.
+    </p>
+
+    <div class="mt-8 flex gap-4">
+      <button class="bg-white text-black px-6 py-3 rounded-full font-medium">
+        Pre Order Now
+      </button>
+      <button class="border border-white/15 px-6 py-3 rounded-full">
+        Talk to Sales
+      </button>
+    </div>
+
+    <!-- STATS (exact structure from React) -->
+    <div class="mt-10 grid grid-cols-3 gap-4">
 
       <div>
-        <div class="text-sm text-red-400 uppercase mb-4 tracking-wider">
-          First multi-color resin system
-        </div>
-
-        <h1 class="text-6xl md:text-7xl font-semibold leading-[1.05]">
-          The first <span class="text-red-400">multi-material</span> resin printer.
-        </h1>
-
-        <p class="mt-6 text-zinc-400 text-lg max-w-xl">
-          Polysynth 1 introduces multi-material printing with a proprietary vat cleaning system for clean transitions.
-        </p>
-
-        <div class="mt-8 flex gap-4">
-          <button class="bg-white text-black px-6 py-3 rounded-full font-medium">
-            Pre Order
-          </button>
-          <button class="border border-white/15 px-6 py-3 rounded-full">
-            Talk to Sales
-          </button>
-        </div>
-
-        <div class="mt-10 grid grid-cols-3 gap-6 text-sm">
-          <div>
-            <div class="text-xl font-bold">8 Materials</div>
-            <div class="text-zinc-400">Capability</div>
-          </div>
-          <div>
-            <div class="text-xl font-bold">$4,999+</div>
-            <div class="text-zinc-400">Starting Price</div>
-          </div>
-          <div>
-            <div class="text-xl font-bold">Clean Layers</div>
-            <div class="text-zinc-400">System</div>
-          </div>
-        </div>
+        <div class="text-xl font-bold">Up to 8 Materials*</div>
+        <div class="text-sm text-zinc-400">Materials Capability</div>
       </div>
 
-      <!-- PRODUCT VISUAL -->
-      <div class="flex justify-center">
-        <div class="relative w-80 h-[30rem] rounded-[2rem] bg-zinc-900 border border-white/10 shadow-2xl overflow-hidden">
-
-          <div class="absolute inset-6 rounded-2xl border border-red-400/20 bg-red-400/10"></div>
-
-          <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-40 h-6 bg-red-500/40 blur-2xl"></div>
-
-          <div class="absolute inset-0 bg-gradient-to-t from-red-500/10 to-transparent"></div>
-
-        </div>
+      <div>
+        <div class="text-xl font-bold">$4,999+</div>
+        <div class="text-sm text-zinc-400">Starting Price</div>
       </div>
 
-    </section>
-
-    <!-- APPLICATIONS -->
-    <section id="applications" class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-4xl font-semibold mb-10">Applications</h2>
-
-      <div class="grid md:grid-cols-2 gap-6">
-
-        <div class="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
-          <i data-lucide="lightbulb" class="w-9 h-9 mx-auto text-red-400 group-hover:text-white"></i>
-          <h3 class="mt-4 text-xl font-semibold">Multi Material Prototyping</h3>
-        </div>
-
-        <div class="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
-          <i data-lucide="cpu" class="w-9 h-9 mx-auto text-red-400 group-hover:text-white"></i>
-          <h3 class="mt-4 text-xl font-semibold">Functional Conductive Parts</h3>
-        </div>
-
-        <div class="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
-          <i data-lucide="stethoscope" class="w-9 h-9 mx-auto text-red-400 group-hover:text-white"></i>
-          <h3 class="mt-4 text-xl font-semibold">Dental + Medical</h3>
-        </div>
-
-        <div class="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
-          <i data-lucide="flask-conical" class="w-9 h-9 mx-auto text-red-400 group-hover:text-white"></i>
-          <h3 class="mt-4 text-xl font-semibold">Product Development</h3>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- MATERIALS -->
-    <section id="materials" class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-4xl font-semibold mb-10">Materials</h2>
-
-      <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
-
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
-          Conductive Resin
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
-          Clear Resin
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
-          Color Resin
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
-          High Detail Resin
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SOFTWARE -->
-    <section id="software" class="max-w-7xl mx-auto px-6 py-16">
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-10 text-center">
-
-        <div class="text-sm text-red-400 uppercase mb-3">Software</div>
-
-        <h2 class="text-4xl font-semibold mb-4">PolySlicer</h2>
-
-        <p class="text-zinc-400 max-w-3xl mx-auto">
-          Multi-material slicing, cleaning cycles, and high precision workflows.
-        </p>
-
-      </div>
-    </section>
-
-    <!-- FOOTER CTA -->
-    <section class="max-w-7xl mx-auto px-6 py-20 text-center">
-
-      <h2 class="text-4xl font-semibold">
-        Ready to bring Polysynth into your workflow?
-      </h2>
-
-      <div class="mt-6 flex justify-center gap-4">
-        <button class="bg-white text-black px-6 py-3 rounded-full font-medium">
-          Pre Order Now
-        </button>
-
-        <button class="border border-white/15 px-6 py-3 rounded-full">
-          Contact Sales
-        </button>
+      <div>
+        <div class="text-xl font-bold">Layer Cleaning System</div>
+        <div class="text-sm text-zinc-400">Patent Pending</div>
       </div>
 
-      <div class="mt-12 text-xs text-zinc-500">
-        © 2026 Polysynth. All rights reserved.
-      </div>
+    </div>
 
-    </section>
+    <div class="text-xs text-zinc-500 mt-4">
+      *Interchangeable build volume for high color spectrum
+    </div>
 
-  </main>
+  </div>
 
-  <script>
-    lucide.createIcons();
-  </script>
+  <!-- HERO VISUAL -->
+  <div class="relative flex items-center justify-center">
+
+    <div class="relative w-72 h-[28rem] bg-zinc-900 rounded-[2rem] border border-white/10 shadow-2xl">
+
+      <div class="absolute inset-x-8 top-8 h-44 rounded-[1.5rem] border border-red-400/20 bg-red-400/10"></div>
+
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-40 h-5 bg-red-500 blur-xl"></div>
+
+      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-red-500/10 to-transparent rounded-b-[2rem]"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA STRIP (missing in earlier versions, restored) -->
+<section class="max-w-7xl mx-auto px-6">
+  <div class="rounded-2xl border border-red-500/40 bg-red-500/10 p-6 text-center">
+
+    <h2 class="text-3xl font-semibold mb-3 text-red-400">
+      Functional Conductive Parts
+    </h2>
+
+    <p class="text-zinc-300 max-w-2xl mx-auto mb-5">
+      Print with conductive resin to unlock embedded electronics, circuits, and entirely new product workflows.
+    </p>
+
+    <button class="border border-red-400 text-red-400 px-6 py-3 rounded-full">
+      Learn more about our groundbreaking technology
+    </button>
+
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section id="applications" class="max-w-7xl mx-auto px-6 py-16">
+
+  <h2 class="text-4xl font-semibold mb-8">Applications</h2>
+
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <div class="group border border-white/10 bg-white/5 rounded-2xl p-8 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
+      <i data-lucide="lightbulb" class="w-8 h-8 mx-auto text-red-400 group-hover:text-white"></i>
+      <h3 class="mt-4 text-xl font-semibold">Multi Material Prototyping</h3>
+    </div>
+
+    <div class="group border border-white/10 bg-white/5 rounded-2xl p-8 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
+      <i data-lucide="cpu" class="w-8 h-8 mx-auto text-red-400 group-hover:text-white"></i>
+      <h3 class="mt-4 text-xl font-semibold">Functional Conductive Parts</h3>
+    </div>
+
+    <div class="group border border-white/10 bg-white/5 rounded-2xl p-8 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
+      <i data-lucide="stethoscope" class="w-8 h-8 mx-auto text-red-400 group-hover:text-white"></i>
+      <h3 class="mt-4 text-xl font-semibold">Dental + Medical</h3>
+    </div>
+
+    <div class="group border border-white/10 bg-white/5 rounded-2xl p-8 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
+      <i data-lucide="flask-conical" class="w-8 h-8 mx-auto text-red-400 group-hover:text-white"></i>
+      <h3 class="mt-4 text-xl font-semibold">Product Development</h3>
+    </div>
+
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materials" class="max-w-7xl mx-auto px-6 py-16">
+
+  <h2 class="text-4xl font-semibold mb-8">Materials</h2>
+
+  <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+
+    <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
+      Conductive Resin
+    </div>
+
+    <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
+      Clear Resin
+    </div>
+
+    <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
+      Color Resin
+    </div>
+
+    <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
+      High Detail Resin
+    </div>
+
+  </div>
+</section>
+
+<!-- SOFTWARE -->
+<section id="software" class="max-w-7xl mx-auto px-6 py-16">
+
+  <div class="rounded-[2rem] border border-white/10 bg-white/5 p-10 text-center">
+
+    <div class="text-sm text-red-400 uppercase mb-3">Software</div>
+
+    <h2 class="text-4xl font-semibold mb-4">PolySlicer</h2>
+
+    <p class="text-zinc-400 max-w-3xl mx-auto text-lg leading-8">
+      PolySlicer is the software layer behind Polysynth 1, designed to handle material switching, cleaning cycles, and high-precision print workflows.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- FINAL CTA -->
+<section class="max-w-7xl mx-auto px-6 py-16 text-center">
+
+  <h2 class="text-4xl font-semibold">
+    Ready to bring Polysynth into your workflow?
+  </h2>
+
+  <div class="mt-6 flex justify-center gap-4">
+    <button class="bg-white text-black px-6 py-3 rounded-full font-medium">
+      Pre Order Now
+    </button>
+    <button class="border border-white/15 px-6 py-3 rounded-full">
+      Contact Sales
+    </button>
+  </div>
+
+</section>
+
+</main>
+
+<script>
+  lucide.createIcons();
+</script>
 
 </body>
 </html>
