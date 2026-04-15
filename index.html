@@ -3,25 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Polysynth</title>
+  <title>Polysynth Landing Page</title>
 
-  <script>
-    tailwind = {
-      theme: {
-        extend: {}
-      }
-    }
-  </script>
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="bg-zinc-950 text-white overflow-x-hidden">
+<body class="bg-zinc-950 text-white overflow-x-hidden scroll-smooth">
 
-  <!-- BACKGROUND (FIXED LAYERING) -->
-  <div class="fixed inset-0 -z-10">
-    <div class="absolute bottom-[-20rem] left-1/2 h-[50rem] w-[80rem] -translate-x-1/2 rounded-full bg-red-500/20 blur-[200px]"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-red-500/10 via-transparent to-transparent"></div>
+  <!-- BACKGROUND GLOW (FIXED) -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute bottom-[-18rem] left-1/2 h-[50rem] w-[80rem] -translate-x-1/2 rounded-full bg-red-500/20 blur-[220px]"></div>
   </div>
 
   <!-- HEADER -->
@@ -37,8 +32,12 @@
       </nav>
 
       <div class="flex gap-3">
-        <button class="border border-white/15 px-4 py-2 rounded-full text-sm">Contact</button>
-        <button class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">Pre Order</button>
+        <button class="border border-white/15 px-4 py-2 rounded-full text-sm">
+          Contact Sales
+        </button>
+        <button class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium">
+          Pre Order Now
+        </button>
       </div>
     </div>
   </header>
@@ -84,10 +83,9 @@
             <div class="text-zinc-400">System</div>
           </div>
         </div>
-
       </div>
 
-      <!-- PRODUCT VISUAL FIXED -->
+      <!-- PRODUCT VISUAL -->
       <div class="flex justify-center">
         <div class="relative w-80 h-[30rem] rounded-[2rem] bg-zinc-900 border border-white/10 shadow-2xl overflow-hidden">
 
@@ -136,30 +134,62 @@
       <h2 class="text-4xl font-semibold mb-10">Materials</h2>
 
       <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
           Conductive Resin
         </div>
+
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
           Clear Resin
         </div>
+
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
           Color Resin
         </div>
+
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center hover:border-red-500/60 hover:bg-red-500/10 transition">
           High Detail Resin
         </div>
+
       </div>
     </section>
 
     <!-- SOFTWARE -->
     <section id="software" class="max-w-7xl mx-auto px-6 py-16">
       <div class="rounded-3xl border border-white/10 bg-white/5 p-10 text-center">
+
         <div class="text-sm text-red-400 uppercase mb-3">Software</div>
+
         <h2 class="text-4xl font-semibold mb-4">PolySlicer</h2>
+
         <p class="text-zinc-400 max-w-3xl mx-auto">
           Multi-material slicing, cleaning cycles, and high precision workflows.
         </p>
+
       </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="max-w-7xl mx-auto px-6 py-20 text-center">
+
+      <h2 class="text-4xl font-semibold">
+        Ready to bring Polysynth into your workflow?
+      </h2>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <button class="bg-white text-black px-6 py-3 rounded-full font-medium">
+          Pre Order Now
+        </button>
+
+        <button class="border border-white/15 px-6 py-3 rounded-full">
+          Contact Sales
+        </button>
+      </div>
+
+      <div class="mt-12 text-xs text-zinc-500">
+        © 2026 Polysynth. All rights reserved.
+      </div>
+
     </section>
 
   </main>
