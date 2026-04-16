@@ -1,6 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+
+// Hook: returns a ref — element fades up when it enters the viewport
+function useReveal(delay = 0) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { el.style.opacity = "1"; el.style.transform = "translateY(0)"; obs.disconnect(); } },
+      { threshold: 0.12 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return { ref, style: { opacity: 0, transform: "translateY(20px)", transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms` } as React.CSSProperties };
+}
+
 
 const VIDEO_URL =
   "https://www.dropbox.com/scl/fi/hnfqm7sjxeievrcsb0u6d/HEADER-VIDEO.mp4?rlkey=a4nu6vdjbjl81sh3m075o9m6v&raw=1";
@@ -34,6 +51,21 @@ export default function PolysynthLandingPage() {
   ];
 
   const [activeMaterial, setActiveMaterial] = useState(0);
+
+  // Scroll reveal refs
+  const revealConductive = useReveal(0);
+  const revealAppsHeader = useReveal(0);
+  const revealCard0 = useReveal(0);
+  const revealCard1 = useReveal(100);
+  const revealCard2 = useReveal(200);
+  const revealCard3 = useReveal(300);
+  const revealMaterials = useReveal(0);
+  const revealMat0 = useReveal(0);
+  const revealMat1 = useReveal(100);
+  const revealMat2 = useReveal(200);
+  const revealMat3 = useReveal(300);
+  const revealSoftware = useReveal(0);
+  const revealFooter = useReveal(0);
 
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white">
@@ -84,22 +116,22 @@ export default function PolysynthLandingPage() {
 
           {/* Hero content — pushed down so it clears the navbar */}
           <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-6">
-            <div className="mb-4 text-sm uppercase text-[#f7f727]">
+            <div className="mb-4 text-sm uppercase text-[#f7f727]" style={{opacity:0,transform:"translateY(10px)",animation:"fadeUp 0.6s ease 0.1s forwards"}}>
               First multi-color resin system
             </div>
-            <h1 className="max-w-3xl text-6xl font-semibold leading-tight md:text-7xl">
+            <h1 className="max-w-3xl text-6xl font-semibold leading-tight md:text-7xl" style={{opacity:0,transform:"translateY(16px)",animation:"fadeUp 0.7s ease 0.25s forwards"}}>
               The first{" "}
               <span className="text-[#f7f727]">multi-material</span> resin
               printer.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-zinc-300">
+            <p className="mt-6 max-w-xl text-lg text-zinc-300" style={{opacity:0,transform:"translateY(12px)",animation:"fadeUp 0.6s ease 0.45s forwards"}}>
               Polysynth 1 introduces a new category of 3D printing—combining
               multiple materials in a single print with a proprietary vat
               cleaning system that resets between layers for cleaner transitions
               and higher fidelity output.
             </p>
 
-            <div className="mt-8 flex gap-4">
+            <div className="mt-8 flex gap-4" style={{opacity:0,transform:"translateY(8px)",animation:"fadeUp 0.6s ease 0.6s forwards"}}>
               <button className="rounded-full bg-white px-6 py-3 font-medium text-black transition hover:bg-zinc-200">
                 Pre Order Now
               </button>
@@ -108,7 +140,7 @@ export default function PolysynthLandingPage() {
               </button>
             </div>
 
-            <div className="mt-10 grid max-w-2xl grid-cols-3 gap-6">
+            <div className="mt-10 grid max-w-2xl grid-cols-3 gap-6" style={{opacity:0,transform:"translateY(8px)",animation:"fadeUp 0.6s ease 0.75s forwards"}}>
               {stats.map((s) => (
                 <div key={s.label}>
                   <div className="text-xl font-bold">{s.value}</div>
@@ -124,7 +156,7 @@ export default function PolysynthLandingPage() {
         </section>
 
         {/* Conductive Parts Banner */}
-        <section className="mx-auto max-w-7xl px-6 pt-8 pb-0">
+        <section className="mx-auto max-w-7xl px-6 pt-8 pb-0" {...revealConductive}>
           <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-16 py-20 text-center">
             <h2 className="mb-6 text-8xl font-bold leading-none tracking-tight text-white">
               Functional<br />
@@ -142,16 +174,19 @@ export default function PolysynthLandingPage() {
 
         {/* Applications Section */}
         <section id="applications" className="mx-auto max-w-7xl px-6 py-16">
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-8" {...revealAppsHeader}>
             <div className="h-px flex-1 bg-white/10" />
             <span className="text-xs tracking-[0.25em] text-zinc-500">APPLICATIONS</span>
             <div className="h-px flex-1 bg-white/10" />
           </div>
           <div className="grid grid-cols-2 gap-px bg-white/[0.08]">
-            {useCases.map((u, i) => (
+            {[revealCard0, revealCard1, revealCard2, revealCard3].map((reveal, i) => {
+              const u = useCases[i];
+              return (
               <div
                 key={u.title}
                 className="group relative overflow-hidden bg-zinc-950 p-7 min-h-[200px] flex flex-col justify-between"
+                {...reveal}
               >
                 <div className="relative z-10">
                   <img src={u.icon} alt="" className="w-8 h-8 object-contain mb-5" />
@@ -160,19 +195,22 @@ export default function PolysynthLandingPage() {
                 </div>
 
               </div>
-            ))}
+            )})}
           </div>
         </section>
 
         {/* Materials Section */}
         <section id="materials" className="mx-auto max-w-7xl px-6 py-16">
-          <p className="text-xs tracking-[0.25em] text-zinc-500 mb-10">MATERIALS</p>
+          <p className="text-xs tracking-[0.25em] text-zinc-500 mb-10" {...revealMaterials}>MATERIALS</p>
           <div className="grid grid-cols-4 gap-6">
-            {materials.map((m, i) => (
+            {[revealMat0, revealMat1, revealMat2, revealMat3].map((reveal, i) => {
+              const m = materials[i];
+              return (
               <div
                 key={m.name}
                 className="cursor-pointer"
                 onClick={() => setActiveMaterial(i)}
+                {...reveal}
               >
                 <div
                   className="mb-4 transition-all duration-300"
@@ -186,12 +224,12 @@ export default function PolysynthLandingPage() {
                 </div>
                 <div className="text-xs text-zinc-500">{m.name.split(" ").slice(1).join(" ")}</div>
               </div>
-            ))}
+            )})}
           </div>
         </section>
 
         {/* Software Section */}
-        <section id="software" className="mx-auto max-w-7xl px-6 py-16">
+        <section id="software" className="mx-auto max-w-7xl px-6 py-16" {...revealSoftware}>
           <div className="grid grid-cols-2 overflow-hidden rounded-2xl bg-zinc-950" style={{minHeight: "420px"}}>
 
             {/* Left — copy + features */}
@@ -245,7 +283,7 @@ export default function PolysynthLandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-white/[0.06] bg-zinc-950">
+      <footer className="border-t border-white/[0.06] bg-zinc-950" {...revealFooter}>
         {/* Top bar */}
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 border-b border-white/[0.06]">
           <div className="text-base font-semibold tracking-[0.2em] text-white">POLYSYNTH</div>
