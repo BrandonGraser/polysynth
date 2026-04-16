@@ -5,6 +5,9 @@ import { FlaskConical, Lightbulb, Stethoscope, Cpu } from "lucide-react";
 const VIDEO_URL =
   "https://www.dropbox.com/scl/fi/hnfqm7sjxeievrcsb0u6d/HEADER-VIDEO.mp4?rlkey=a4nu6vdjbjl81sh3m075o9m6v&raw=1";
 
+const APP_VIDEO_URL =
+  "https://www.dropbox.com/scl/fi/4u4ol468fv9aaefcybo1s/PCB-ICON.mp4?rlkey=rvguvv3iyhu6b7laamts27ksu&raw=1";
+
 export default function PolysynthLandingPage() {
   const nav = ["Applications", "Materials", "Software", "Company"];
 
@@ -150,10 +153,26 @@ export default function PolysynthLandingPage() {
             {useCases.map((u) => (
               <div
                 key={u.title}
-                className="group flex min-h-[220px] flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center transition hover:border-red-500/60 hover:bg-red-500/10"
+                className="group relative flex min-h-[220px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 p-8 text-center transition hover:border-red-500/60"
+                onMouseEnter={(e) => {
+                  const video = e.currentTarget.querySelector('video');
+                  if (video) video.play();
+                }}
+                onMouseLeave={(e) => {
+                  const video = e.currentTarget.querySelector('video');
+                  if (video) { video.pause(); video.currentTime = 0; }
+                }}
               >
-                <div className="mb-5">{u.icon}</div>
-                <h3 className="max-w-[14rem] text-xl font-semibold">
+                <video
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover opacity-35"
+                  src={APP_VIDEO_URL}
+                />
+                <div className="absolute inset-0 bg-zinc-950/60" />
+                <div className="relative z-10 mb-5">{u.icon}</div>
+                <h3 className="relative z-10 max-w-[14rem] text-xl font-semibold">
                   {u.title}
                 </h3>
               </div>
