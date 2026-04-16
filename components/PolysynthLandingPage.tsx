@@ -89,7 +89,7 @@ export default function PolysynthLandingPage() {
             <button className="rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-white/40">
               Contact Sales
             </button>
-            <button className="rounded-full bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-zinc-200">
+            <button className="rounded-full bg-[#f7f727] px-4 py-2 text-sm font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">
               Pre Order Now
             </button>
           </div>
@@ -117,7 +117,7 @@ export default function PolysynthLandingPage() {
           {/* Hero content — pushed down so it clears the navbar */}
           <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-6">
             <div className="mb-4 text-sm uppercase text-[#f7f727]" style={{opacity:0,transform:"translateY(10px)",animation:"fadeUp 0.6s ease 0.1s forwards"}}>
-              First multi-color resin system
+              Polysynth P1 Printer
             </div>
             <h1 className="max-w-3xl text-6xl font-semibold leading-tight md:text-7xl" style={{opacity:0,transform:"translateY(16px)",animation:"fadeUp 0.7s ease 0.25s forwards"}}>
               The first{" "}
@@ -132,7 +132,7 @@ export default function PolysynthLandingPage() {
             </p>
 
             <div className="mt-8 flex gap-4" style={{opacity:0,transform:"translateY(8px)",animation:"fadeUp 0.6s ease 0.6s forwards"}}>
-              <button className="rounded-full bg-white px-6 py-3 font-medium text-black transition hover:bg-zinc-200">
+              <button className="rounded-full bg-[#f7f727] px-6 py-3 font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">
                 Pre Order Now
               </button>
               <button className="rounded-full border border-white/30 px-6 py-3 transition hover:border-white/60 hover:bg-white/10">
@@ -188,8 +188,8 @@ export default function PolysynthLandingPage() {
                 className="group relative overflow-hidden bg-zinc-950 p-7 min-h-[200px] flex flex-col justify-between"
                 {...reveal}
               >
-                <div className="relative z-10">
-                  <img src={u.icon} alt="" className="w-8 h-8 object-contain mb-5" />
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <img src={u.icon} alt="" className="w-8 h-8 object-contain mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
                   <h3 className="text-2xl font-semibold leading-snug mb-3">{u.title}</h3>
                   <p className="text-sm text-zinc-400 leading-relaxed max-w-xs">{u.description}</p>
                 </div>
