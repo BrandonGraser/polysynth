@@ -242,20 +242,6 @@ export default function PolysynthLandingPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="mx-auto max-w-7xl px-6 py-16 text-center">
-          <h2 className="text-4xl font-semibold">
-            Ready to bring Polysynth into your workflow?
-          </h2>
-          <div className="mt-6 flex justify-center gap-4">
-            <button className="rounded-full bg-white px-6 py-3 font-medium text-black transition hover:bg-zinc-200">
-              Pre Order Now
-            </button>
-            <button className="rounded-full border border-white/15 px-6 py-3 transition hover:border-white/30">
-              Contact Sales
-            </button>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}
