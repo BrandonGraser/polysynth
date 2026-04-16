@@ -84,12 +84,12 @@ export default function PolysynthLandingPage() {
 
           {/* Hero content — pushed down so it clears the navbar */}
           <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-6">
-            <div className="mb-4 text-sm uppercase text-red-400">
+            <div className="mb-4 text-sm uppercase text-[#f7f727]">
               First multi-color resin system
             </div>
             <h1 className="max-w-3xl text-6xl font-semibold leading-tight md:text-7xl">
               The first{" "}
-              <span className="text-red-400">multi-material</span> resin
+              <span className="text-[#f7f727]">multi-material</span> resin
               printer.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-zinc-300">
@@ -125,20 +125,18 @@ export default function PolysynthLandingPage() {
 
         {/* Conductive Parts Banner */}
         <section className="mx-auto max-w-7xl px-6 pt-8 pb-0">
-          <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-16 py-28 text-center">
-            <div className="relative inline-block bg-zinc-950 px-12">
-              <h2 className="mb-6 text-6xl font-bold leading-tight text-white">
-                Functional<br />
-                <span className="text-red-400">Conductive Parts</span>
-              </h2>
-              <p className="mx-auto mb-10 max-w-lg text-base leading-relaxed text-zinc-400">
-                Print with conductive resin to unlock embedded electronics,
-                circuits, and entirely new product workflows.
-              </p>
-              <button className="rounded-full bg-red-400 px-8 py-3 text-sm font-semibold text-red-950 transition hover:bg-red-300">
-                Learn more about our groundbreaking technology
-              </button>
-            </div>
+          <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-16 py-20 text-center">
+            <h2 className="mb-6 text-8xl font-bold leading-none tracking-tight text-white">
+              Functional<br />
+              <span className="text-[#f7f727]">Conductive Parts</span>
+            </h2>
+            <p className="mx-auto mb-10 max-w-lg text-base leading-relaxed text-zinc-400">
+              Print with conductive resin to unlock embedded electronics,
+              circuits, and entirely new product workflows.
+            </p>
+            <button className="rounded-full bg-[#f7f727] px-8 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
+              Learn more
+            </button>
           </div>
         </section>
 
@@ -180,7 +178,7 @@ export default function PolysynthLandingPage() {
                   className="mb-4 transition-all duration-300"
                   style={{
                     height: activeMaterial === i ? "2px" : "0.5px",
-                    background: activeMaterial === i ? "#f87171" : "rgba(255,255,255,0.15)",
+                    background: activeMaterial === i ? "#f7f727" : "rgba(255,255,255,0.15)",
                   }}
                 />
                 <div className={`text-lg font-semibold mb-1 transition-colors duration-300 ${activeMaterial === i ? "text-white" : "text-zinc-400"}`}>
@@ -195,14 +193,14 @@ export default function PolysynthLandingPage() {
         {/* Software Section */}
         <section id="software" className="mx-auto max-w-7xl px-6 py-16">
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 text-center md:p-10">
-            <div className="mb-3 text-sm uppercase text-red-400">Software</div>
+            <div className="mb-3 text-sm uppercase text-[#f7f727]">Software</div>
             <h2 className="mb-4 text-4xl font-semibold">PolySlicer</h2>
             <p className="mx-auto max-w-3xl text-lg leading-8 text-zinc-400">
               PolySlicer is the software layer behind Polysynth 1, designed to
               handle material switching, cleaning cycles, and high-precision
               print workflows.
             </p>
-            <button className="mt-6 rounded-full border border-white/15 px-6 py-3 transition hover:border-red-500/60 hover:bg-red-500/10">
+            <button className="mt-6 rounded-full border border-white/15 px-6 py-3 transition hover:border-[#f7f727]/60 hover:bg-[#f7f727]/10">
               Learn More
             </button>
           </div>
