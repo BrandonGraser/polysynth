@@ -44,10 +44,10 @@ export default function PolysynthLandingPage() {
   ];
 
   const materials = [
-    { name: "Conductive Resin", description: "Electrically conductive. Print functional circuits and embedded electronics." },
-    { name: "Clear Resin", description: "High-clarity output for optical components, lenses, and transparent enclosures." },
-    { name: "Color Resin", description: "Vibrant, accurate color reproduction across multi-material prints." },
-    { name: "High Detail Resin", description: "Ultra-fine resolution for intricate geometries, threads, and surface finish." },
+    { name: "Conductive Resin", description: "Electrically conductive. Print functional circuits and embedded electronics.", color: "#ffff00" },
+    { name: "Clear Resin", description: "High-clarity output for optical components, lenses, and transparent enclosures.", color: "#ff0000" },
+    { name: "Color Resin", description: "Vibrant, accurate color reproduction across multi-material prints.", color: "#f928ee" },
+    { name: "High Detail Resin", description: "Ultra-fine resolution for intricate geometries, threads, and surface finish.", color: "#00ff12" },
   ];
 
   const [activeMaterial, setActiveMaterial] = useState(0);
@@ -201,28 +201,46 @@ export default function PolysynthLandingPage() {
 
         {/* Materials Section */}
         <section id="materials" className="mx-auto max-w-7xl px-6 py-16">
-          <p className="text-xs tracking-[0.25em] text-zinc-500 mb-10" {...revealMaterials}>MATERIALS</p>
-          <div className="grid grid-cols-4 gap-6">
+          <p className="text-xs tracking-[0.25em] text-zinc-500 mb-8" {...revealMaterials}>MATERIALS</p>
+          <div className="grid grid-cols-4 gap-px bg-white/[0.04]">
             {[revealMat0, revealMat1, revealMat2, revealMat3].map((reveal, i) => {
               const m = materials[i];
               return (
               <div
                 key={m.name}
-                className="cursor-pointer"
+                className="group relative cursor-pointer overflow-hidden bg-zinc-950 p-6"
                 onClick={() => setActiveMaterial(i)}
                 {...reveal}
               >
+                {/* Hover background glow */}
                 <div
-                  className="mb-4 transition-all duration-300"
-                  style={{
-                    height: activeMaterial === i ? "2px" : "0.5px",
-                    background: activeMaterial === i ? "#f7f727" : "rgba(255,255,255,0.15)",
-                  }}
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{background: `radial-gradient(ellipse at 50% 110%, ${m.color}14 0%, transparent 70%)`}}
                 />
-                <div className={`text-base font-semibold mb-2 transition-colors duration-300 ${activeMaterial === i ? "text-white" : "text-zinc-400"}`}>
-                  {m.name}
+                {/* Text */}
+                <div className="relative z-10 mb-4">
+                  <div className="text-sm font-semibold text-white mb-1">{m.name}</div>
+                  <div className="text-xs text-zinc-500 leading-relaxed">{m.description}</div>
                 </div>
-                <div className="text-xs text-zinc-500 leading-relaxed">{m.description}</div>
+                {/* Bottle illustration */}
+                <div className="relative flex items-center justify-center bg-[#0f0f0f] h-40">
+                  <div
+                    className="relative flex flex-col items-center pt-3 gap-2"
+                    style={{width: "48px", height: "104px", borderRadius: "4px", background: "#1a1a1a"}}
+                  >
+                    <div style={{width: "28px", height: "10px", background: `${m.color}55`, borderRadius: "2px"}} />
+                    <div style={{width: "34px", height: "30px", background: `${m.color}12`, borderRadius: "2px", marginTop: "8px"}} />
+                  </div>
+                  {/* Glow under bottle */}
+                  <div
+                    className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{width: "60px", height: "20px", background: m.color, filter: "blur(14px)", borderRadius: "50%", opacity: 0}}
+                  />
+                  <div
+                    className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 transition-opacity duration-300 group-hover:opacity-100 opacity-0"
+                    style={{width: "60px", height: "20px", background: m.color, filter: "blur(14px)"}}
+                  />
+                </div>
               </div>
             )})}
           </div>
