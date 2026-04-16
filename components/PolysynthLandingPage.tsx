@@ -179,13 +179,13 @@ export default function PolysynthLandingPage() {
             <span className="text-xs tracking-[0.25em] text-zinc-500">APPLICATIONS</span>
             <div className="h-px flex-1 bg-white/10" />
           </div>
-          <div className="grid grid-cols-2 gap-px bg-transparent">
+          <div className="grid grid-cols-2 gap-px bg-zinc-800/30">
             {[revealCard0, revealCard1, revealCard2, revealCard3].map((reveal, i) => {
               const u = useCases[i];
               return (
               <div
                 key={u.title}
-                className="group relative overflow-hidden bg-zinc-950 p-7 min-h-[200px] flex flex-col justify-between border border-white/[0.06]"
+                className="group relative overflow-hidden bg-zinc-950 p-7 min-h-[200px] flex flex-col justify-between"
                 {...reveal}
               >
                 <div className="relative z-10">
