@@ -125,17 +125,13 @@ export default function PolysynthLandingPage() {
 
         {/* Conductive Parts Banner */}
         <section className="mx-auto max-w-7xl px-6 pt-8 pb-0">
-          <div className="relative overflow-hidden rounded-2xl bg-zinc-950 border border-white/[0.06] px-16 py-20 text-center">
-            {/* Horizontal red line bisecting the section */}
-            <div className="absolute left-0 right-0 top-1/2 h-px bg-red-400/15 -translate-y-1/2" />
-            {/* Content sits on top of the line */}
+          <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-16 py-28 text-center">
             <div className="relative inline-block bg-zinc-950 px-12">
-              <div className="mb-4 text-xs tracking-[0.25em] text-zinc-500">PATENT PENDING</div>
-              <h2 className="mb-5 text-5xl font-bold leading-tight text-white">
+              <h2 className="mb-6 text-6xl font-bold leading-tight text-white">
                 Functional<br />
                 <span className="text-red-400">Conductive Parts</span>
               </h2>
-              <p className="mx-auto mb-8 max-w-lg text-sm leading-relaxed text-zinc-400">
+              <p className="mx-auto mb-10 max-w-lg text-base leading-relaxed text-zinc-400">
                 Print with conductive resin to unlock embedded electronics,
                 circuits, and entirely new product workflows.
               </p>
