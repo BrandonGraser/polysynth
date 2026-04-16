@@ -131,7 +131,7 @@ export default function PolysynthLandingPage() {
         </section>
 
         {/* Conductive Parts Banner */}
-        <section className="mx-auto max-w-screen-2xl px-6 pb-0 pt-8">
+        <section className="mx-auto max-w-7xl px-6 pb-0 pt-8">
           <div className="rounded-2xl border border-red-500/40 bg-red-500/10 p-6 text-center md:p-7">
             <h2 className="mb-3 text-3xl font-semibold text-red-400">
               Functional Conductive Parts
@@ -147,7 +147,7 @@ export default function PolysynthLandingPage() {
         </section>
 
         {/* Applications Section */}
-        <section id="applications" className="mx-auto max-w-screen-2xl px-6 py-16">
+        <section id="applications" className="mx-auto max-w-7xl px-6 py-16">
           <h2 className="mb-8 text-4xl font-semibold">Applications</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {useCases.map((u) => (
@@ -181,7 +181,7 @@ export default function PolysynthLandingPage() {
         </section>
 
         {/* Materials Section */}
-        <section id="materials" className="mx-auto max-w-screen-2xl px-6 py-16">
+        <section id="materials" className="mx-auto max-w-7xl px-6 py-16">
           <div className="mb-8 flex items-center justify-between">
             <h2 className="text-4xl font-semibold">Materials</h2>
           </div>
@@ -206,7 +206,7 @@ export default function PolysynthLandingPage() {
         </section>
 
         {/* Software Section */}
-        <section id="software" className="mx-auto max-w-screen-2xl px-6 py-16">
+        <section id="software" className="mx-auto max-w-7xl px-6 py-16">
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 text-center md:p-10">
             <div className="mb-3 text-sm uppercase text-red-400">Software</div>
             <h2 className="mb-4 text-4xl font-semibold">PolySlicer</h2>
@@ -222,7 +222,7 @@ export default function PolysynthLandingPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="mx-auto max-w-screen-2xl px-6 py-16 text-center">
+        <section className="mx-auto max-w-7xl px-6 py-16 text-center">
           <h2 className="text-4xl font-semibold">
             Ready to bring Polysynth into your workflow?
           </h2>
