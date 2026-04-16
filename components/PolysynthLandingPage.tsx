@@ -197,7 +197,7 @@ export default function PolysynthLandingPage() {
               >
                 <video
                   muted loop playsInline
-                  className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-[0.08]"
+                  className="absolute inset-0 h-full w-full object-cover opacity-[0.08]"
                   src={APP_VIDEO_URL}
                 />
                 <div className="absolute inset-0 bg-zinc-950/50" />
