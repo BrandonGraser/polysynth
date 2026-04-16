@@ -124,18 +124,25 @@ export default function PolysynthLandingPage() {
         </section>
 
         {/* Conductive Parts Banner */}
-        <section className="mx-auto max-w-7xl px-6 pb-0 pt-8">
-          <div className="rounded-2xl border border-red-500/40 bg-red-500/10 p-6 text-center md:p-7">
-            <h2 className="mb-3 text-3xl font-semibold text-red-400">
-              Functional Conductive Parts
-            </h2>
-            <p className="mx-auto mb-5 max-w-2xl text-zinc-300">
-              Print with conductive resin to unlock embedded electronics,
-              circuits, and entirely new product workflows.
-            </p>
-            <button className="rounded-full border border-red-400 px-6 py-3 text-red-400 transition hover:bg-red-400/10">
-              Learn more about our groundbreaking technology
-            </button>
+        <section className="mx-auto max-w-7xl px-6 pt-8 pb-0">
+          <div className="relative overflow-hidden rounded-2xl bg-zinc-950 border border-white/[0.06] px-16 py-20 text-center">
+            {/* Horizontal red line bisecting the section */}
+            <div className="absolute left-0 right-0 top-1/2 h-px bg-red-400/15 -translate-y-1/2" />
+            {/* Content sits on top of the line */}
+            <div className="relative inline-block bg-zinc-950 px-12">
+              <div className="mb-4 text-xs tracking-[0.25em] text-zinc-500">PATENT PENDING</div>
+              <h2 className="mb-5 text-5xl font-bold leading-tight text-white">
+                Functional<br />
+                <span className="text-red-400">Conductive Parts</span>
+              </h2>
+              <p className="mx-auto mb-8 max-w-lg text-sm leading-relaxed text-zinc-400">
+                Print with conductive resin to unlock embedded electronics,
+                circuits, and entirely new product workflows.
+              </p>
+              <button className="rounded-full bg-red-400 px-8 py-3 text-sm font-semibold text-red-950 transition hover:bg-red-300">
+                Learn more about our groundbreaking technology
+              </button>
+            </div>
           </div>
         </section>
 
