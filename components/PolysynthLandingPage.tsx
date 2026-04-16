@@ -21,6 +21,9 @@ function useReveal(delay = 0) {
 }
 
 
+const APP_VIDEO_URL =
+  "https://www.dropbox.com/scl/fi/4u4ol468fv9aaefcybo1s/PCB-ICON.mp4?rlkey=rvguvv3iyhu6b7laamts27ksu&raw=1";
+
 const VIDEO_URL =
   "https://www.dropbox.com/scl/fi/hnfqm7sjxeievrcsb0u6d/HEADER-VIDEO.mp4?rlkey=a4nu6vdjbjl81sh3m075o9m6v&raw=1";
 
