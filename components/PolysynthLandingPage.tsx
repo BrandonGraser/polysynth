@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 const VIDEO_URL =
   "https://www.dropbox.com/scl/fi/hnfqm7sjxeievrcsb0u6d/HEADER-VIDEO.mp4?rlkey=a4nu6vdjbjl81sh3m075o9m6v&raw=1";
 
@@ -21,10 +23,10 @@ export default function PolysynthLandingPage() {
   ];
 
   const useCases = [
-    { title: "Multi Material Prototyping", icon: ICON_1 },
-    { title: "Functional Conductive Parts", icon: ICON_4 },
-    { title: "Dental + Medical", icon: ICON_3 },
-    { title: "Product Development", icon: ICON_2 },
+    { title: "Multi Material Prototyping", icon: ICON_1, description: "Compress design cycles from weeks to hours. Switch materials mid-print without post-processing or assembly." },
+    { title: "Functional Conductive Parts", icon: ICON_4, description: "Print embedded circuits directly into your parts. No wiring, no soldering — functional electronics straight out of the machine." },
+    { title: "Dental + Medical", icon: ICON_3, description: "Biocompatible resins with micron-level precision. Built for clinical workflows that demand accuracy and repeatability." },
+    { title: "Product Development", icon: ICON_2, description: "From concept to market-ready prototype in one machine. Multi-material, multi-finish, zero compromises." },
   ];
 
   const materials = [
@@ -33,6 +35,8 @@ export default function PolysynthLandingPage() {
     { name: "Color Resin" },
     { name: "High Detail Resin" },
   ];
+
+  const [activeMaterial, setActiveMaterial] = useState(0);
 
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white">
@@ -149,26 +153,11 @@ export default function PolysynthLandingPage() {
               <div
                 key={u.title}
                 className="group relative overflow-hidden bg-zinc-950 p-7 min-h-[200px] flex flex-col justify-between"
-                onMouseEnter={(e) => {
-                  const video = e.currentTarget.querySelector('video');
-                  if (video) video.play();
-                }}
-                onMouseLeave={(e) => {
-                  const video = e.currentTarget.querySelector('video');
-                  if (video) { video.pause(); video.currentTime = 0; }
-                }}
               >
-                <video
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 h-full w-full object-cover opacity-10"
-                  src={APP_VIDEO_URL}
-                />
-                <div className="absolute inset-0 bg-zinc-950/50" />
                 <div className="relative z-10">
-                  <img src={u.icon} alt="" className="w-10 h-10 object-contain mb-5" />
-                  <h3 className="text-xl font-semibold leading-snug">{u.title}</h3>
+                  <img src={u.icon} alt="" className="w-8 h-8 object-contain mb-5" />
+                  <h3 className="text-2xl font-semibold leading-snug mb-3">{u.title}</h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed max-w-xs">{u.description}</p>
                 </div>
                 <div className="relative z-10 flex justify-end mt-8">
                   <div className="w-5 h-5 rounded-full border border-red-400/30 flex items-center justify-center">
@@ -185,9 +174,21 @@ export default function PolysynthLandingPage() {
           <p className="text-xs tracking-[0.25em] text-zinc-500 mb-10">MATERIALS</p>
           <div className="grid grid-cols-4 gap-6">
             {materials.map((m, i) => (
-              <div key={m.name} className="group">
-                <div className={`h-px mb-4 ${i === 0 ? "bg-red-400" : "bg-white/15"} transition group-hover:bg-red-400/60`} style={{height: i === 0 ? "2px" : "0.5px"}} />
-                <div className="text-lg font-semibold mb-1">{m.name.split(" ")[0]}</div>
+              <div
+                key={m.name}
+                className="cursor-pointer"
+                onClick={() => setActiveMaterial(i)}
+              >
+                <div
+                  className="mb-4 transition-all duration-300"
+                  style={{
+                    height: activeMaterial === i ? "2px" : "0.5px",
+                    background: activeMaterial === i ? "#f87171" : "rgba(255,255,255,0.15)",
+                  }}
+                />
+                <div className={`text-lg font-semibold mb-1 transition-colors duration-300 ${activeMaterial === i ? "text-white" : "text-zinc-400"}`}>
+                  {m.name.split(" ")[0]}
+                </div>
                 <div className="text-xs text-zinc-500">{m.name.split(" ").slice(1).join(" ")}</div>
               </div>
             ))}
