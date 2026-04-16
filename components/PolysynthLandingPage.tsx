@@ -78,7 +78,7 @@ export default function PolysynthLandingPage() {
             muted
             loop
             playsInline
-            className="absolute inset-0 h-full w-full object-cover opacity-50"
+            className="absolute inset-0 h-full w-full object-cover opacity-35"
             src={VIDEO_URL}
           />
           {/* Dark overlay */}
