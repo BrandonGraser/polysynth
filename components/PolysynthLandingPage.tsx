@@ -44,10 +44,10 @@ export default function PolysynthLandingPage() {
   ];
 
   const materials = [
-    { name: "Conductive Resin" },
-    { name: "Clear Resin" },
-    { name: "Color Resin" },
-    { name: "High Detail Resin" },
+    { name: "Conductive Resin", description: "Electrically conductive. Print functional circuits and embedded electronics." },
+    { name: "Clear Resin", description: "High-clarity output for optical components, lenses, and transparent enclosures." },
+    { name: "Color Resin", description: "Vibrant, accurate color reproduction across multi-material prints." },
+    { name: "High Detail Resin", description: "Ultra-fine resolution for intricate geometries, threads, and surface finish." },
   ];
 
   const [activeMaterial, setActiveMaterial] = useState(0);
@@ -219,10 +219,10 @@ export default function PolysynthLandingPage() {
                     background: activeMaterial === i ? "#f7f727" : "rgba(255,255,255,0.15)",
                   }}
                 />
-                <div className={`text-lg font-semibold mb-1 transition-colors duration-300 ${activeMaterial === i ? "text-white" : "text-zinc-400"}`}>
-                  {m.name.split(" ")[0]}
+                <div className={`text-base font-semibold mb-2 transition-colors duration-300 ${activeMaterial === i ? "text-white" : "text-zinc-400"}`}>
+                  {m.name}
                 </div>
-                <div className="text-xs text-zinc-500">{m.name.split(" ").slice(1).join(" ")}</div>
+                <div className="text-xs text-zinc-500 leading-relaxed">{m.description}</div>
               </div>
             )})}
           </div>
