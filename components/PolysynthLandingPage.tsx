@@ -208,17 +208,17 @@ export default function PolysynthLandingPage() {
               return (
               <div
                 key={m.name}
-                className="group relative cursor-pointer overflow-hidden bg-zinc-950 p-6"
+                className="group relative cursor-pointer bg-zinc-950 p-6"
                 onClick={() => setActiveMaterial(i)}
                 {...reveal}
               >
-                {/* Hover background glow */}
+                {/* Top line — appears on hover */}
                 <div
-                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{background: `radial-gradient(ellipse at 50% 110%, ${m.color}14 0%, transparent 70%)`}}
+                  className="absolute top-0 left-0 right-0 h-px transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                  style={{background: m.color}}
                 />
                 {/* Text */}
-                <div className="relative z-10 mb-4">
+                <div className="mb-4">
                   <div className="text-sm font-semibold text-white mb-1">{m.name}</div>
                   <div className="text-xs text-zinc-500 leading-relaxed">{m.description}</div>
                 </div>
@@ -231,15 +231,6 @@ export default function PolysynthLandingPage() {
                     <div style={{width: "28px", height: "10px", background: `${m.color}55`, borderRadius: "2px"}} />
                     <div style={{width: "34px", height: "30px", background: `${m.color}12`, borderRadius: "2px", marginTop: "8px"}} />
                   </div>
-                  {/* Glow under bottle */}
-                  <div
-                    className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                    style={{width: "60px", height: "20px", background: m.color, filter: "blur(14px)", borderRadius: "50%", opacity: 0}}
-                  />
-                  <div
-                    className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 transition-opacity duration-300 group-hover:opacity-100 opacity-0"
-                    style={{width: "60px", height: "20px", background: m.color, filter: "blur(14px)"}}
-                  />
                 </div>
               </div>
             )})}
