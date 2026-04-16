@@ -192,17 +192,53 @@ export default function PolysynthLandingPage() {
 
         {/* Software Section */}
         <section id="software" className="mx-auto max-w-7xl px-6 py-16">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 text-center md:p-10">
-            <div className="mb-3 text-sm uppercase text-[#f7f727]">Software</div>
-            <h2 className="mb-4 text-4xl font-semibold">PolySlicer</h2>
-            <p className="mx-auto max-w-3xl text-lg leading-8 text-zinc-400">
-              PolySlicer is the software layer behind Polysynth 1, designed to
-              handle material switching, cleaning cycles, and high-precision
-              print workflows.
-            </p>
-            <button className="mt-6 rounded-full border border-white/15 px-6 py-3 transition hover:border-[#f7f727]/60 hover:bg-[#f7f727]/10">
-              Learn More
-            </button>
+          <div className="grid grid-cols-2 overflow-hidden rounded-2xl bg-zinc-950" style={{minHeight: "420px"}}>
+
+            {/* Left — copy + features */}
+            <div className="flex flex-col justify-center border-r border-white/[0.07] px-10 py-12">
+              <div className="mb-4 text-xs tracking-[0.25em] text-zinc-500">SOFTWARE</div>
+              <h2 className="mb-8 text-5xl font-bold leading-none text-white">PolySlicer</h2>
+              <div className="mb-10 flex flex-col gap-5">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 h-4 w-0.5 flex-shrink-0 bg-[#f7f727]" />
+                  <div>
+                    <div className="mb-1 text-sm font-semibold text-white">Material Switching</div>
+                    <div className="text-xs leading-relaxed text-zinc-500">Automatic sequencing across up to 8 materials per print.</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 h-4 w-0.5 flex-shrink-0 bg-white/15" />
+                  <div>
+                    <div className="mb-1 text-sm font-semibold text-white">Cleaning Cycles</div>
+                    <div className="text-xs leading-relaxed text-zinc-500">Patent-pending vat cleaning between every layer change.</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 h-4 w-0.5 flex-shrink-0 bg-white/15" />
+                  <div>
+                    <div className="mb-1 text-sm font-semibold text-white">Precision Workflows</div>
+                    <div className="text-xs leading-relaxed text-zinc-500">Micron-level control across every parameter.</div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button className="rounded-full border border-[#f7f727]/40 px-6 py-2.5 text-sm text-[#f7f727] transition hover:bg-[#f7f727]/10">
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+            {/* Right — video placeholder */}
+            <div className="relative flex items-center justify-center overflow-hidden bg-zinc-900/50">
+              <div className="absolute inset-0" style={{backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255,255,255,0.02) 32px, rgba(255,255,255,0.02) 33px), repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255,255,255,0.02) 32px, rgba(255,255,255,0.02) 33px)"}} />
+              <div className="relative z-10 flex flex-col items-center gap-3 text-zinc-600">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700">
+                  <div className="ml-0.5 h-0 w-0 border-b-[6px] border-t-[6px] border-l-[10px] border-b-transparent border-t-transparent border-l-zinc-600" />
+                </div>
+                <span className="text-xs tracking-widest">VIDEO COMING SOON</span>
+              </div>
+            </div>
+
           </div>
         </section>
 
