@@ -96,24 +96,8 @@ export default function ProductsPage() {
             className="flex flex-col bg-zinc-950 overflow-hidden"
             style={{opacity:0, transform:"translateY(20px)", animation:`fadeUp 0.65s ease ${0.1 + idx * 0.15}s forwards`}}
           >
-            {/* Image panel */}
-            <div
-              className="relative flex items-center justify-center bg-zinc-900/50"
-              style={{
-                minHeight: "340px",
-                backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"
-              }}
-            >
-              <div className="flex flex-col items-center gap-3 text-zinc-700">
-                <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
-                  <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
-                </div>
-                <span className="text-xs tracking-widest text-zinc-600">PLACEHOLDER</span>
-              </div>
-            </div>
-
             {/* Text panel */}
-            <div className="flex flex-col justify-center p-10 border-t border-white/[0.06]">
+            <div className="flex flex-col justify-center p-10">
               <div className="text-xs tracking-[0.2em] text-zinc-500 mb-5">{p.tag}</div>
               <h2 className="text-7xl font-bold leading-none mb-5 tracking-tight">
                 {p.name}{p.nameAccent && <> <span className="text-[#f7f727]">{p.nameAccent}</span></>}
@@ -133,6 +117,22 @@ export default function ProductsPage() {
                     {p.cta}
                   </button>
                 </a>
+              </div>
+            </div>
+
+            {/* Image panel */}
+            <div
+              className="relative flex items-center justify-center bg-zinc-900/50 border-t border-white/[0.06]"
+              style={{
+                minHeight: "340px",
+                backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"
+              }}
+            >
+              <div className="flex flex-col items-center gap-3 text-zinc-700">
+                <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
+                  <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
+                </div>
+                <span className="text-xs tracking-widest text-zinc-600">PLACEHOLDER</span>
               </div>
             </div>
           </div>
