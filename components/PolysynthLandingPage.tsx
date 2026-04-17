@@ -302,7 +302,10 @@ export default function PolysynthLandingPage() {
             {/* Left — copy + features */}
             <div className="flex flex-col justify-center border-r border-white/[0.07] px-10 py-12">
               <div className="mb-4 text-xs tracking-[0.25em] text-zinc-500">SOFTWARE</div>
-              <h2 className="mb-8 text-5xl font-bold leading-none text-white">PolySlicer</h2>
+              <div className="flex items-center gap-4 mb-8">
+                <img src={POLYSLICER_LOGO} alt="Polysynth" className="h-14 w-auto object-contain flex-shrink-0" />
+                <h2 className="text-5xl font-bold leading-none text-white">PolySlicer</h2>
+              </div>
               <div className="mb-10 flex flex-col gap-5">
                 <div className="flex items-start gap-3">
                   <div className="mt-1 h-4 w-0.5 flex-shrink-0 bg-[#f7f727]" />
