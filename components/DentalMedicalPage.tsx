@@ -43,7 +43,7 @@ export default function DentalMedicalPage() {
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-zinc-950 to-transparent" />
 
-        <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-6">
+        <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-6 flex flex-col items-center text-center">
           <div className="flex items-center gap-4 mb-6" style={{opacity:0, animation:"fadeUp 0.6s ease 0.1s forwards"}}>
             <img src={ICON} alt="" className="w-8 h-8 object-contain" />
             <span className="text-sm uppercase tracking-[0.2em] text-[#f7f727]">Dental + Medical</span>
