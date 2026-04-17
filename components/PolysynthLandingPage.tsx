@@ -241,7 +241,19 @@ export default function PolysynthLandingPage() {
                 <div className="absolute inset-0 bg-zinc-950/50" />
                 <div className="relative z-10 flex flex-col items-center text-center">
                   <img src={u.icon} alt="" className="w-8 h-8 object-contain mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
-                  <h3 className="text-2xl font-semibold leading-snug mb-3">{u.title}</h3>
+                  <h3
+                    className="text-2xl font-semibold leading-snug mb-3 transition-all duration-300"
+                    style={i === 0 ? undefined : undefined}
+                  >
+                    {i === 0 ? (
+                      <span className="relative inline-block">
+                        <span className="absolute inset-0 bg-clip-text text-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{backgroundImage: "linear-gradient(90deg, #ff0000, #f928ee, #f7f727, #00ff12)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"}}>
+                          {u.title}
+                        </span>
+                        <span className="group-hover:opacity-0 transition-opacity duration-300">{u.title}</span>
+                      </span>
+                    ) : u.title}
+                  </h3>
                   <p className="text-sm text-zinc-400 leading-relaxed max-w-xs">{u.description}</p>
                 </div>
               </div>
@@ -336,14 +348,15 @@ export default function PolysynthLandingPage() {
               </div>
             </div>
 
-            {/* Right — logo display */}
-            <div className="relative flex items-center justify-center overflow-hidden bg-zinc-900/30">
-              <div className="absolute inset-0" style={{backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255,255,255,0.015) 32px, rgba(255,255,255,0.015) 33px), repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255,255,255,0.015) 32px, rgba(255,255,255,0.015) 33px)"}} />
-              <img
-                src={POLYSLICER_LOGO}
-                alt="Polysynth"
-                className="relative z-10 w-48 h-auto object-contain opacity-90"
-              />
+            {/* Right — video placeholder */}
+            <div className="relative flex items-center justify-center overflow-hidden bg-zinc-900/50">
+              <div className="absolute inset-0" style={{backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255,255,255,0.02) 32px, rgba(255,255,255,0.02) 33px), repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255,255,255,0.02) 32px, rgba(255,255,255,0.02) 33px)"}} />
+              <div className="relative z-10 flex flex-col items-center gap-3 text-zinc-600">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700">
+                  <div className="ml-0.5 h-0 w-0 border-b-[6px] border-t-[6px] border-l-[10px] border-b-transparent border-t-transparent border-l-zinc-600" />
+                </div>
+                <span className="text-xs tracking-widest">VIDEO COMING SOON</span>
+              </div>
             </div>
 
           </div>
