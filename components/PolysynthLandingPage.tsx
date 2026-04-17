@@ -220,19 +220,27 @@ export default function PolysynthLandingPage() {
               return (
               <div
                 key={m.name}
-                className="group relative cursor-pointer bg-zinc-950 p-6"
+                className="group relative cursor-pointer bg-zinc-950 p-6 transition-colors duration-300 hover:bg-zinc-900/80"
                 onClick={() => setActiveMaterial(i)}
                 {...reveal}
               >
-                {/* Top line — appears on hover */}
+                {/* Top line — always faintly visible, brightens on hover */}
                 <div
-                  className="absolute top-0 left-0 right-0 h-px transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-                  style={{background: m.color}}
+                  className="absolute top-0 left-0 right-0 transition-all duration-300"
+                  style={{
+                    height: "1px",
+                    background: m.color,
+                    opacity: activeMaterial === i ? 1 : 0.15,
+                  }}
+                />
+                <div
+                  className="absolute top-0 left-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{height: "1px", background: m.color, boxShadow: `0 0 8px 1px ${m.color}88`}}
                 />
                 {/* Text */}
                 <div className="mb-4">
-                  <div className="text-sm font-semibold text-white mb-1">{m.name}</div>
-                  <div className="text-xs text-zinc-500 leading-relaxed">{m.description}</div>
+                  <div className={`text-sm font-semibold mb-1 transition-colors duration-300 group-hover:text-white ${activeMaterial === i ? "text-white" : "text-zinc-400"}`}>{m.name}</div>
+                  <div className="text-xs text-zinc-500 leading-relaxed group-hover:text-zinc-400 transition-colors duration-300">{m.description}</div>
                 </div>
                 {/* Bottle illustration */}
                 <div className="relative flex items-center justify-center bg-[#0f0f0f] h-40">
