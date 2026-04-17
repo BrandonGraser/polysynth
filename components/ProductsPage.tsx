@@ -89,7 +89,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Product cards */}
-      <div className="mx-auto max-w-7xl px-6 pb-24 flex flex-col gap-px">
+      <div className="mx-auto max-w-7xl px-6 pb-24 grid grid-cols-2 gap-px bg-white/[0.04]">
         {products.map((p, idx) => {
           const textPanel = (
             <div key="text" className="flex flex-col justify-center p-12" style={{opacity:0, transform:"translateY(20px)", animation:`fadeUp 0.65s ease ${0.1 + idx * 0.15}s forwards`}}>
@@ -115,7 +115,7 @@ export default function ProductsPage() {
           );
 
           const imagePanel = (
-            <div key="image" className="relative bg-zinc-900/40 flex items-center justify-center min-h-[360px]" style={{backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
+            <div key="image" className="relative bg-zinc-900/40 flex items-center justify-center min-h-[280px] flex-1" style={{backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
               <div className="flex flex-col items-center gap-3 text-zinc-700">
                 <div className="w-32 h-44 bg-zinc-800 flex items-center justify-center">
                   <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
@@ -126,8 +126,8 @@ export default function ProductsPage() {
           );
 
           return (
-            <div key={p.name + (p.nameAccent || "")} className="grid grid-cols-2 bg-zinc-950 border border-white/[0.05]">
-              {p.imageRight ? [textPanel, imagePanel] : [imagePanel, textPanel]}
+            <div key={p.name + (p.nameAccent || "")} className="flex flex-col bg-zinc-950">
+              {[textPanel, imagePanel]}
             </div>
           );
         })}
