@@ -58,7 +58,27 @@ export default function PolysynthLandingPage() {
   const [activeMaterial, setActiveMaterial] = useState(0);
 
   // Scroll reveal refs
+  const conductiveHeadingRef = useRef<HTMLDivElement>(null);
   const revealConductive = useReveal(0);
+
+  useEffect(() => {
+    const container = conductiveHeadingRef.current;
+    if (!container) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const spans = container.querySelectorAll<HTMLSpanElement>('.letter');
+          spans.forEach((s, i) => {
+            setTimeout(() => { s.style.opacity = '1'; s.style.transform = 'translateY(0)'; }, i * 28);
+          });
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    obs.observe(container);
+    return () => obs.disconnect();
+  }, []);
   const revealAppsHeader = useReveal(0);
   const revealCard0 = useReveal(0);
   const revealCard1 = useReveal(100);
@@ -78,7 +98,7 @@ export default function PolysynthLandingPage() {
       {/* Navbar — fixed, frosted glass, sits above video */}
       <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-zinc-950/45 backdrop-blur-xl">
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-4">
-          <img src={LOGO} alt="Polysynth" className="h-10 w-auto object-contain" />
+          <div className="text-xl font-semibold tracking-[0.25em]">POLYSYNTH</div>
           <nav className="hidden gap-8 md:flex">
             {nav.map((item) => (
               <a
@@ -163,10 +183,26 @@ export default function PolysynthLandingPage() {
         {/* Conductive Parts Banner */}
         <section className="mx-auto max-w-7xl px-6 pt-8 pb-0" {...revealConductive}>
           <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-16 py-20 text-center">
-            <h2 className="mb-6 text-8xl font-bold leading-none tracking-tight text-white">
-              Functional<br />
-              <span className="text-[#f7f727]">Conductive Parts</span>
-            </h2>
+            <div ref={conductiveHeadingRef} className="mb-6 text-8xl font-bold leading-none tracking-tight">
+              <div className="overflow-hidden">
+                {"Functional".split("").map((ch, i) => (
+                  <span
+                    key={i}
+                    className="letter inline-block text-white"
+                    style={{opacity: 0, transform: "translateY(20px)", transition: "opacity 0.4s ease, transform 0.4s ease"}}
+                  >{ch === " " ? " " : ch}</span>
+                ))}
+              </div>
+              <div className="overflow-hidden">
+                {"Conductive Parts".split("").map((ch, i) => (
+                  <span
+                    key={i + 10}
+                    className="letter inline-block text-[#f7f727]"
+                    style={{opacity: 0, transform: "translateY(20px)", transition: "opacity 0.4s ease, transform 0.4s ease"}}
+                  >{ch === " " ? " " : ch}</span>
+                ))}
+              </div>
+            </div>
             <p className="mx-auto mb-10 max-w-lg text-base leading-relaxed text-zinc-400">
               Print with conductive resin to unlock embedded electronics,
               circuits, and entirely new product workflows.
