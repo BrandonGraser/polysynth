@@ -228,10 +228,11 @@ export default function PolysynthLandingPage() {
               return (
               <div
                 key={u.title}
-                className="group relative overflow-hidden bg-zinc-950 border border-white/[0.06] p-7 min-h-[200px] flex flex-col justify-between"
+                className="group relative overflow-hidden bg-zinc-950 border border-white/[0.06] p-7 min-h-[200px] flex flex-col justify-between cursor-pointer"
                 {...reveal}
                 onMouseEnter={(e) => { const v = e.currentTarget.querySelector('video'); if (v) v.play(); }}
                 onMouseLeave={(e) => { const v = e.currentTarget.querySelector('video'); if (v) { v.pause(); v.currentTime = 0; } }}
+                onClick={() => { if (i === 2) window.location.href = '/applications/dental-medical'; }}
               >
                 <video
                   muted loop playsInline
