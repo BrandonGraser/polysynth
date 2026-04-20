@@ -234,7 +234,7 @@ export default function PolysynthLandingPage() {
                 {...reveal}
                 onMouseEnter={(e) => { const v = e.currentTarget.querySelector('video'); if (v) v.play(); }}
                 onMouseLeave={(e) => { const v = e.currentTarget.querySelector('video'); if (v) { v.pause(); v.currentTime = 0; } }}
-                onClick={() => { if (i === 2) window.location.href = '/applications/dental-medical'; }}
+                onClick={() => { if (i === 2) window.location.href = '/applications/dental-medical'; if (i === 3) window.location.href = '/applications/product-development'; }}
               >
                 <video
                   muted loop playsInline
