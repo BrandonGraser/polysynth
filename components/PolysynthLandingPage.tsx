@@ -293,7 +293,7 @@ export default function PolysynthLandingPage() {
                 {/* Bottle illustration */}
                 <div className="relative flex items-center justify-center bg-[#0f0f0f] h-64">
                   {i === 0 ? (
-                    <img src={CONDUCTIVE_RESIN_IMG} alt="Conductive Resin" className="h-full w-full object-contain" />
+                    <img src={CONDUCTIVE_RESIN_IMG} alt="Conductive Resin" className="h-full w-full object-contain scale-110" />
                   ) : (
                     <div
                       className="relative flex flex-col items-center pt-3 gap-2"
