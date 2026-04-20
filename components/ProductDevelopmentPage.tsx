@@ -29,6 +29,76 @@ const nav = [
   { label: "Company", href: "#" },
 ];
 
+function PolyPanel() {
+  const ref = useRef<HTMLDivElement>(null);
+  const gradRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    const grad = gradRef.current;
+    if (!el || !grad) return;
+
+    let raf: number;
+    let tx = 50, ty = 50;
+    let cx = 50, cy = 50;
+
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      tx = ((e.clientX - rect.left) / rect.width) * 100;
+      ty = ((e.clientY - rect.top) / rect.height) * 100;
+    };
+
+    const animate = () => {
+      cx += (tx - cx) * 0.06;
+      cy += (ty - cy) * 0.06;
+      if (grad) {
+        grad.style.background = `radial-gradient(ellipse at ${cx}% ${cy}%, rgba(180,180,180,0.07) 0%, rgba(100,100,100,0.04) 35%, transparent 70%)`;
+      }
+      raf = requestAnimationFrame(animate);
+    };
+
+    el.addEventListener("mousemove", onMove);
+    raf = requestAnimationFrame(animate);
+    return () => { el.removeEventListener("mousemove", onMove); cancelAnimationFrame(raf); };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="relative p-14 overflow-hidden"
+      style={{background: "#0c0c0c"}}
+    >
+      {/* Animated shifting base gradient */}
+      <div className="absolute inset-0 animate-[gradientShift_8s_ease_infinite]" style={{
+        background: "linear-gradient(120deg, #0a0a0a 0%, #111 30%, #0f0f0f 60%, #0a0a0a 100%)",
+        backgroundSize: "300% 300%",
+      }} />
+      {/* Liquid glass shine layer */}
+      <div className="absolute inset-0" style={{
+        background: "linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 50%, transparent 100%)",
+      }} />
+      {/* Glass edge highlights */}
+      <div className="absolute inset-x-0 top-0 h-px" style={{background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)"}} />
+      <div className="absolute inset-y-0 left-0 w-px" style={{background: "linear-gradient(180deg, rgba(255,255,255,0.08), transparent)"}} />
+      {/* Mouse-following glow */}
+      <div ref={gradRef} className="absolute inset-0 pointer-events-none transition-none" />
+      {/* Yellow top line */}
+      <div className="absolute inset-x-0 top-0 h-[2px] bg-[#f7f727]" />
+      {/* Content */}
+      <div className="relative z-10 text-xs tracking-[0.2em] text-[#f7f727] mb-10">POLYSYNTH</div>
+      <div className="relative z-10 flex flex-col gap-0 divide-y divide-white/[0.05]">
+        {["Functional systems", "Multi-material, one print", "No assembly required"].map((item) => (
+          <div key={item} className="flex items-center gap-6 py-6">
+            <div className="text-[#f7f727] text-2xl font-bold select-none">+</div>
+            <span className="text-white text-2xl font-bold">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
 export default function ProductDevelopmentPage() {
   const r1 = useReveal(0); const r2 = useReveal(100); const r3 = useReveal(200);
   const r4 = useReveal(0); const r5 = useReveal(0); const r6 = useReveal(0);
@@ -92,19 +162,7 @@ export default function ProductDevelopmentPage() {
               </div>
             </div>
             {/* Right — highlighted */}
-            <div className="relative p-14 overflow-hidden" style={{background: "linear-gradient(135deg, #141408 0%, #0f0f0a 40%, #1a1a0a 100%)"}}>
-              <div className="absolute bottom-0 right-0 w-3/4 h-3/4 pointer-events-none" style={{background: "radial-gradient(ellipse at bottom right, rgba(247,247,39,0.12) 0%, transparent 70%)"}} />
-              <div className="absolute inset-x-0 top-0 h-[2px] bg-[#f7f727]" />
-              <div className="relative z-10 text-xs tracking-[0.2em] text-[#f7f727] mb-10">POLYSYNTH</div>
-              <div className="relative z-10 flex flex-col gap-0 divide-y divide-white/[0.05]">
-                {["Functional systems", "Multi-material, one print", "No assembly required"].map((item) => (
-                  <div key={item} className="flex items-center gap-6 py-6">
-                    <div className="text-[#f7f727] text-2xl font-bold select-none">+</div>
-                    <span className="text-white text-2xl font-bold">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <PolyPanel />
           </div>
         </div>
       </section>
