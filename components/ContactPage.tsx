@@ -39,8 +39,8 @@ export default function ContactPage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-6 pt-40 pb-24">
-        <div className="max-w-2xl mx-auto">
+      <main className="mx-auto max-w-7xl px-6 pt-40 pb-24 flex flex-col items-center">
+        <div className="max-w-2xl w-full text-center">
           <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">SUPPORT</div>
           <h1
             className="text-6xl font-bold leading-none mb-4"
@@ -72,7 +72,7 @@ export default function ContactPage() {
           </div>
         ) : (
           <div
-            className="max-w-2xl"
+            className="max-w-2xl w-full"
             style={{opacity:0, animation:"fadeUp 0.65s ease 0.35s forwards"}}
           >
             {/* Role selector */}
@@ -178,7 +178,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex justify-center">
                 <button
                   type="submit"
                   className="rounded-full bg-[#f7f727] px-8 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]"
