@@ -7,7 +7,7 @@ const VIDEO_URL = "https://www.dropbox.com/scl/fi/hnfqm7sjxeievrcsb0u6d/HEADER-V
 const nav = [
   { label: "Products", href: "/products" },
   { label: "Applications", href: "/#applications" },
-  { label: "Materials", href: "/#materials" },
+  { label: "Materials", href: "/materials" },
   { label: "Software", href: "/#software" },
   { label: "Company", href: "#" },
 ];
