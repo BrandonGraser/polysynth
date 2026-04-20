@@ -24,7 +24,7 @@ function useReveal(delay = 0) {
 const nav = [
   { label: "Products", href: "/products" },
   { label: "Applications", href: "/#applications" },
-  { label: "Materials", href: "/#materials" },
+  { label: "Materials", href: "/materials" },
   { label: "Software", href: "/#software" },
   { label: "Company", href: "#" },
 ];
