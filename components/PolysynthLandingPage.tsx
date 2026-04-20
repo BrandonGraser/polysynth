@@ -110,9 +110,7 @@ export default function PolysynthLandingPage() {
             ))}
           </nav>
           <div className="flex gap-4">
-            <button className="rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-white/40">
-              Contact Sales
-            </button>
+            <a href="/contact"><button className="rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-white/40">Contact Sales</button></a>
             <button className="rounded-full bg-[#f7f727] px-4 py-2 text-sm font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">
               Pre Order Now
             </button>
