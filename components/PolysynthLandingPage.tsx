@@ -32,7 +32,7 @@ const VIDEO_URL =
 
 
 export default function PolysynthLandingPage() {
-  const nav = [{ label: "Products", href: "/products" }, { label: "Applications", href: "#applications" }, { label: "Materials", href: "#materials" }, { label: "Software", href: "#software" }, { label: "Company", href: "#" }];
+  const nav = [{ label: "Products", href: "/products" }, { label: "Applications", href: "#applications" }, { label: "Materials", href: "/materials" }, { label: "Software", href: "#software" }, { label: "Company", href: "#" }];
 
   const stats = [
     { label: "Materials Capability", value: "Up to 8 Materials*" },
@@ -372,7 +372,7 @@ export default function PolysynthLandingPage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 border-b border-white/[0.06]">
           <img src={LOGO} alt="Polysynth" className="h-8 w-auto object-contain" />
           <nav className="hidden gap-8 md:flex">
-            {[{ label: "Products", href: "/products" }, { label: "Applications", href: "#applications" }, { label: "Materials", href: "#materials" }, { label: "Software", href: "#software" }, { label: "Company", href: "#" }].map((item) => (
+            {[{ label: "Products", href: "/products" }, { label: "Applications", href: "#applications" }, { label: "Materials", href: "/materials" }, { label: "Software", href: "#software" }, { label: "Company", href: "#" }].map((item) => (
               <a key={item.label} href={item.href} className="text-sm text-zinc-500 transition hover:text-white">
                 {item.label}
               </a>
