@@ -30,79 +30,12 @@ const nav = [
 ];
 
 function PolyPanel() {
-  const ref = useRef<HTMLDivElement>(null);
-  const orbRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    const orb = orbRef.current;
-    if (!el || !orb) return;
-
-    let raf: number;
-    // Autonomous drift target
-    let ax = 50, ay = 50;
-    // Mouse target (null when not hovering)
-    let mx: number | null = null, my: number | null = null;
-    // Current position
-    let cx = 50, cy = 50;
-    let t = 0;
-    let hovering = false;
-
-    const onMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      mx = ((e.clientX - rect.left) / rect.width) * 100;
-      my = ((e.clientY - rect.top) / rect.height) * 100;
-    };
-    const onEnter = () => { hovering = true; };
-    const onLeave = () => { hovering = false; mx = null; my = null; };
-
-    const animate = () => {
-      t += 0.004;
-      // Autonomous lissajous drift
-      ax = 50 + Math.sin(t * 1.3) * 35;
-      ay = 50 + Math.cos(t * 0.9) * 35;
-
-      const tx = hovering && mx !== null ? mx : ax;
-      const ty = hovering && my !== null ? my : ay;
-      const speed = hovering ? 0.08 : 0.025;
-
-      cx += (tx - cx) * speed;
-      cy += (ty - cy) * speed;
-
-      if (orb) {
-        orb.style.background = `radial-gradient(ellipse 60% 50% at ${cx}% ${cy}%, rgba(247,247,39,0.18) 0%, rgba(247,247,39,0.06) 40%, transparent 70%)`;
-      }
-      raf = requestAnimationFrame(animate);
-    };
-
-    el.addEventListener("mousemove", onMove);
-    el.addEventListener("mouseenter", onEnter);
-    el.addEventListener("mouseleave", onLeave);
-    raf = requestAnimationFrame(animate);
-    return () => {
-      el.removeEventListener("mousemove", onMove);
-      el.removeEventListener("mouseenter", onEnter);
-      el.removeEventListener("mouseleave", onLeave);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
   return (
-    <div
-      ref={ref}
-      className="relative p-14 overflow-hidden"
-      style={{background: "#09090b"}}
-    >
-      {/* Drifting yellow orb */}
-      <div ref={orbRef} className="absolute inset-0 pointer-events-none" />
-      {/* Liquid glass shine */}
-      <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 60%)"}} />
-      {/* Glass edge highlights */}
-      <div className="absolute inset-x-0 top-0 h-px pointer-events-none" style={{background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)"}} />
-      <div className="absolute inset-y-0 left-0 w-px pointer-events-none" style={{background: "linear-gradient(180deg, rgba(255,255,255,0.06), transparent)"}} />
-      {/* Yellow top line */}
+    <div className="relative p-14 overflow-hidden" style={{background: "#09090b"}}>
+      <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 50%, transparent 100%)"}} />
+      <div className="absolute inset-x-0 top-0 h-px pointer-events-none" style={{background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)"}} />
+      <div className="absolute inset-y-0 left-0 w-px pointer-events-none" style={{background: "linear-gradient(180deg, rgba(255,255,255,0.08), transparent)"}} />
       <div className="absolute inset-x-0 top-0 h-[2px] bg-[#f7f727]" />
-      {/* Content */}
       <div className="relative z-10 text-xs tracking-[0.2em] text-[#f7f727] mb-10">POLYSYNTH</div>
       <div className="relative z-10 flex flex-col gap-0 divide-y divide-white/[0.05]">
         {["Functional systems", "Multi-material, one print", "No assembly required"].map((item) => (
