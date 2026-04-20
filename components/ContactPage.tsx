@@ -40,7 +40,7 @@ export default function ContactPage() {
       </header>
 
       <main className="mx-auto max-w-7xl px-6 pt-40 pb-24">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl mx-auto">
           <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">SUPPORT</div>
           <h1
             className="text-6xl font-bold leading-none mb-4"
