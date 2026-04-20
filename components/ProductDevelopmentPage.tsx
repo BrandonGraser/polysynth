@@ -147,15 +147,15 @@ export default function ProductDevelopmentPage() {
               {["CAD", "Prototype", "Manufacture", "Assemble"].map((step, i, arr) => (
                 <div key={step} className="flex items-center">
                   <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mb-3 text-xs text-zinc-600 font-medium">
+                    <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center mb-4 text-sm text-zinc-600 font-medium">
                       {String(i + 1).padStart(2, "0")}
                     </div>
-                    <div className="text-zinc-500 text-sm font-medium">{step}</div>
+                    <div className="text-zinc-500 text-base font-medium">{step}</div>
                   </div>
                   {i < arr.length - 1 && (
-                    <div className="flex items-center mx-4 mb-5">
-                      <div className="h-px w-10 bg-zinc-700/60" />
-                      <div className="w-0 h-0 border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent border-l-[7px] border-l-zinc-700/60" />
+                    <div className="flex items-center mx-6 mb-6">
+                      <div className="h-px w-16 bg-zinc-700/60" />
+                      <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px] border-l-zinc-700/60" />
                     </div>
                   )}
                 </div>
@@ -170,15 +170,15 @@ export default function ProductDevelopmentPage() {
               {["CAD", "Print", "Done"].map((step, i, arr) => (
                 <div key={step} className="flex items-center">
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full border-2 border-[#f7f727] flex items-center justify-center mb-3 text-sm text-[#f7f727] font-bold bg-[#f7f727]/06">
+                    <div className="w-16 h-16 rounded-full border-2 border-[#f7f727] flex items-center justify-center mb-4 text-base text-[#f7f727] font-bold bg-[#f7f727]/06">
                       {String(i + 1).padStart(2, "0")}
                     </div>
-                    <div className="text-[#f7f727] text-base font-bold">{step}</div>
+                    <div className="text-[#f7f727] text-lg font-bold">{step}</div>
                   </div>
                   {i < arr.length - 1 && (
-                    <div className="flex items-center mx-5 mb-5">
-                      <div className="h-px w-14 bg-[#f7f727]/40" />
-                      <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[9px] border-l-[#f7f727]" />
+                    <div className="flex items-center mx-7 mb-6">
+                      <div className="h-px w-20 bg-[#f7f727]/40" />
+                      <div className="w-0 h-0 border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent border-l-[10px] border-l-[#f7f727]" />
                     </div>
                   )}
                 </div>
