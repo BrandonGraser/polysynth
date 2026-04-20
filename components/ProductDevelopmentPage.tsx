@@ -53,19 +53,16 @@ export default function ProductDevelopmentPage() {
       </header>
 
       {/* SECTION 1 — Hero */}
-      <section className="relative flex min-h-screen items-center overflow-hidden">
-        <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover opacity-35" src={VIDEO_URL} />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-zinc-950 to-transparent" />
+      <section className="relative flex items-center overflow-hidden pt-40 pb-24 bg-zinc-950">
         <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-6 flex flex-col items-center text-center">
           <div className="flex items-center gap-3 mb-6" style={{opacity:0, animation:"fadeUp 0.6s ease 0.1s forwards"}}>
             <img src={ICON} alt="" className="w-8 h-8 object-contain" />
             <span className="text-sm uppercase tracking-[0.2em] text-[#f7f727]">Product Development</span>
           </div>
-          <h1 className="max-w-4xl text-6xl font-bold leading-tight md:text-8xl" style={{opacity:0, transform:"translateY(16px)", animation:"fadeUp 0.7s ease 0.25s forwards"}}>
-            Product Development,<br /><span className="text-[#f7f727]">Reimagined</span>
+          <h1 className="max-w-5xl text-7xl font-bold leading-none tracking-tight md:text-9xl" style={{opacity:0, transform:"translateY(16px)", animation:"fadeUp 0.7s ease 0.25s forwards"}}>
+            Development,<br /><span className="text-[#f7f727]">Reimagined</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-zinc-300" style={{opacity:0, transform:"translateY(12px)", animation:"fadeUp 0.6s ease 0.45s forwards"}}>
+          <p className="mt-8 max-w-xl text-lg text-zinc-400" style={{opacity:0, transform:"translateY(12px)", animation:"fadeUp 0.6s ease 0.45s forwards"}}>
             Traditional 3D printing helps you prototype. Polysynth lets you build the product.
           </p>
           <div style={{opacity:0, transform:"translateY(8px)", animation:"fadeUp 0.6s ease 0.6s forwards"}}>
@@ -77,30 +74,32 @@ export default function ProductDevelopmentPage() {
       </section>
 
       {/* SECTION 2 — Comparison */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
+      <section className="mx-auto max-w-7xl px-6 py-24 border-t border-white/[0.06]">
         <div {...r1}>
           <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4 text-center">COMPARISON</div>
           <h2 className="text-5xl font-bold text-center mb-16">From Idea to Product</h2>
           <div className="grid grid-cols-2 gap-px bg-white/[0.06]">
-            <div className="bg-zinc-950 p-12">
-              <div className="text-xs tracking-[0.2em] text-zinc-600 mb-8">MOST PRINTERS</div>
-              <div className="flex flex-col gap-5">
+            {/* Left — muted */}
+            <div className="bg-zinc-950 p-14">
+              <div className="text-xs tracking-[0.2em] text-zinc-600 mb-10">MOST PRINTERS</div>
+              <div className="flex flex-col gap-0 divide-y divide-white/[0.05]">
                 {["Prototypes only", "Multiple prints per design", "Assembly required"].map((item) => (
-                  <div key={item} className="flex items-center gap-4">
-                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0" />
-                    <span className="text-zinc-500 text-lg">{item}</span>
+                  <div key={item} className="flex items-center gap-6 py-6">
+                    <div className="text-zinc-700 text-2xl font-bold select-none">—</div>
+                    <span className="text-zinc-500 text-2xl font-medium">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-zinc-900/40 p-12 relative overflow-hidden">
-              <div className="absolute inset-x-0 top-0 h-px bg-[#f7f727]/40" />
-              <div className="text-xs tracking-[0.2em] text-[#f7f727] mb-8">POLYSYNTH</div>
-              <div className="flex flex-col gap-5">
+            {/* Right — highlighted */}
+            <div className="bg-zinc-900/30 p-14 relative overflow-hidden">
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-[#f7f727]" />
+              <div className="text-xs tracking-[0.2em] text-[#f7f727] mb-10">POLYSYNTH</div>
+              <div className="flex flex-col gap-0 divide-y divide-white/[0.05]">
                 {["Functional systems", "Multi-material, one print", "No assembly required"].map((item) => (
-                  <div key={item} className="flex items-center gap-4">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#f7f727] flex-shrink-0" />
-                    <span className="text-white text-lg font-medium">{item}</span>
+                  <div key={item} className="flex items-center gap-6 py-6">
+                    <div className="text-[#f7f727] text-2xl font-bold select-none">+</div>
+                    <span className="text-white text-2xl font-bold">{item}</span>
                   </div>
                 ))}
               </div>
@@ -132,16 +131,16 @@ export default function ProductDevelopmentPage() {
           <h2 className="text-5xl font-bold mb-16">Collapse the Workflow</h2>
 
           {/* Traditional */}
-          <div className="mb-8">
-            <div className="text-xs tracking-[0.15em] text-zinc-600 mb-4">TRADITIONAL</div>
-            <div className="flex items-center gap-0">
+          <div className="mb-12">
+            <div className="text-xs tracking-[0.15em] text-zinc-600 mb-5">TRADITIONAL</div>
+            <div className="flex items-stretch gap-0">
               {["CAD", "Prototype", "Manufacture", "Assemble"].map((step, i, arr) => (
                 <div key={step} className="flex items-center">
-                  <div className="px-5 py-3 bg-zinc-900/50 text-zinc-500 text-sm font-medium">{step}</div>
+                  <div className="px-8 py-5 bg-zinc-900/50 text-zinc-500 text-xl font-semibold border border-white/[0.05]">{step}</div>
                   {i < arr.length - 1 && (
-                    <div className="flex items-center px-2">
-                      <div className="h-px w-8 bg-zinc-700" />
-                      <div className="w-0 h-0 border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent border-l-[7px] border-l-zinc-700" />
+                    <div className="flex items-center px-1">
+                      <div className="h-px w-10 bg-zinc-700" />
+                      <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[9px] border-l-zinc-700" />
                     </div>
                   )}
                 </div>
@@ -151,15 +150,15 @@ export default function ProductDevelopmentPage() {
 
           {/* Polysynth */}
           <div>
-            <div className="text-xs tracking-[0.15em] text-[#f7f727]/60 mb-4">POLYSYNTH</div>
-            <div className="flex items-center gap-0">
+            <div className="text-xs tracking-[0.15em] text-[#f7f727]/60 mb-5">POLYSYNTH</div>
+            <div className="flex items-stretch gap-0">
               {["CAD", "Print", "Done"].map((step, i, arr) => (
                 <div key={step} className="flex items-center">
-                  <div className="px-6 py-3 bg-[#f7f727]/10 border border-[#f7f727]/20 text-[#f7f727] text-sm font-bold">{step}</div>
+                  <div className="px-10 py-5 bg-[#f7f727]/10 border border-[#f7f727]/30 text-[#f7f727] text-xl font-bold">{step}</div>
                   {i < arr.length - 1 && (
-                    <div className="flex items-center px-2">
-                      <div className="h-px w-8 bg-[#f7f727]/40" />
-                      <div className="w-0 h-0 border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent border-l-[7px] border-l-[#f7f727]" />
+                    <div className="flex items-center px-1">
+                      <div className="h-px w-10 bg-[#f7f727]/50" />
+                      <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[9px] border-l-[#f7f727]" />
                     </div>
                   )}
                 </div>
