@@ -291,7 +291,7 @@ export default function PolysynthLandingPage() {
                   <div className="text-xs text-zinc-500 leading-relaxed group-hover:text-zinc-400 transition-colors duration-300">{m.description}</div>
                 </div>
                 {/* Bottle illustration */}
-                <div className="relative flex items-center justify-center bg-[#0f0f0f] h-40">
+                <div className="relative flex items-center justify-center bg-[#0f0f0f] h-64">
                   {i === 0 ? (
                     <img src={CONDUCTIVE_RESIN_IMG} alt="Conductive Resin" className="h-full w-full object-contain" />
                   ) : (
