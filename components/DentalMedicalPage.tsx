@@ -2,7 +2,7 @@
 
 import { DENTAL_ICON as ICON } from "@/components/imageAssets";
 
-const VIDEO_URL = "https://www.dropbox.com/scl/fi/hnfqm7sjxeievrcsb0u6d/HEADER-VIDEO.mp4?rlkey=a4nu6vdjbjl81sh3m075o9m6v&raw=1";
+const VIDEO_URL = "https://www.dropbox.com/scl/fi/5ewqsiyd2mcxgj1alzymg/202604-10-1.mp4?rlkey=a4qqqu67szdv4c1tjetdkwqv9&raw=1";
 
 const nav = [
   { label: "Products", href: "/products" },
@@ -69,10 +69,17 @@ export default function DentalMedicalPage() {
             <span className="text-[#f7f727]">Matters Most</span>
           </h1>
           <p
-            className="mt-6 max-w-xl text-lg text-zinc-300"
-            style={{opacity: 0, transform: "translateY(12px)", animation: "fadeUp 0.6s ease 0.45s forwards"}}
+            className="mt-4 max-w-xl text-2xl font-semibold text-white"
+            style={{opacity: 0, transform: "translateY(10px)", animation: "fadeUp 0.6s ease 0.4s forwards"}}
           >
-            Biocompatible resins with micron-level precision. Built for clinical workflows that demand accuracy and repeatability.
+            Stop assembling dental models.
+          </p>
+          <p
+            className="mt-4 max-w-xl text-lg text-zinc-300 leading-relaxed"
+            style={{opacity: 0, transform: "translateY(12px)", animation: "fadeUp 0.6s ease 0.55s forwards"}}
+          >
+            Print gums, teeth, and shade variation in one seamless process.<br />
+            Accurate, functional, and ready out of the printer.
           </p>
         </div>
       </section>
