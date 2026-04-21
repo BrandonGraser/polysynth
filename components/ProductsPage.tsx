@@ -2,7 +2,6 @@
 
 import { LOGO } from "@/components/imageAssets";
 
-
 const nav = [
   { label: "Products", href: "/products" },
   { label: "Applications", href: "/#applications" },
@@ -11,147 +10,138 @@ const nav = [
   { label: "Company", href: "#" },
 ];
 
-const products = [
-  {
-    tag: "POLYSYNTH",
-    name: "P1",
-    nameAccent: null,
-    tagline: "The first multi-material resin printer. Up to 8 materials, one print, zero compromise.",
-    specs: [
-      { value: "8", label: "MATERIALS" },
-      { value: "25μm", label: "RESOLUTION" },
-      { value: "$4,999", label: "STARTING AT" },
-    ],
-    cta: "Explore P1",
-    href: "#",
-    imageRight: true,
-  },
-  {
-    tag: "POLYSYNTH",
-    name: "P1",
-    nameAccent: "Dental",
-    tagline: "Built for clinical precision. Biocompatible materials, micron-level accuracy, and seamless dental workflows.",
-    specs: [
-      { value: "FDA", label: "COMPLIANT" },
-      { value: "10μm", label: "RESOLUTION" },
-      { value: "$6,999", label: "STARTING AT" },
-    ],
-    cta: "Explore P1 Dental",
-    href: "#",
-    imageRight: false,
-  },
+const p1Specs = [
+  { label: "Technology", value: "Multi-Material Masked Stereolithography (3MSLA)" },
+  { label: "Material", value: "Resin" },
+  { label: "Biocompatibility", value: "None (available on P1 Dental)" },
+  { label: "Max Part Size", value: "80 × 80 × 100 mm" },
+  { label: "Layer Thickness", value: "25 – 200 microns" },
+  { label: "Light Source", value: "405nm LED" },
+  { label: "Resolution", value: "50 microns" },
+  { label: "Dimensions (W×D×H)", value: "42.5 × 49.9 × 58.1 cm" },
+  { label: "Starting Price", value: "$4,999" },
+];
+
+const p1DentalSpecs = [
+  { label: "Technology", value: "Multi-Material Masked Stereolithography (3MSLA)" },
+  { label: "Material", value: "Biocompatible Resin" },
+  { label: "Biocompatibility", value: "FDA Compliant (TBD)" },
+  { label: "Max Part Size", value: "TBD" },
+  { label: "Layer Thickness", value: "TBD" },
+  { label: "Light Source", value: "405nm LED" },
+  { label: "Resolution", value: "TBD" },
+  { label: "Dimensions (W×D×H)", value: "TBD" },
+  { label: "Starting Price", value: "$6,999" },
 ];
 
 export default function ProductsPage() {
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white">
 
-      {/* Navbar */}
       <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-zinc-950/45 backdrop-blur-xl">
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-4">
           <a href="/" className="text-xl font-semibold tracking-[0.25em] text-white">POLYSYNTH</a>
           <nav className="hidden gap-8 md:flex">
             {nav.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className={`text-sm transition hover:text-white ${item.label === "Products" ? "text-white" : "text-zinc-400"}`}
-              >
+              <a key={item.label} href={item.href} className={`text-sm transition hover:text-white ${item.label === "Products" ? "text-white" : "text-zinc-400"}`}>
                 {item.label}
               </a>
             ))}
           </nav>
           <div className="flex gap-4">
             <a href="/contact"><button className="rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-white/40">Contact Sales</button></a>
-            <button className="rounded-full bg-[#f7f727] px-4 py-2 text-sm font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">
-              Pre Order Now
-            </button>
+            <button className="rounded-full bg-[#f7f727] px-4 py-2 text-sm font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">Pre Order Now</button>
           </div>
         </div>
       </header>
 
-      {/* Page header */}
       <div className="pt-32 pb-12 px-6 mx-auto max-w-7xl">
         <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">PRODUCTS</div>
-        <h1
-          className="text-6xl font-bold leading-none mb-4"
-          style={{opacity:0, transform:"translateY(16px)", animation:"fadeUp 0.7s ease 0.1s forwards"}}
-        >
+        <h1 className="text-6xl font-bold leading-none mb-4" style={{opacity:0, transform:"translateY(16px)", animation:"fadeUp 0.7s ease 0.1s forwards"}}>
           Our Printers
         </h1>
-        <p
-          className="text-base text-zinc-400 max-w-lg leading-relaxed"
-          style={{opacity:0, transform:"translateY(10px)", animation:"fadeUp 0.6s ease 0.25s forwards"}}
-        >
+        <p className="text-base text-zinc-400 max-w-lg leading-relaxed" style={{opacity:0, transform:"translateY(10px)", animation:"fadeUp 0.6s ease 0.25s forwards"}}>
           Two machines. One platform. Engineered for professionals who demand more from their workflow.
         </p>
       </div>
 
-      {/* Product cards */}
-      <div className="mx-auto max-w-7xl px-6 pb-24 grid grid-cols-2 gap-3">
-        {products.map((p, idx) => (
-          <div
-            key={p.name + (p.nameAccent || "")}
-            className="flex flex-col bg-zinc-950 overflow-hidden"
-            style={{opacity:0, transform:"translateY(20px)", animation:`fadeUp 0.65s ease ${0.1 + idx * 0.15}s forwards`}}
-          >
-            {/* Text panel */}
-            <div className="flex flex-col justify-center p-10">
-              <div className="text-xs tracking-[0.2em] text-zinc-500 mb-5">{p.tag}</div>
-              <h2 className="text-7xl font-bold leading-none mb-5 tracking-tight">
-                {p.name}{p.nameAccent && <> <span className="text-[#f7f727]">{p.nameAccent}</span></>}
-              </h2>
-              <p className="text-sm text-zinc-400 leading-relaxed mb-8 max-w-sm">{p.tagline}</p>
-              <div className="flex gap-3 mb-10">
-                {p.specs.map((s) => (
-                  <div key={s.label} className="bg-zinc-900 px-5 py-4 text-center">
-                    <div className="text-xl font-bold text-[#f7f727]">{s.value}</div>
-                    <div className="text-[9px] text-zinc-500 tracking-widest mt-1">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-              <div>
-                <a href={p.href}>
-                  <button className="rounded-full bg-[#f7f727] px-7 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
-                    {p.cta}
-                  </button>
-                </a>
-              </div>
-            </div>
+      <div className="mx-auto max-w-7xl px-6 pb-24 flex flex-col gap-3">
 
-            {/* Image panel */}
-            <div
-              className="relative flex items-center justify-center bg-zinc-900/50 border-t border-white/[0.06]"
-              style={{
-                minHeight: "340px",
-                backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"
-              }}
-            >
-              <div className="flex flex-col items-center gap-3 text-zinc-700">
-                <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
-                  <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
-                </div>
-                <span className="text-xs tracking-widest text-zinc-600">PLACEHOLDER</span>
+        {/* P1 */}
+        <div className="grid grid-cols-2 bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.1s forwards"}}>
+          {/* Image */}
+          <div className="relative flex items-center justify-center bg-zinc-900/50 min-h-[480px]" style={{backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
+            <div className="flex flex-col items-center gap-3 text-zinc-700">
+              <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
+                <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
               </div>
+              <span className="text-xs tracking-widest text-zinc-600">PLACEHOLDER</span>
             </div>
           </div>
-        ))}
+          {/* Specs */}
+          <div className="flex flex-col p-10 border-l border-white/[0.06]">
+            <div className="text-xs tracking-[0.2em] text-zinc-500 mb-3">POLYSYNTH</div>
+            <h2 className="text-7xl font-bold leading-none mb-3 tracking-tight">P1</h2>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-8 max-w-sm">The first multi-material resin printer. Up to 8 materials, one print, zero compromise.</p>
+            <div className="flex flex-col divide-y divide-white/[0.05] mb-10">
+              {p1Specs.map((s) => (
+                <div key={s.label} className="flex justify-between items-baseline py-3 gap-4">
+                  <span className="text-xs tracking-[0.1em] text-zinc-500 flex-shrink-0">{s.label}</span>
+                  <span className="text-sm text-white text-right">{s.value}</span>
+                </div>
+              ))}
+            </div>
+            <div>
+              <button className="rounded-full bg-[#f7f727] px-7 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
+                Explore P1
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* P1 Dental */}
+        <div className="grid grid-cols-2 bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.25s forwards"}}>
+          {/* Specs */}
+          <div className="flex flex-col p-10 border-r border-white/[0.06]">
+            <div className="text-xs tracking-[0.2em] text-zinc-500 mb-3">POLYSYNTH</div>
+            <h2 className="text-7xl font-bold leading-none mb-3 tracking-tight">P1 <span className="text-[#f7f727]">Dental</span></h2>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-8 max-w-sm">Built for clinical precision. Biocompatible materials, micron-level accuracy, and seamless dental workflows.</p>
+            <div className="flex flex-col divide-y divide-white/[0.05] mb-10">
+              {p1DentalSpecs.map((s) => (
+                <div key={s.label} className="flex justify-between items-baseline py-3 gap-4">
+                  <span className="text-xs tracking-[0.1em] text-zinc-500 flex-shrink-0">{s.label}</span>
+                  <span className="text-sm text-white text-right">{s.value}</span>
+                </div>
+              ))}
+            </div>
+            <div>
+              <button className="rounded-full bg-[#f7f727] px-7 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
+                Explore P1 Dental
+              </button>
+            </div>
+          </div>
+          {/* Image */}
+          <div className="relative flex items-center justify-center bg-zinc-900/50 min-h-[480px]" style={{backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
+            <div className="flex flex-col items-center gap-3 text-zinc-700">
+              <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
+                <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
+              </div>
+              <span className="text-xs tracking-widest text-zinc-600">PLACEHOLDER</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      {/* Footer */}
       <footer className="border-t border-white/[0.06] bg-zinc-950">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 border-b border-white/[0.06]">
           <a href="/" className="text-base font-semibold tracking-[0.2em] text-white">POLYSYNTH</a>
           <nav className="hidden gap-8 md:flex">
             {nav.map((item) => (
-              <a key={item.label} href={item.href} className="text-sm text-zinc-500 transition hover:text-white">
-                {item.label}
-              </a>
+              <a key={item.label} href={item.href} className="text-sm text-zinc-500 transition hover:text-white">{item.label}</a>
             ))}
           </nav>
-          <button className="rounded-full bg-[#f7f727] px-5 py-2 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
-            Pre Order Now
-          </button>
+          <button className="rounded-full bg-[#f7f727] px-5 py-2 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">Pre Order Now</button>
         </div>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <span className="text-xs text-zinc-600">© 2025 Polysynth. All rights reserved.</span>
