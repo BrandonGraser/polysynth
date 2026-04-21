@@ -68,21 +68,12 @@ export default function ProductsPage() {
       <div className="mx-auto max-w-7xl px-6 pb-24 grid grid-cols-2 gap-3">
 
         {/* P1 */}
-        <div className="grid grid-cols-2 bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.1s forwards"}}>
-          {/* Image */}
-          <div className="relative flex items-center justify-center bg-zinc-900/50 min-h-[480px]" style={{backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
-            <div className="flex flex-col items-center gap-3 text-zinc-700">
-              <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
-                <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
-              </div>
-              <span className="text-xs tracking-widest text-zinc-600">PLACEHOLDER</span>
-            </div>
-          </div>
+        <div className="flex flex-col bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.1s forwards"}}>
           {/* Specs */}
-          <div className="flex flex-col p-10 border-l border-white/[0.06]">
+          <div className="flex flex-col p-10">
             <div className="text-xs tracking-[0.2em] text-zinc-500 mb-3">POLYSYNTH</div>
-            <h2 className="text-7xl font-bold leading-none mb-3 tracking-tight">P1</h2>
-            <p className="text-sm text-zinc-400 leading-relaxed mb-8 max-w-sm">The first multi-material resin printer. Up to 8 materials, one print, zero compromise.</p>
+            <h2 className="text-6xl font-bold leading-none mb-3 tracking-tight">P1</h2>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-8">The first multi-material resin printer. Up to 8 materials, one print, zero compromise.</p>
             <div className="flex flex-col divide-y divide-white/[0.05] mb-10">
               {p1Specs.map((s) => (
                 <div key={s.label} className="flex justify-between items-baseline py-3 gap-4">
@@ -97,15 +88,24 @@ export default function ProductsPage() {
               </button>
             </div>
           </div>
+          {/* Image */}
+          <div className="relative flex items-center justify-center bg-zinc-900/50 border-t border-white/[0.06]" style={{minHeight:"380px", backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
+            <div className="flex flex-col items-center gap-3 text-zinc-700">
+              <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
+                <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
+              </div>
+              <span className="text-xs tracking-widest text-zinc-600">PLACEHOLDER</span>
+            </div>
+          </div>
         </div>
 
         {/* P1 Dental */}
-        <div className="grid grid-cols-2 bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.25s forwards"}}>
+        <div className="flex flex-col bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.25s forwards"}}>
           {/* Specs */}
-          <div className="flex flex-col p-10 border-r border-white/[0.06]">
+          <div className="flex flex-col p-10">
             <div className="text-xs tracking-[0.2em] text-zinc-500 mb-3">POLYSYNTH</div>
-            <h2 className="text-7xl font-bold leading-none mb-3 tracking-tight">P1 <span className="text-[#f7f727]">Dental</span></h2>
-            <p className="text-sm text-zinc-400 leading-relaxed mb-8 max-w-sm">Built for clinical precision. Biocompatible materials, micron-level accuracy, and seamless dental workflows.</p>
+            <h2 className="text-6xl font-bold leading-none mb-3 tracking-tight">P1 <span className="text-[#f7f727]">Dental</span></h2>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-8">Built for clinical precision. Biocompatible materials, micron-level accuracy, and seamless dental workflows.</p>
             <div className="flex flex-col divide-y divide-white/[0.05] mb-10">
               {p1DentalSpecs.map((s) => (
                 <div key={s.label} className="flex justify-between items-baseline py-3 gap-4">
@@ -121,7 +121,7 @@ export default function ProductsPage() {
             </div>
           </div>
           {/* Image */}
-          <div className="relative flex items-center justify-center bg-zinc-900/50 min-h-[480px]" style={{backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
+          <div className="relative flex items-center justify-center bg-zinc-900/50 border-t border-white/[0.06]" style={{minHeight:"380px", backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
             <div className="flex flex-col items-center gap-3 text-zinc-700">
               <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
                 <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
