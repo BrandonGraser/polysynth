@@ -65,7 +65,7 @@ export default function ProductsPage() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pb-24 flex flex-col gap-3">
+      <div className="mx-auto max-w-7xl px-6 pb-24 grid grid-cols-2 gap-3">
 
         {/* P1 */}
         <div className="grid grid-cols-2 bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.1s forwards"}}>
