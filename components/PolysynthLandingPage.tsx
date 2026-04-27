@@ -32,7 +32,7 @@ const VIDEO_URL =
 
 
 export default function PolysynthLandingPage() {
-  const nav = [{ label: "Products", href: "/products" }, { label: "Applications", href: "#applications" }, { label: "Materials", href: "/materials" }, { label: "Software", href: "#software" }, { label: "Roadmap", href: "/roadmap" }, { label: "Company", href: "#" }];
+  const nav = [{ label: "Products", href: "/products" }, { label: "Applications", href: "#applications" }, { label: "Software", href: "#software" }, { label: "Roadmap", href: "/roadmap" }, { label: "Company", href: "#" }];
 
   const stats = [
     { label: "Materials Capability", value: "Up to 8 Materials*" },
@@ -258,52 +258,21 @@ export default function PolysynthLandingPage() {
         </section>
 
         {/* Materials Section */}
-        <section id="materials" className="mx-auto max-w-7xl px-6 py-16">
-          <p className="text-xs tracking-[0.25em] text-zinc-500 mb-8" {...revealMaterials}>MATERIALS</p>
-          <div className="grid grid-cols-4 gap-px bg-white/[0.04]">
-            {[revealMat0, revealMat1, revealMat2, revealMat3].map((reveal, i) => {
-              const m = materials[i];
-              return (
-              <div
-                key={m.name}
-                className="group relative cursor-pointer bg-zinc-950 p-6 transition-colors duration-300 hover:bg-zinc-900/80"
-                onClick={() => setActiveMaterial(i)}
-                {...reveal}
-              >
-                {/* Top line — always faintly visible, brightens on hover */}
-                <div
-                  className="absolute top-0 left-0 right-0 transition-all duration-300"
-                  style={{
-                    height: "1px",
-                    background: m.color,
-                    opacity: activeMaterial === i ? 1 : 0.15,
-                  }}
-                />
-                <div
-                  className="absolute top-0 left-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{height: "1px", background: m.color, boxShadow: `0 0 8px 1px ${m.color}88`}}
-                />
-                {/* Text */}
-                <div className="mb-4">
-                  <div className={`text-sm font-semibold mb-1 transition-colors duration-300 group-hover:text-white ${activeMaterial === i ? "text-white" : "text-zinc-400"}`}>{m.name}</div>
-                  <div className="text-xs text-zinc-500 leading-relaxed group-hover:text-zinc-400 transition-colors duration-300">{m.description}</div>
-                </div>
-                {/* Bottle illustration */}
-                <div className="relative flex items-center justify-center bg-[#0f0f0f] h-64">
-                  {i === 0 ? (
-                    <img src={CONDUCTIVE_RESIN_IMG} alt="Conductive Resin" className="h-full w-full object-contain scale-[1.4]" />
-                  ) : (
-                    <div
-                      className="relative flex flex-col items-center pt-3 gap-2"
-                      style={{width: "48px", height: "104px", borderRadius: "4px", background: "#1a1a1a"}}
-                    >
-                      <div style={{width: "28px", height: "10px", background: `${m.color}55`, borderRadius: "2px"}} />
-                      <div style={{width: "34px", height: "30px", background: `${m.color}12`, borderRadius: "2px", marginTop: "8px"}} />
-                    </div>
-                  )}
-                </div>
-              </div>
-            )})}
+        <section id="materials" className="mx-auto max-w-7xl px-6 py-16" {...revealMaterials}>
+          <div className="relative overflow-hidden" style={{aspectRatio: "16/9"}}>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              src="https://www.dropbox.com/scl/fi/e9illedjmo14vedc7ea46/hf_20260427_185733_13b67d42-9bd7-4c9e-bd84-44c0ef53afa0.mp4?rlkey=675j3jzsh3okinq9fw6bscy91&raw=1"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+              <div className="text-xs tracking-[0.35em] text-zinc-400 mb-4">MATERIALS</div>
+              <div className="text-6xl md:text-7xl font-bold tracking-tight text-white">Coming Soon</div>
+            </div>
           </div>
         </section>
 
@@ -370,7 +339,7 @@ export default function PolysynthLandingPage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 border-b border-white/[0.06]">
           <img src={LOGO} alt="Polysynth" className="h-8 w-auto object-contain" />
           <nav className="hidden gap-8 md:flex">
-            {[{ label: "Products", href: "/products" }, { label: "Applications", href: "#applications" }, { label: "Materials", href: "/materials" }, { label: "Software", href: "#software" }, { label: "Roadmap", href: "/roadmap" }, { label: "Company", href: "#" }].map((item) => (
+            {[{ label: "Products", href: "/products" }, { label: "Applications", href: "#applications" }, { label: "Software", href: "#software" }, { label: "Roadmap", href: "/roadmap" }, { label: "Company", href: "#" }].map((item) => (
               <a key={item.label} href={item.href} className="text-sm text-zinc-500 transition hover:text-white">
                 {item.label}
               </a>
