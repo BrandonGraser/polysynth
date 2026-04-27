@@ -149,23 +149,8 @@ export default function ContactPage() {
                         <input required type="email" placeholder="you@example.com" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
                       </div>
                     </div>
-                    <div>
-                      <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">TOPIC</label>
-                      <select className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-zinc-400 focus:outline-none focus:border-[#f7f727]/40 transition appearance-none">
-                        <option value="">— Select —</option>
-                        <option>General Inquiry</option>
-                        <option>Pre-Order & Pricing</option>
-                        <option>Technical Support</option>
-                        <option>Partnership / Reseller</option>
-                        <option>Press & Media</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">MESSAGE</label>
-                      <textarea rows={4} placeholder="Tell us how we can help..." className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition resize-none" />
-                    </div>
                     <button type="submit" className="w-full bg-[#f7f727] py-3 text-sm font-bold text-[#1a1a00] transition hover:bg-[#f5f545]">
-                      Submit
+                      Subscribe
                     </button>
                     <p className="text-xs text-zinc-600 text-center">By continuing, you agree to our <a href="/terms" className="text-zinc-400 hover:text-[#f7f727] transition">Terms</a> and <a href="/privacy" className="text-zinc-400 hover:text-[#f7f727] transition">Privacy Policy</a>.</p>
                   </form>
