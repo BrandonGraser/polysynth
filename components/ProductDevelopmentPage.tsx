@@ -262,7 +262,7 @@ export default function ProductDevelopmentPage() {
             </a>
             <div className="h-3 w-px bg-white/10" />
             <a href="/privacy" className="text-xs text-zinc-600 transition hover:text-white">Privacy</a>
-            <a href="#" className="text-xs text-zinc-600 transition hover:text-white">Terms</a>
+            <a href="/terms" className="text-xs text-zinc-600 transition hover:text-white">Terms</a>
           </div>
         </div>
       </footer>
