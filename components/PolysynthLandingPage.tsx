@@ -266,7 +266,7 @@ export default function PolysynthLandingPage() {
               loop
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
-              src="https://www.dropbox.com/scl/fi/e9illedjmo14vedc7ea46/hf_20260427_185733_13b67d42-9bd7-4c9e-bd84-44c0ef53afa0.mp4?rlkey=675j3jzsh3okinq9fw6bscy91&raw=1"
+              src="https://www.dropbox.com/scl/fi/nwt1am242k0gv9hmbzez2/rotate.mp4?rlkey=5jj5rd4vwibauocm2hgwh9ceu&raw=1"
             />
             <div className="absolute inset-0 bg-black/40" />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
