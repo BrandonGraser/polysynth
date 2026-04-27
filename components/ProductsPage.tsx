@@ -134,6 +134,34 @@ export default function ProductsPage() {
 
       </div>
 
+      {/* Spec Sheet CTA */}
+      <div className="mx-auto max-w-7xl px-6 pb-16">
+        <div className="grid grid-cols-2 gap-3">
+          <div className="border border-[#f7f727]/20 bg-[#f7f727]/[0.03] p-8">
+            <div className="text-xs tracking-[0.2em] text-[#f7f727] mb-3">POLYSYNTH P1</div>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              Download the full technical spec sheet for the P1 — dimensions, resolution, materials, and more.
+            </p>
+            <a href="#">
+              <button className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white tracking-wide transition hover:border-[#f7f727]/50 hover:text-[#f7f727]">
+                P1 Spec Sheet
+              </button>
+            </a>
+          </div>
+          <div className="border border-[#f7f727]/20 bg-[#f7f727]/[0.03] p-8">
+            <div className="text-xs tracking-[0.2em] text-[#f7f727] mb-3">POLYSYNTH P1 DENTAL</div>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              Download the full technical spec sheet for the P1 Dental — biocompatibility, clinical precision, and workflow specs.
+            </p>
+            <a href="#">
+              <button className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white tracking-wide transition hover:border-[#f7f727]/50 hover:text-[#f7f727]">
+                P1 Dental Spec Sheet
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <footer className="border-t border-white/[0.06] bg-zinc-950">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 border-b border-white/[0.06]">
           <a href="/" className="text-base font-semibold tracking-[0.2em] text-white">POLYSYNTH</a>
