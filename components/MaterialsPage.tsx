@@ -7,6 +7,7 @@ const nav = [
   { label: "Applications", href: "/#applications" },
   { label: "Materials", href: "/materials" },
   { label: "Software", href: "/#software" },
+  { label: "Roadmap", href: "/roadmap" },
   { label: "Company", href: "#" },
 ];
 
