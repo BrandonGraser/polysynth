@@ -1,6 +1,6 @@
 "use client";
 
-import { LOGO } from "@/components/imageAssets";
+import { LOGO, PRINTER_IMG } from "@/components/imageAssets";
 
 const nav = [
   { label: "Products", href: "/products" },
@@ -14,25 +14,23 @@ const nav = [
 const p1Specs = [
   { label: "Technology", value: "Multi-Material Masked Stereolithography (3MSLA)" },
   { label: "Material", value: "Resin" },
-  { label: "Biocompatibility", value: "None (available on P1 Dental)" },
-  { label: "Max Part Size", value: "80 × 80 × 100 mm" },
+  { label: "Bio Comp", value: "None (available on our dental model)" },
+  { label: "Max Part Size", value: "80 × 80 × 100 mm (8 × 8 × 10 cm)" },
   { label: "Layer Thickness", value: "25 – 200 microns" },
   { label: "Light Source", value: "405nm LED" },
   { label: "Resolution", value: "50 microns" },
-  { label: "Dimensions (W×D×H)", value: "42.5 × 49.9 × 58.1 cm" },
-  { label: "Starting Price", value: "$4,999" },
+  { label: "Printer Dimensions (W × D × H)", value: "42.5 × 49.9 × 58.1 cm" },
 ];
 
 const p1DentalSpecs = [
-  { label: "Technology", value: "Multi-Material Masked Stereolithography (3MSLA)" },
-  { label: "Material", value: "Biocompatible Resin" },
-  { label: "Biocompatibility", value: "FDA Compliant (TBD)" },
+  { label: "Technology", value: "TBD" },
+  { label: "Material", value: "TBD" },
+  { label: "Bio Comp", value: "TBD" },
   { label: "Max Part Size", value: "TBD" },
   { label: "Layer Thickness", value: "TBD" },
-  { label: "Light Source", value: "405nm LED" },
+  { label: "Light Source", value: "TBD" },
   { label: "Resolution", value: "TBD" },
-  { label: "Dimensions (W×D×H)", value: "TBD" },
-  { label: "Starting Price", value: "$6,999" },
+  { label: "Printer Dimensions (W × D × H)", value: "TBD" },
 ];
 
 export default function ProductsPage() {
@@ -90,13 +88,9 @@ export default function ProductsPage() {
             </div>
           </div>
           {/* Image */}
-          <div className="relative flex items-center justify-center bg-zinc-900/50 border-t border-white/[0.06]" style={{minHeight:"380px", backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
-            <div className="flex flex-col items-center gap-3 text-zinc-700">
-              <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
-                <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
-              </div>
-              <span className="text-xs tracking-widest text-zinc-600">PLACEHOLDER</span>
-            </div>
+          <div className="relative border-t border-white/[0.06] overflow-hidden" style={{minHeight:"380px"}}>
+            <img src={PRINTER_IMG} alt="Polysynth P1" className="w-full h-full object-cover object-center" style={{minHeight:"380px"}} />
+            <div className="absolute bottom-3 right-4 text-xs text-zinc-600 tracking-widest">P1 3D PRINTER RENDERING // *ACTUAL FORM MAY DIFFER</div>
           </div>
         </div>
 
@@ -122,13 +116,9 @@ export default function ProductsPage() {
             </div>
           </div>
           {/* Image */}
-          <div className="relative flex items-center justify-center bg-zinc-900/50 border-t border-white/[0.06]" style={{minHeight:"380px", backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
-            <div className="flex flex-col items-center gap-3 text-zinc-700">
-              <div className="w-36 h-52 bg-zinc-800/80 flex items-center justify-center">
-                <span className="text-xs tracking-widest text-zinc-600">IMAGE</span>
-              </div>
-              <span className="text-xs tracking-widest text-zinc-600">PLACEHOLDER</span>
-            </div>
+          <div className="relative border-t border-white/[0.06] overflow-hidden" style={{minHeight:"380px"}}>
+            <img src={PRINTER_IMG} alt="Polysynth P1 Dental" className="w-full h-full object-cover object-center" style={{minHeight:"380px"}} />
+            <div className="absolute bottom-3 right-4 text-xs text-zinc-600 tracking-widest">P1 DENTAL RENDERING // *ACTUAL FORM MAY DIFFER</div>
           </div>
         </div>
 
