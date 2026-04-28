@@ -82,9 +82,7 @@ export default function ProductsPage() {
               ))}
             </div>
             <div>
-              <button className="rounded-full bg-[#f7f727] px-7 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
-                Explore P1
-              </button>
+              <a href="/contact?tab=reserve"><button className="rounded-full bg-[#f7f727] px-7 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">Pre Order</button></a>
             </div>
           </div>
           {/* Image */}
@@ -110,9 +108,7 @@ export default function ProductsPage() {
               ))}
             </div>
             <div>
-              <button className="rounded-full bg-[#f7f727] px-7 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
-                Explore P1 Dental
-              </button>
+              <a href="/contact?tab=reserve"><button className="rounded-full bg-[#f7f727] px-7 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">Pre Order</button></a>
             </div>
           </div>
           {/* Image */}
@@ -171,7 +167,7 @@ export default function ProductsPage() {
                 </div>
                 <p className="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">{tier.desc}</p>
                 <div className="text-xs text-zinc-600 mb-6">{tier.refundDetail}</div>
-                <a href="/contact">
+                <a href="/contact?tab=reserve">
                   <button
                     className="w-full py-3 text-sm font-semibold transition-colors duration-300"
                     style={{
@@ -204,7 +200,7 @@ export default function ProductsPage() {
             <p className="text-sm text-zinc-400 leading-relaxed mb-6">
               Download the full technical spec sheet for the P1 — dimensions, resolution, materials, and more.
             </p>
-            <a href="#">
+            <a href="/P1_SPECSHEET.pdf" target="_blank" rel="noopener noreferrer">
               <button className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white tracking-wide transition hover:border-[#f7f727]/50 hover:text-[#f7f727]">
                 P1 Spec Sheet
               </button>
@@ -215,11 +211,9 @@ export default function ProductsPage() {
             <p className="text-sm text-zinc-400 leading-relaxed mb-6">
               Download the full technical spec sheet for the P1 Dental — biocompatibility, clinical precision, and workflow specs.
             </p>
-            <a href="#">
-              <button className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white tracking-wide transition hover:border-[#f7f727]/50 hover:text-[#f7f727]">
-                P1 Dental Spec Sheet
-              </button>
-            </a>
+            <button disabled className="rounded-full border border-white/[0.08] px-6 py-2.5 text-sm font-medium text-zinc-600 tracking-wide cursor-not-allowed">
+              Coming Soon
+            </button>
           </div>
         </div>
       </div>
