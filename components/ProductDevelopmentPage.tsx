@@ -1,25 +1,6 @@
 "use client";
 
-import { PRODDEV_ICON as ICON } from "@/components/imageAssets";
-
-import { useEffect, useRef } from "react";
-
-const VIDEO_URL = "https://www.dropbox.com/scl/fi/hnfqm7sjxeievrcsb0u6d/HEADER-VIDEO.mp4?rlkey=a4nu6vdjbjl81sh3m075o9m6v&raw=1";
-
-function useReveal(delay = 0) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { el.style.opacity = "1"; el.style.transform = "translateY(0)"; obs.disconnect(); } },
-      { threshold: 0.1 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return { ref, style: { opacity: 0, transform: "translateY(20px)", transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms` } as React.CSSProperties };
-}
+import { LOGO, PRINTER_IMG } from "@/components/imageAssets";
 
 const nav = [
   { label: "Products", href: "/products" },
@@ -30,214 +11,219 @@ const nav = [
   { label: "Company", href: "#" },
 ];
 
-function PolyPanel() {
-  return (
-    <div className="relative p-14 overflow-hidden" style={{background: "#09090b"}}>
-      <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 50%, transparent 100%)"}} />
-      <div className="absolute inset-x-0 top-0 h-px pointer-events-none" style={{background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)"}} />
-      <div className="absolute inset-y-0 left-0 w-px pointer-events-none" style={{background: "linear-gradient(180deg, rgba(255,255,255,0.08), transparent)"}} />
-      <div className="absolute inset-x-0 top-0 h-[2px] bg-[#f7f727]" />
-      <div className="relative z-10 text-xs tracking-[0.2em] text-[#f7f727] mb-10">POLYSYNTH</div>
-      <div className="relative z-10 flex flex-col gap-0 divide-y divide-white/[0.05]">
-        {["Functional systems", "Multi-material, one print", "No assembly required"].map((item) => (
-          <div key={item} className="flex items-center gap-6 py-6">
-            <div className="text-[#f7f727] text-2xl font-bold select-none">+</div>
-            <span className="text-white text-2xl font-bold">{item}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+const p1Specs = [
+  { label: "Technology", value: "Multi-Material Masked Stereolithography (3MSLA)" },
+  { label: "Material", value: "Resin" },
+  { label: "Bio Comp", value: "None (available on our dental model)" },
+  { label: "Max Part Size", value: "80 × 80 × 100 mm (8 × 8 × 10 cm)" },
+  { label: "Layer Thickness", value: "25 – 200 microns" },
+  { label: "Light Source", value: "405nm LED" },
+  { label: "Resolution", value: "50 microns" },
+  { label: "Printer Dimensions (W × D × H)", value: "42.5 × 49.9 × 58.1 cm" },
+];
 
+const p1DentalSpecs = [
+  { label: "Technology", value: "TBD" },
+  { label: "Material", value: "TBD" },
+  { label: "Bio Comp", value: "TBD" },
+  { label: "Max Part Size", value: "TBD" },
+  { label: "Layer Thickness", value: "TBD" },
+  { label: "Light Source", value: "TBD" },
+  { label: "Resolution", value: "TBD" },
+  { label: "Printer Dimensions (W × D × H)", value: "TBD" },
+];
 
-export default function ProductDevelopmentPage() {
-  const r1 = useReveal(0); const r2 = useReveal(100); const r3 = useReveal(200);
-  const r4 = useReveal(0); const r5 = useReveal(0); const r6 = useReveal(0);
-
+export default function ProductsPage() {
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white">
 
-      {/* Navbar */}
       <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-zinc-950/45 backdrop-blur-xl">
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-4">
           <a href="/" className="text-xl font-semibold tracking-[0.25em] text-white">POLYSYNTH</a>
           <nav className="hidden gap-8 md:flex">
             {nav.map((item) => (
-              <a key={item.label} href={item.href} className="text-sm text-zinc-300 transition hover:text-white">{item.label}</a>
+              <a key={item.label} href={item.href} className={`text-sm transition hover:text-white ${item.label === "Products" ? "text-white" : "text-zinc-400"}`}>
+                {item.label}
+              </a>
             ))}
           </nav>
           <div className="flex gap-4">
-            <button className="rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-white/40">Contact Sales</button>
+            <a href="/contact"><button className="rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-white/40">Contact Sales</button></a>
             <button className="rounded-full bg-[#f7f727] px-4 py-2 text-sm font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">Pre Order Now</button>
           </div>
         </div>
       </header>
 
-      {/* SECTION 1 — Hero */}
-      <section className="relative flex items-center overflow-hidden pt-40 pb-24 bg-zinc-950">
-        <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-6 flex flex-col items-center text-center">
-          <div className="flex items-center gap-3 mb-6" style={{opacity:0, animation:"fadeUp 0.6s ease 0.1s forwards"}}>
-            <img src={ICON} alt="" className="w-8 h-8 object-contain" />
-            <span className="text-sm uppercase tracking-[0.2em] text-[#f7f727]">Product Development</span>
+      <div className="pt-32 pb-12 px-6 mx-auto max-w-7xl">
+        <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">PRODUCTS</div>
+        <h1 className="text-6xl font-bold leading-none mb-4" style={{opacity:0, transform:"translateY(16px)", animation:"fadeUp 0.7s ease 0.1s forwards"}}>
+          Our Printers
+        </h1>
+        <p className="text-base text-zinc-400 max-w-lg leading-relaxed" style={{opacity:0, transform:"translateY(10px)", animation:"fadeUp 0.6s ease 0.25s forwards"}}>
+          Two machines. One platform. Engineered for professionals who demand more from their workflow.
+        </p>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 pb-24 grid grid-cols-2 gap-3">
+
+        {/* P1 */}
+        <div className="flex flex-col bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.1s forwards"}}>
+          {/* Specs */}
+          <div className="flex flex-col p-10">
+            <div className="text-xs tracking-[0.2em] text-zinc-500 mb-3">POLYSYNTH</div>
+            <h2 className="text-6xl font-bold leading-none mb-3 tracking-tight">P1</h2>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-8">The first multi-material resin printer. Up to 8 materials, one print, zero compromise.</p>
+            <div className="flex flex-col divide-y divide-white/[0.05] mb-10">
+              {p1Specs.map((s) => (
+                <div key={s.label} className="flex justify-between items-baseline py-3 gap-4">
+                  <span className="text-xs tracking-[0.1em] text-zinc-500 flex-shrink-0">{s.label}</span>
+                  <span className="text-sm text-white text-right">{s.value}</span>
+                </div>
+              ))}
+            </div>
+            <div>
+              <button className="rounded-full bg-[#f7f727] px-7 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
+                Explore P1
+              </button>
+            </div>
           </div>
-          <h1 className="max-w-5xl text-7xl font-bold leading-none tracking-tight md:text-9xl" style={{opacity:0, transform:"translateY(16px)", animation:"fadeUp 0.7s ease 0.25s forwards"}}>
-            Development,<br /><span className="text-[#f7f727]">Reimagined</span>
-          </h1>
-          <p className="mt-8 max-w-xl text-lg text-zinc-400" style={{opacity:0, transform:"translateY(12px)", animation:"fadeUp 0.6s ease 0.45s forwards"}}>
-            Traditional 3D printing helps you prototype. Polysynth lets you build the product.
-          </p>
-          <div style={{opacity:0, transform:"translateY(8px)", animation:"fadeUp 0.6s ease 0.6s forwards"}}>
-            <button className="mt-8 rounded-full bg-[#f7f727] px-8 py-3 font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
-              Pre-Order Now
-            </button>
+          {/* Image */}
+          <div className="relative border-t border-white/[0.06] overflow-hidden" style={{minHeight:"380px"}}>
+            <img src={PRINTER_IMG} alt="Polysynth P1" className="w-full h-full object-cover object-center" style={{minHeight:"380px"}} />
+            <div className="absolute bottom-3 right-4 text-xs text-zinc-600 tracking-widest">P1 3D PRINTER RENDERING // *ACTUAL FORM MAY DIFFER</div>
           </div>
         </div>
-      </section>
 
-      {/* SECTION 2 — Comparison */}
-      <section className="mx-auto max-w-7xl px-6 py-24 border-t border-white/[0.06]">
-        <div {...r1}>
-          <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4 text-center">COMPARISON</div>
-          <h2 className="text-5xl font-bold text-center mb-16">From Idea to Product</h2>
-          <div className="grid grid-cols-2 gap-px bg-white/[0.06]">
-            {/* Left — muted */}
-            <div className="bg-zinc-950 p-14">
-              <div className="text-xs tracking-[0.2em] text-zinc-600 mb-10">MOST PRINTERS</div>
-              <div className="flex flex-col gap-0 divide-y divide-white/[0.05]">
-                {["Prototypes only", "Multiple prints per design", "Assembly required"].map((item) => (
-                  <div key={item} className="flex items-center gap-6 py-6">
-                    <div className="text-zinc-700 text-2xl font-bold select-none">—</div>
-                    <span className="text-zinc-500 text-2xl font-medium">{item}</span>
-                  </div>
-                ))}
+        {/* P1 Dental */}
+        <div className="flex flex-col bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.25s forwards"}}>
+          {/* Specs */}
+          <div className="flex flex-col p-10">
+            <div className="text-xs tracking-[0.2em] text-zinc-500 mb-3">POLYSYNTH</div>
+            <h2 className="text-6xl font-bold leading-none mb-3 tracking-tight">P1 <span className="text-[#f7f727]">Dental</span></h2>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-8">Built for clinical precision. Biocompatible materials, micron-level accuracy, and seamless dental workflows.</p>
+            <div className="flex flex-col divide-y divide-white/[0.05] mb-10">
+              {p1DentalSpecs.map((s) => (
+                <div key={s.label} className="flex justify-between items-baseline py-3 gap-4">
+                  <span className="text-xs tracking-[0.1em] text-zinc-500 flex-shrink-0">{s.label}</span>
+                  <span className="text-sm text-white text-right">{s.value}</span>
+                </div>
+              ))}
+            </div>
+            <div>
+              <button className="rounded-full bg-[#f7f727] px-7 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
+                Explore P1 Dental
+              </button>
+            </div>
+          </div>
+          {/* Image */}
+          <div className="relative border-t border-white/[0.06] overflow-hidden" style={{minHeight:"380px"}}>
+            <img src={PRINTER_IMG} alt="Polysynth P1 Dental" className="w-full h-full object-cover object-center" style={{minHeight:"380px"}} />
+            <div className="absolute bottom-3 right-4 text-xs text-zinc-600 tracking-widest">P1 DENTAL RENDERING // *ACTUAL FORM MAY DIFFER</div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Reservation Tiers */}
+      <div className="mx-auto max-w-7xl px-6 pb-8">
+        <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">PRIORITY RESERVATIONS</div>
+        <h2 className="text-5xl font-bold leading-tight mb-4">Choose the level of<br />early access that fits.</h2>
+        <p className="text-zinc-400 text-base leading-relaxed max-w-2xl mb-10">
+          Every reservation tier holds a place in the Polysynth P1 queue and credits the deposit toward the final purchase. Higher tiers help us commit earlier to long lead parts and get stronger priority for early access as production slots open.
+        </p>
+        <div className="grid grid-cols-3 gap-3 mb-4">
+          {[
+            {
+              tag: "THE RESERVE",
+              price: "$100",
+              refund: "REFUNDABLE",
+              refundDetail: "Fully refundable until your slot is confirmed",
+              desc: "Secure your place in line with a fully refundable deposit. Applied toward your final build when production opens.",
+              color: "#a1a1aa",
+              cta: "Reserve Your Spot",
+            },
+            {
+              tag: "OUR PRIORITY",
+              price: "$750",
+              refund: "NON-REFUNDABLE",
+              refundDetail: "Credited toward final purchase",
+              desc: "Move ahead in the queue and help accelerate early production. Designed for those who want earlier access as units begin shipping.",
+              color: "#f7f727",
+              cta: "Get Priority Access",
+            },
+            {
+              tag: "FOUNDERS",
+              price: "$2,500",
+              refund: "NON-REFUNDABLE",
+              refundDetail: "Credited toward final purchase",
+              desc: "Highest priority placement with direct access to early updates, limited founder recognition, and the first available builds off the line.",
+              color: "#f7f727",
+              cta: "Become a Founder",
+            },
+          ].map((tier) => (
+            <div key={tier.tag} className="relative flex flex-col bg-zinc-950 border border-white/[0.06] overflow-hidden group hover:border-white/[0.12] transition-colors duration-300">
+              <div className="h-[2px] w-full" style={{background: tier.color}} />
+              <div className="p-8 flex flex-col flex-1">
+                <div className="text-xs tracking-[0.2em] mb-6" style={{color: tier.color}}>{tier.tag}</div>
+                <div className="text-6xl font-bold text-white mb-2 tracking-tight">{tier.price}</div>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="text-[10px] tracking-[0.12em] px-2 py-1" style={{color: tier.color, background: `${tier.color}15`}}>{tier.refund}</span>
+                </div>
+                <p className="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">{tier.desc}</p>
+                <div className="text-xs text-zinc-600 mb-6">{tier.refundDetail}</div>
+                <a href="/contact">
+                  <button
+                    className="w-full py-3 text-sm font-semibold transition-colors duration-300"
+                    style={{
+                      background: `${tier.color}15`,
+                      border: `1px solid ${tier.color}40`,
+                      color: tier.color,
+                    }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = `${tier.color}25`; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = `${tier.color}15`; }}
+                  >
+                    {tier.cta}
+                  </button>
+                </a>
               </div>
             </div>
-            {/* Right — highlighted */}
-            <PolyPanel />
-          </div>
+          ))}
         </div>
-      </section>
+        <div className="border border-white/[0.06] bg-zinc-900/20 px-6 py-4">
+          <p className="text-xs text-zinc-500 leading-relaxed">
+            Reservations do not guarantee purchase or delivery. Final slot timing depends on production readiness, region, compliance, configuration, and eligibility for early access, beta, or later production programs.
+          </p>
+        </div>
+      </div>
 
-      {/* SECTION 3 — Design Without Constraints */}
-      <section className="mx-auto max-w-7xl px-6 py-24 border-t border-white/[0.06]">
-        <div {...r2} className="grid grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">DESIGN</div>
-            <h2 className="text-5xl font-bold leading-tight mb-6">Design Without<br /><span className="text-[#f7f727]">Constraints</span></h2>
-            <p className="text-zinc-400 text-base leading-relaxed max-w-md">
-              No more splitting parts, routing PCBs, or planning assembly. Design the final object from day one.
+      {/* Spec Sheet CTA */}
+      <div className="mx-auto max-w-7xl px-6 pb-16">
+        <div className="grid grid-cols-2 gap-3">
+          <div className="border border-[#f7f727]/20 bg-[#f7f727]/[0.03] p-8">
+            <div className="text-xs tracking-[0.2em] text-[#f7f727] mb-3">POLYSYNTH P1</div>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              Download the full technical spec sheet for the P1 — dimensions, resolution, materials, and more.
             </p>
+            <a href="#">
+              <button className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white tracking-wide transition hover:border-[#f7f727]/50 hover:text-[#f7f727]">
+                P1 Spec Sheet
+              </button>
+            </a>
           </div>
-          <div className="relative bg-zinc-900/40 flex items-center justify-center h-64" style={{backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px),repeating-linear-gradient(90deg,transparent,transparent 32px,rgba(255,255,255,0.02) 32px,rgba(255,255,255,0.02) 33px)"}}>
-            <span className="text-xs tracking-widest text-zinc-600">VISUAL PENDING</span>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4 — Workflow */}
-      <section className="mx-auto max-w-7xl px-6 py-24 border-t border-white/[0.06]">
-        <div {...r3}>
-          <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4 text-center">WORKFLOW</div>
-          <h2 className="text-5xl font-bold mb-20 text-center">Collapse the Workflow</h2>
-
-          {/* Traditional */}
-          <div className="mb-16">
-            <div className="text-xs tracking-[0.2em] text-zinc-600 mb-8 text-center">TRADITIONAL</div>
-            <div className="flex items-center justify-center gap-0">
-              {["CAD", "Prototype", "Manufacture", "Assemble"].map((step, i, arr) => (
-                <div key={step} className="flex items-center">
-                  <div className="flex flex-col items-center">
-                    <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center mb-4 text-sm text-zinc-600 font-medium">
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
-                    <div className="text-zinc-500 text-base font-medium">{step}</div>
-                  </div>
-                  {i < arr.length - 1 && (
-                    <div className="flex items-center mx-6 mb-6">
-                      <div className="h-px w-16 bg-zinc-700/60" />
-                      <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px] border-l-zinc-700/60" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Polysynth */}
-          <div>
-            <div className="text-xs tracking-[0.2em] text-[#f7f727]/50 mb-8 text-center">POLYSYNTH</div>
-            <div className="flex items-center justify-center gap-0">
-              {["CAD", "Print", "Done"].map((step, i, arr) => (
-                <div key={step} className="flex items-center">
-                  <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 rounded-full border-2 border-[#f7f727] flex items-center justify-center mb-4 text-base text-[#f7f727] font-bold bg-[#f7f727]/06">
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
-                    <div className="text-[#f7f727] text-lg font-bold">{step}</div>
-                  </div>
-                  {i < arr.length - 1 && (
-                    <div className="flex items-center mx-7 mb-6">
-                      <div className="h-px w-20 bg-[#f7f727]/40" />
-                      <div className="w-0 h-0 border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent border-l-[10px] border-l-[#f7f727]" />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+          <div className="border border-[#f7f727]/20 bg-[#f7f727]/[0.03] p-8">
+            <div className="text-xs tracking-[0.2em] text-[#f7f727] mb-3">POLYSYNTH P1 DENTAL</div>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              Download the full technical spec sheet for the P1 Dental — biocompatibility, clinical precision, and workflow specs.
+            </p>
+            <a href="#">
+              <button className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white tracking-wide transition hover:border-[#f7f727]/50 hover:text-[#f7f727]">
+                P1 Dental Spec Sheet
+              </button>
+            </a>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* SECTION 5 — Multi-Material */}
-      <section className="mx-auto max-w-7xl px-6 py-24 border-t border-white/[0.06]">
-        <div {...r4}>
-          <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">CAPABILITY</div>
-          <h2 className="text-5xl font-bold mb-16">Multi-Material =<br /><span className="text-[#f7f727]">Multi-Function</span></h2>
-          <div className="grid grid-cols-3 gap-px bg-white/[0.06]">
-            {[
-              { title: "Structural", desc: "Print circuitry directly into the part. Electronics and structure as one.", color: "#ffff00", icon: "⬡" },
-              { title: "Rigid + Flexible", desc: "Hard and soft materials printed together. One object, multiple properties.", color: "#f928ee", icon: "◈" },
-              { title: "Conductive", desc: "Function built directly in. No wiring, no soldering.", color: "#00ff12", icon: "⬢" },
-            ].map((card) => (
-              <div key={card.title} className="group bg-zinc-950 p-8 relative overflow-hidden cursor-default">
-                <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{background: card.color}} />
-                <div className="text-3xl mb-6" style={{color: card.color}}>{card.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{card.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6 — Statement */}
-      <section className="relative py-40 flex items-center justify-center overflow-hidden border-t border-white/[0.06]">
-        <div className="absolute inset-0 bg-zinc-950" />
-        <div className="relative z-10 text-center px-6" {...r5}>
-          <h2
-            className="text-6xl md:text-8xl font-bold leading-tight mb-6 text-zinc-400"
-            style={{transition: "color 1s ease"}}
-          >
-            3D printing was<br />faster prototyping.
-          </h2>
-          <p className="text-4xl md:text-5xl font-bold text-white">
-            Polysynth is <span className="text-[#f7f727]">direct manufacturing.</span>
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 7 — CTA */}
-      <section className="border-t border-white/[0.06] py-32 text-center" {...r6}>
-        <h2 className="text-5xl md:text-6xl font-bold mb-10">
-          Build what other<br />printers can&apos;t.
-        </h2>
-        <button className="rounded-full bg-[#f7f727] px-10 py-4 text-base font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
-          Pre-Order Now
-        </button>
-      </section>
-
-      {/* Footer */}
       <footer className="border-t border-white/[0.06] bg-zinc-950">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 border-b border-white/[0.06]">
           <a href="/" className="text-base font-semibold tracking-[0.2em] text-white">POLYSYNTH</a>
@@ -266,7 +252,6 @@ export default function ProductDevelopmentPage() {
           </div>
         </div>
       </footer>
-
     </div>
   );
 }
