@@ -111,9 +111,7 @@ export default function PolysynthLandingPage() {
           </nav>
           <div className="flex gap-4">
             <a href="/contact"><button className="rounded-full border border-white/20 px-4 py-2 text-sm transition hover:border-white/40">Contact Sales</button></a>
-            <button className="rounded-full bg-[#f7f727] px-4 py-2 text-sm font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">
-              Pre Order Now
-            </button>
+            <a href="/contact?tab=reserve"><button className="rounded-full bg-[#f7f727] px-4 py-2 text-sm font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">Pre Order Now</button></a>
           </div>
         </div>
       </header>
@@ -154,12 +152,8 @@ export default function PolysynthLandingPage() {
             </p>
 
             <div className="mt-8 flex gap-4" style={{opacity:0,transform:"translateY(8px)",animation:"fadeUp 0.6s ease 0.6s forwards"}}>
-              <button className="rounded-full bg-[#f7f727] px-6 py-3 font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">
-                Pre Order Now
-              </button>
-              <button className="rounded-full border border-white/30 px-6 py-3 transition hover:border-white/60 hover:bg-white/10">
-                Talk to Sales
-              </button>
+              <a href="/contact?tab=reserve"><button className="rounded-full bg-[#f7f727] px-6 py-3 font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">Pre Order Now</button></a>
+              <a href="/contact"><button className="rounded-full border border-white/30 px-6 py-3 transition hover:border-white/60 hover:bg-white/10">Talk to Sales</button></a>
             </div>
 
             <div className="mt-10 grid max-w-2xl grid-cols-3 gap-6" style={{opacity:0,transform:"translateY(8px)",animation:"fadeUp 0.6s ease 0.75s forwards"}}>
@@ -204,9 +198,7 @@ export default function PolysynthLandingPage() {
               Print with conductive resin to unlock embedded electronics,
               circuits, and entirely new product workflows.
             </p>
-            <button className="rounded-full bg-[#f7f727] px-8 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
-              Learn more
-            </button>
+            <a href="/products"><button className="rounded-full bg-[#f7f727] px-8 py-3 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">Learn More</button></a>
           </div>
         </section>
 
@@ -310,11 +302,7 @@ export default function PolysynthLandingPage() {
                   </div>
                 </div>
               </div>
-              <div>
-                <button className="rounded-full border border-[#f7f727]/40 px-6 py-2.5 text-sm text-[#f7f727] transition hover:bg-[#f7f727]/10">
-                  Learn More
-                </button>
-              </div>
+
             </div>
 
             {/* Right — video placeholder */}
@@ -345,9 +333,7 @@ export default function PolysynthLandingPage() {
               </a>
             ))}
           </nav>
-          <button className="rounded-full bg-[#f7f727] px-5 py-2 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">
-            Pre Order Now
-          </button>
+          <a href="/contact?tab=reserve"><button className="rounded-full bg-[#f7f727] px-5 py-2 text-sm font-semibold text-[#1a1a00] transition hover:bg-[#f5f545]">Pre Order Now</button></a>
         </div>
 
         {/* Bottom bar */}
