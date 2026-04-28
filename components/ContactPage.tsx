@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const nav = [
   { label: "Products", href: "/products" },
@@ -36,6 +36,11 @@ const tiers = [
 
 export default function ContactPage() {
   const [tab, setTab] = useState<"loop" | "reserve">("loop");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("tab") === "reserve") setTab("reserve");
+  }, []);
   const [reserveStep, setReserveStep] = useState<1 | 2>(1);
   const [selectedTier, setSelectedTier] = useState<number>(0);
   const [loopSubmitted, setLoopSubmitted] = useState(false);
