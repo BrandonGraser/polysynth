@@ -141,32 +141,61 @@ export default function ProductsPage() {
         <p className="text-zinc-400 text-base leading-relaxed max-w-2xl mb-10">
           Every reservation tier holds a place in the Polysynth P1 queue and credits the deposit toward the final purchase. Higher tiers help us commit earlier to long lead parts and get stronger priority for early access as production slots open.
         </p>
-        <div className="grid grid-cols-3 gap-px bg-white/[0.06] mb-4">
+        <div className="grid grid-cols-3 gap-3 mb-4">
           {[
             {
               tag: "THE RESERVE",
               price: "$100",
-              refund: "REFUNDABLE UNTIL YOUR SLOT IS CONFIRMED",
+              refund: "REFUNDABLE",
+              refundDetail: "Fully refundable until your slot is confirmed",
               desc: "Secure your place in line with a fully refundable deposit. Applied toward your final build when production opens.",
+              color: "#a1a1aa",
+              cta: "Reserve Your Spot",
             },
             {
               tag: "OUR PRIORITY",
               price: "$750",
               refund: "NON-REFUNDABLE",
+              refundDetail: "Credited toward final purchase",
               desc: "Move ahead in the queue and help accelerate early production. Designed for those who want earlier access as units begin shipping.",
+              color: "#f7f727",
+              cta: "Get Priority Access",
             },
             {
               tag: "FOUNDERS",
               price: "$2,500",
               refund: "NON-REFUNDABLE",
+              refundDetail: "Credited toward final purchase",
               desc: "Highest priority placement with direct access to early updates, limited founder recognition, and the first available builds off the line.",
+              color: "#f7f727",
+              cta: "Become a Founder",
             },
           ].map((tier) => (
-            <div key={tier.tag} className="bg-zinc-900/50 p-8 flex flex-col gap-4">
-              <div className="text-xs tracking-[0.2em] text-[#f7f727]">{tier.tag}</div>
-              <div className="text-5xl font-bold text-white">{tier.price}</div>
-              <div className="text-[10px] tracking-[0.15em] text-zinc-500">{tier.refund}</div>
-              <p className="text-sm text-zinc-400 leading-relaxed">{tier.desc}</p>
+            <div key={tier.tag} className="relative flex flex-col bg-zinc-950 border border-white/[0.06] overflow-hidden group hover:border-white/[0.12] transition-colors duration-300">
+              <div className="h-[2px] w-full" style={{background: tier.color}} />
+              <div className="p-8 flex flex-col flex-1">
+                <div className="text-xs tracking-[0.2em] mb-6" style={{color: tier.color}}>{tier.tag}</div>
+                <div className="text-6xl font-bold text-white mb-2 tracking-tight">{tier.price}</div>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="text-[10px] tracking-[0.12em] px-2 py-1" style={{color: tier.color, background: `${tier.color}15`}}>{tier.refund}</span>
+                </div>
+                <p className="text-sm text-zinc-400 leading-relaxed mb-8 flex-1">{tier.desc}</p>
+                <div className="text-xs text-zinc-600 mb-6">{tier.refundDetail}</div>
+                <a href="/contact">
+                  <button
+                    className="w-full py-3 text-sm font-semibold transition-colors duration-300"
+                    style={{
+                      background: `${tier.color}15`,
+                      border: `1px solid ${tier.color}40`,
+                      color: tier.color,
+                    }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = `${tier.color}25`; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = `${tier.color}15`; }}
+                  >
+                    {tier.cta}
+                  </button>
+                </a>
+              </div>
             </div>
           ))}
         </div>
