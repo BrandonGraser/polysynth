@@ -134,6 +134,49 @@ export default function ProductsPage() {
 
       </div>
 
+      {/* Reservation Tiers */}
+      <div className="mx-auto max-w-7xl px-6 pb-8">
+        <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">PRIORITY RESERVATIONS</div>
+        <h2 className="text-5xl font-bold leading-tight mb-4">Choose the level of<br />early access that fits.</h2>
+        <p className="text-zinc-400 text-base leading-relaxed max-w-2xl mb-10">
+          Every reservation tier holds a place in the Polysynth P1 queue and credits the deposit toward the final purchase. Higher tiers help us commit earlier to long lead parts and get stronger priority for early access as production slots open.
+        </p>
+        <div className="grid grid-cols-3 gap-px bg-white/[0.06] mb-4">
+          {[
+            {
+              tag: "THE RESERVE",
+              price: "$100",
+              refund: "REFUNDABLE UNTIL YOUR SLOT IS CONFIRMED",
+              desc: "Secure your place in line with a fully refundable deposit. Applied toward your final build when production opens.",
+            },
+            {
+              tag: "OUR PRIORITY",
+              price: "$750",
+              refund: "NON-REFUNDABLE",
+              desc: "Move ahead in the queue and help accelerate early production. Designed for those who want earlier access as units begin shipping.",
+            },
+            {
+              tag: "FOUNDERS",
+              price: "$2,500",
+              refund: "NON-REFUNDABLE",
+              desc: "Highest priority placement with direct access to early updates, limited founder recognition, and the first available builds off the line.",
+            },
+          ].map((tier) => (
+            <div key={tier.tag} className="bg-zinc-900/50 p-8 flex flex-col gap-4">
+              <div className="text-xs tracking-[0.2em] text-[#f7f727]">{tier.tag}</div>
+              <div className="text-5xl font-bold text-white">{tier.price}</div>
+              <div className="text-[10px] tracking-[0.15em] text-zinc-500">{tier.refund}</div>
+              <p className="text-sm text-zinc-400 leading-relaxed">{tier.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="border border-white/[0.06] bg-zinc-900/20 px-6 py-4">
+          <p className="text-xs text-zinc-500 leading-relaxed">
+            Reservations do not guarantee purchase or delivery. Final slot timing depends on production readiness, region, compliance, configuration, and eligibility for early access, beta, or later production programs.
+          </p>
+        </div>
+      </div>
+
       {/* Spec Sheet CTA */}
       <div className="mx-auto max-w-7xl px-6 pb-16">
         <div className="grid grid-cols-2 gap-3">
