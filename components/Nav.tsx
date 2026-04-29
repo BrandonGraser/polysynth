@@ -7,7 +7,6 @@ const nav = [
   { label: "Applications", href: "/#applications" },
   { label: "Software", href: "/#software" },
   { label: "Roadmap", href: "/roadmap" },
-  { label: "Company", href: "#" },
 ];
 
 export default function Nav({ active }: { active?: string }) {
