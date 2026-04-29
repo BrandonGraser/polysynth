@@ -113,7 +113,6 @@ export default function ContactPage() {
 
             {/* Tabs */}
             <div className="flex flex-wrap justify-center gap-2 mb-8">
-
               <button
                 onClick={() => setTab("loop")}
                 className={`px-5 py-2 text-sm font-medium transition border ${tab === "loop" ? "border-[#f7f727] text-[#f7f727] bg-[#f7f727]/[0.08]" : "border-white/10 text-zinc-400 hover:text-white hover:border-white/20"}`}
@@ -186,7 +185,7 @@ export default function ContactPage() {
                 {/* Step 1 — Contact info */}
                 {reserveStep === 1 && (
                   <div>
-                    <p className="text-sm text-zinc-400 mb-6 text-center">Reserve your spot on the waitlist now with a fully refundable deposit. Spots are filling up fast.</p>
+                    <p className="text-sm text-zinc-400 mb-6">Reserve your spot on the waitlist now with a fully refundable deposit. Spots are filling up fast.</p>
                     <form onSubmit={(e) => { e.preventDefault(); setReserveStep(2); }} className="flex flex-col gap-4">
                       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div>
@@ -317,7 +316,7 @@ export default function ContactPage() {
         </div>
 
         {/* Direct + Follow Us — below form */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2" style={{opacity:0, animation:"fadeUp 0.7s ease 0.4s forwards"}}>
+        <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2" style={{opacity:0, animation:"fadeUp 0.7s ease 0.4s forwards"}}>
 
           {/* Direct */}
           <div className="bg-zinc-900/40 border border-white/[0.06] p-8">
