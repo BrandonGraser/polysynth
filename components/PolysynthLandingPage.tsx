@@ -212,7 +212,7 @@ export default function PolysynthLandingPage() {
                 <div className="absolute inset-0 bg-zinc-950/50" />
                 <div className="relative z-10 flex flex-col items-center text-center">
                   <img src={u.icon} alt="" className="w-8 h-8 object-contain mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
-                  <h3 className="text-xl font-semibold leading-snug mb-3 transition-all duration-300 md:text-2xl"
+                  <h3 className="text-xl font-semibold leading-snug mb-3 transition-all duration-300 md:text-2xl">
                     {i === 0 ? (
                       <span className="relative inline-block">
                         <span className="absolute inset-0 bg-clip-text text-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{backgroundImage: "linear-gradient(90deg, #ff0000, #f928ee, #f7f727, #00ff12)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"}}>
