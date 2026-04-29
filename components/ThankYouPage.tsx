@@ -1,5 +1,8 @@
 "use client";
 
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+
 import { useEffect, useState } from "react";
 
 const tierNames: Record<string, { name: string; next: string }> = {
@@ -30,16 +33,7 @@ export default function ThankYouPage() {
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white flex flex-col">
 
-      <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-zinc-950/45 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-4">
-          <a href="/" className="text-xl font-semibold tracking-[0.25em] text-white">POLYSYNTH</a>
-          <nav className="hidden gap-8 md:flex">
-            {nav.map((item) => (
-              <a key={item.label} href={item.href} className="text-sm text-zinc-400 transition hover:text-white">{item.label}</a>
-            ))}
-          </nav>
-        </div>
-      </header>
+      <Nav active="" />
 
       <main className="flex-1 flex items-center justify-center px-6">
         <div
