@@ -34,6 +34,48 @@ const tiers = [
   },
 ];
 
+function CheckoutButton({ tier, price, name, email, country }: { tier: string; price: string; name: string; email: string; country: string }) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleClick = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tier, name, email, country }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+        setLoading(false);
+      }
+    } catch (err) {
+      setError("Network error. Please check your connection and try again.");
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="mb-2">
+      <button
+        onClick={handleClick}
+        disabled={loading}
+        className="w-full py-3 text-sm font-bold text-[#1a1a00] bg-[#f7f727] hover:bg-[#f5f545] transition flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        {loading ? "Redirecting to Stripe..." : `Continue to Secure Checkout — ${price}`}
+      </button>
+      {error && <p className="text-xs text-red-400 mt-2 text-center">{error}</p>}
+    </div>
+  );
+}
+
+
 export default function ContactPage() {
   const [tab, setTab] = useState<"loop" | "reserve">("loop");
 
@@ -286,27 +328,13 @@ export default function ContactPage() {
                     </div>
 
                     {/* CTA */}
-                    <button
-                      onClick={async () => {
-                        const tierKeys = ["reserve", "priority", "founders"];
-                        const res = await fetch("/api/create-checkout-session", {
-                          method: "POST",
-                          headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({
-                            tier: tierKeys[selectedTier],
-                            name: reserveForm.name,
-                            email: reserveForm.email,
-                            country: reserveForm.country,
-                          }),
-                        });
-                        const data = await res.json();
-                        if (data.url) window.location.href = data.url;
-                      }}
-                      className="w-full py-3 text-sm font-bold text-[#1a1a00] bg-[#f7f727] hover:bg-[#f5f545] transition flex items-center justify-center gap-2 mb-2"
-                    >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                      Continue to Secure Checkout — {tiers[selectedTier].price}
-                    </button>
+                    <CheckoutButton
+                      tier={["reserve", "priority", "founders"][selectedTier]}
+                      price={tiers[selectedTier].price}
+                      name={reserveForm.name}
+                      email={reserveForm.email}
+                      country={reserveForm.country}
+                    />
                     <div className="flex items-center justify-center gap-2 mb-3">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-600"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                       <span className="text-xs text-zinc-600">Secure checkout powered by Stripe</span>
