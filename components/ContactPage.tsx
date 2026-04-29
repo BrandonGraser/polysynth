@@ -116,14 +116,14 @@ export default function ContactPage() {
 
               <button
                 onClick={() => setTab("loop")}
-                className={`px-5 py-2 text-sm font-medium transition border ${tab === "loop" ? "border-[#f7f727] text-[#f7f727] bg-[#f7f727]/08" : "border-white/10 text-zinc-400 hover:text-white hover:border-white/20"}`}
+                className={`px-5 py-2 text-sm font-medium transition border ${tab === "loop" ? "border-[#f7f727] text-[#f7f727] bg-[#f7f727]/[0.08]" : "border-white/10 text-zinc-400 hover:text-white hover:border-white/20"}`}
                 style={{borderRadius: "999px"}}
               >
                 Stay in the Loop
               </button>
               <button
                 onClick={() => setTab("reserve")}
-                className={`px-5 py-2 text-sm font-medium transition border ${tab === "reserve" ? "border-[#f7f727] text-[#f7f727] bg-[#f7f727]/08" : "border-white/10 text-zinc-400 hover:text-white hover:border-white/20"}`}
+                className={`px-5 py-2 text-sm font-medium transition border ${tab === "reserve" ? "border-[#f7f727] text-[#f7f727] bg-[#f7f727]/[0.08]" : "border-white/10 text-zinc-400 hover:text-white hover:border-white/20"}`}
                 style={{borderRadius: "999px"}}
               >
                 Reserve with Deposit
