@@ -1,9 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
+import { createClient } from "@supabase/supabase-js";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2026-04-22.dahlia",
 });
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 const TIERS = {
   reserve: {
@@ -31,6 +37,15 @@ export async function POST(req: NextRequest) {
     if (!tierData) {
       return NextResponse.json({ error: "Invalid tier" }, { status: 400 });
     }
+
+    // Save reservation to Supabase
+    await supabase.from("reservations").insert({
+      name,
+      email,
+      country,
+      tier: tierData.name,
+      status: "pending",
+    });
 
     const origin = req.headers.get("origin") || "https://polysynth.vercel.app";
 
