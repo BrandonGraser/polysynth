@@ -72,7 +72,7 @@ function CheckoutButton({ tier, price, name, email, country }: { tier: string; p
         className="w-full py-3 text-sm font-bold text-[#1a1a00] bg-[#f7f727] hover:bg-[#f5f545] transition flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        {loading ? "Redirecting to Stripe..." : `Continue to Secure Checkout — ${price}`}
+        {loading ? "Redirecting to Stripe..." : <>Continue to Secure Checkout &mdash; {price}</>}
       </button>
       {error && <p className="text-xs text-red-400 mt-2 text-center">{error}</p>}
     </div>
@@ -108,7 +108,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        {/* Form — full width */}
+        {/* Form - full width */}
         <div className="bg-zinc-900/40 border border-white/[0.06] p-8 mb-4" style={{opacity:0, animation:"fadeUp 0.7s ease 0.25s forwards"}}>
 
             {/* Tabs */}
@@ -182,7 +182,7 @@ export default function ContactPage() {
             {/* Reserve with Deposit */}
             {tab === "reserve" && (
               <div>
-                {/* Step 1 — Contact info */}
+                {/* Step 1 - Contact info */}
                 {reserveStep === 1 && (
                   <div>
                     <p className="text-sm text-zinc-400 mb-6">Reserve your spot on the waitlist now with a fully refundable deposit. Spots are filling up fast.</p>
@@ -238,7 +238,7 @@ export default function ContactPage() {
                   </div>
                 )}
 
-                {/* Step 2 — Tier selection */}
+                {/* Step 2 - Tier selection */}
                 {reserveStep === 2 && (
                   <div>
                     <div className="text-xs tracking-[0.15em] text-[#f7f727] mb-1">STEP 2 / 3</div>
@@ -315,7 +315,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Direct + Follow Us — below form */}
+        {/* Direct + Follow Us - below form */}
         <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2" style={{opacity:0, animation:"fadeUp 0.7s ease 0.4s forwards"}}>
 
           {/* Direct */}
