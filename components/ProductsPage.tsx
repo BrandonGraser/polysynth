@@ -44,7 +44,7 @@ export default function ProductsPage() {
 
       <div className="pt-32 pb-12 px-6 mx-auto max-w-7xl">
         <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">PRODUCTS</div>
-        <h1 className="text-6xl font-bold leading-none mb-4" style={{opacity:0, transform:"translateY(16px)", animation:"fadeUp 0.7s ease 0.1s forwards"}}>
+        <h1 className="text-4xl font-bold leading-none mb-4 sm:text-6xl" style={{opacity:0, transform:"translateY(16px)", animation:"fadeUp 0.7s ease 0.1s forwards"}}>
           Our Printers
         </h1>
         <p className="text-base text-zinc-400 max-w-lg leading-relaxed" style={{opacity:0, transform:"translateY(10px)", animation:"fadeUp 0.6s ease 0.25s forwards"}}>
@@ -52,14 +52,14 @@ export default function ProductsPage() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pb-24 grid grid-cols-2 gap-3">
+      <div className="mx-auto max-w-7xl px-6 pb-24 grid grid-cols-1 gap-3 md:grid-cols-2">
 
         {/* P1 */}
         <div className="flex flex-col bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.1s forwards"}}>
           {/* Specs */}
-          <div className="flex flex-col p-10">
+          <div className="flex flex-col p-6 md:p-10">
             <div className="text-xs tracking-[0.2em] text-zinc-500 mb-3">POLYSYNTH</div>
-            <h2 className="text-6xl font-bold leading-none mb-3 tracking-tight">P1</h2>
+            <h2 className="text-5xl font-bold leading-none mb-3 tracking-tight md:text-6xl">P1</h2>
             <p className="text-sm text-zinc-400 leading-relaxed mb-8">The first multi-material resin printer. Up to 8 materials, one print, zero compromise.</p>
             <div className="flex flex-col divide-y divide-white/[0.05] mb-10">
               {p1Specs.map((s) => (
@@ -83,9 +83,9 @@ export default function ProductsPage() {
         {/* P1 Dental */}
         <div className="flex flex-col bg-zinc-950 overflow-hidden" style={{opacity:0, transform:"translateY(20px)", animation:"fadeUp 0.65s ease 0.25s forwards"}}>
           {/* Specs */}
-          <div className="flex flex-col p-10">
+          <div className="flex flex-col p-6 md:p-10">
             <div className="text-xs tracking-[0.2em] text-zinc-500 mb-3">POLYSYNTH</div>
-            <h2 className="text-6xl font-bold leading-none mb-3 tracking-tight">P1 <span className="text-[#f7f727]">Dental</span></h2>
+            <h2 className="text-5xl font-bold leading-none mb-3 tracking-tight md:text-6xl">P1 <span className="text-[#f7f727]">Dental</span></h2>
             <p className="text-sm text-zinc-400 leading-relaxed mb-8">Built for clinical precision. Biocompatible materials, micron-level accuracy, and seamless dental workflows.</p>
             <div className="flex flex-col divide-y divide-white/[0.05] mb-10">
               {p1DentalSpecs.map((s) => (
@@ -111,11 +111,11 @@ export default function ProductsPage() {
       {/* Reservation Tiers */}
       <div className="mx-auto max-w-7xl px-6 pb-8">
         <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">PRIORITY RESERVATIONS</div>
-        <h2 className="text-5xl font-bold leading-tight mb-4">Choose the level of<br />early access that fits.</h2>
+        <h2 className="text-3xl font-bold leading-tight mb-4 sm:text-5xl">Choose the level of<br />early access that fits.</h2>
         <p className="text-zinc-400 text-base leading-relaxed max-w-2xl mb-10">
           Every reservation tier holds a place in the Polysynth P1 queue and credits the deposit toward the final purchase. Higher tiers help us commit earlier to long lead parts and get stronger priority for early access as production slots open.
         </p>
-        <div className="grid grid-cols-3 gap-3 mb-4">
+        <div className="grid grid-cols-1 gap-3 mb-4 sm:grid-cols-3">
           {[
             {
               tag: "THE RESERVE",
@@ -149,7 +149,7 @@ export default function ProductsPage() {
               <div className="h-[2px] w-full" style={{background: tier.color}} />
               <div className="p-8 flex flex-col flex-1">
                 <div className="text-xs tracking-[0.2em] mb-6" style={{color: tier.color}}>{tier.tag}</div>
-                <div className="text-6xl font-bold text-white mb-2 tracking-tight">{tier.price}</div>
+                <div className="text-5xl font-bold text-white mb-2 tracking-tight sm:text-6xl">{tier.price}</div>
                 <div className="flex items-center gap-2 mb-6">
                   <span className="text-[10px] tracking-[0.12em] px-2 py-1" style={{color: tier.color, background: `${tier.color}15`}}>{tier.refund}</span>
                 </div>
@@ -182,7 +182,7 @@ export default function ProductsPage() {
 
       {/* Spec Sheet CTA */}
       <div className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div className="border border-[#f7f727]/20 bg-[#f7f727]/[0.03] p-8">
             <div className="text-xs tracking-[0.2em] text-[#f7f727] mb-3">POLYSYNTH P1</div>
             <p className="text-sm text-zinc-400 leading-relaxed mb-6">
