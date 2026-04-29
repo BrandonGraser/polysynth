@@ -5,13 +5,12 @@ const nav = [
   { label: "Applications", href: "/#applications" },
   { label: "Software", href: "/#software" },
   { label: "Roadmap", href: "/roadmap" },
-  { label: "Company", href: "#" },
 ];
 
 export default function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-zinc-950">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 border-b border-white/[0.06]">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-8 border-b border-white/[0.06]">
         <a href="/" className="text-base font-semibold tracking-[0.2em] text-white">POLYSYNTH</a>
         <nav className="hidden gap-8 md:flex">
           {nav.map((item) => (
@@ -26,7 +25,7 @@ export default function Footer() {
           </button>
         </a>
       </div>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-5">
         <span className="text-xs text-zinc-600">© 2025 Polysynth. All rights reserved.</span>
         <div className="flex items-center gap-5">
           <a href="https://www.youtube.com/channel/UCZiYvSaKiIzsTeoufnZqMdw" aria-label="YouTube" target="_blank" rel="noopener noreferrer" className="text-zinc-600 transition hover:text-white">
