@@ -102,14 +102,14 @@ export default function ContactPage() {
         {/* Header */}
         <div className="mb-16" style={{opacity:0, animation:"fadeUp 0.7s ease 0.1s forwards"}}>
           <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">CONTACT</div>
-          <h1 className="text-6xl md:text-7xl font-bold leading-none mb-6">Start the<br /><span className="text-[#f7f727]">Conversation.</span></h1>
+          <h1 className="text-4xl font-bold leading-none mb-6 sm:text-6xl md:text-7xl">Start the<br /><span className="text-[#f7f727]">Conversation.</span></h1>
           <p className="text-zinc-400 text-base leading-relaxed max-w-xl">
             We welcome collaborators, pilot partners, and builders ready to shape the future of multi-material printing.
           </p>
         </div>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-2 gap-4" style={{opacity:0, animation:"fadeUp 0.7s ease 0.25s forwards"}}>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2" style={{opacity:0, animation:"fadeUp 0.7s ease 0.25s forwards"}}>
 
           {/* Left — Direct + Socials */}
           <div className="flex flex-col gap-4">
@@ -148,7 +148,7 @@ export default function ContactPage() {
           <div className="bg-zinc-900/40 border border-white/[0.06] p-8">
 
             {/* Tabs */}
-            <div className="flex gap-2 mb-8">
+            <div className="flex flex-wrap gap-2 mb-8">
               <button
                 onClick={() => setTab("loop")}
                 className={`px-5 py-2 text-sm font-medium transition border ${tab === "loop" ? "border-[#f7f727] text-[#f7f727] bg-[#f7f727]/08" : "border-white/10 text-zinc-400 hover:text-white hover:border-white/20"}`}
@@ -186,16 +186,7 @@ export default function ContactPage() {
                     await supabase.from("subscribers").insert({ name, email, phone, social_handle: social || null });
                     setLoopSubmitted(true);
                   }} className="flex flex-col gap-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">NAME <span className="text-[#f7f727]">*</span></label>
-                        <input required type="text" name="name" placeholder="First Last" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
-                      </div>
-                      <div>
-                        <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">EMAIL <span className="text-[#f7f727]">*</span></label>
-                        <input required type="email" name="email" placeholder="you@example.com" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
-                      </div>
-                    </div>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
                       <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">PHONE <span className="text-[#f7f727]">*</span></label>
                       <input required type="tel" name="phone" placeholder="+1 (555) 000-0000" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
@@ -221,7 +212,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-zinc-400 mb-6">Reserve your spot on the waitlist now with a fully refundable deposit. Spots are filling up fast.</p>
                     <form onSubmit={(e) => { e.preventDefault(); setReserveStep(2); }} className="flex flex-col gap-4">
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div>
                           <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">NAME <span className="text-[#f7f727]">*</span></label>
                           <input
@@ -285,7 +276,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Tier cards */}
-                    <div className="grid grid-cols-3 gap-2 mb-5">
+                    <div className="grid grid-cols-1 gap-2 mb-5 sm:grid-cols-3">
                       {tiers.map((tier, i) => (
                         <div
                           key={tier.name}
