@@ -187,6 +187,15 @@ export default function ContactPage() {
                     setLoopSubmitted(true);
                   }} className="flex flex-col gap-4">
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">NAME <span className="text-[#f7f727]">*</span></label>
+                        <input required type="text" name="name" placeholder="First Last" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
+                      </div>
+                      <div>
+                        <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">EMAIL <span className="text-[#f7f727]">*</span></label>
+                        <input required type="email" name="email" placeholder="you@example.com" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
+                      </div>
+                    </div>
                     <div>
                       <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">PHONE <span className="text-[#f7f727]">*</span></label>
                       <input required type="tel" name="phone" placeholder="+1 (555) 000-0000" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
