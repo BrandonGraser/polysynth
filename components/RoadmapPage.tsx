@@ -77,12 +77,12 @@ export default function RoadmapPage() {
         {/* PRODUCT ROADMAP */}
         <section className="mb-24" style={{opacity:0, animation:"fadeUp 0.7s ease 0.1s forwards"}}>
           <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">PRODUCT ROADMAP</div>
-          <h1 className="text-6xl md:text-7xl font-bold leading-none mb-4">A Disciplined<br />Build Path.</h1>
+          <h1 className="text-4xl font-bold leading-none mb-4 sm:text-6xl md:text-7xl">A Disciplined<br />Build Path.</h1>
           <p className="text-zinc-400 text-base max-w-xl leading-relaxed mb-12">
             Transparent milestones and measurable results are how we build trust and ship hardware that works.
           </p>
 
-          <div className="grid grid-cols-4 gap-px bg-white/[0.06]">
+          <div className="grid grid-cols-1 gap-px bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-4">
             {productPhases.map((p) => {
               const s = statusConfig[p.status];
               return (
@@ -117,7 +117,7 @@ export default function RoadmapPage() {
         {/* MATERIALS ROADMAP */}
         <section style={{opacity:0, animation:"fadeUp 0.7s ease 0.3s forwards"}}>
           <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">MATERIALS ROADMAP</div>
-          <h2 className="text-6xl md:text-7xl font-bold leading-none mb-4">Planned Material<br />Launches.</h2>
+          <h2 className="text-4xl font-bold leading-none mb-4 sm:text-6xl md:text-7xl">Planned Material<br />Launches.</h2>
           <p className="text-zinc-400 text-base max-w-xl leading-relaxed mb-12">
             Expanding our resin platform from multi-color to full conductive printing. Each milestone unlocks a new category of what's buildable.
           </p>
@@ -126,7 +126,7 @@ export default function RoadmapPage() {
             {materialItems.map((m) => {
               const s = statusConfig[m.status];
               return (
-                <div key={m.label} className="bg-zinc-950 px-8 py-7 flex items-center gap-8">
+                <div key={m.label} className="bg-zinc-950 px-6 py-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8 sm:px-8 sm:py-7">
                   {/* Status badge */}
                   <span
                     className="text-[10px] font-semibold tracking-[0.1em] px-2 py-1 rounded-sm flex-shrink-0 w-20 text-center"
@@ -135,9 +135,9 @@ export default function RoadmapPage() {
                     {s.label}
                   </span>
                   {/* Label */}
-                  <span className="text-base font-semibold w-72 flex-shrink-0">{m.label}</span>
+                  <span className="text-base font-semibold sm:w-72 sm:flex-shrink-0">{m.label}</span>
                   {/* Progress bar */}
-                  <div className="flex-1 flex items-center gap-4">
+                  <div className="flex items-center gap-4 flex-1">
                     <div className="flex-1 h-px bg-white/[0.08] relative">
                       <div
                         className="absolute left-0 top-0 h-full transition-all duration-1000"
@@ -153,9 +153,9 @@ export default function RoadmapPage() {
         </section>
 
         {/* CTA */}
-        <section className="mt-24 border border-white/[0.06] p-12 text-center" style={{opacity:0, animation:"fadeUp 0.7s ease 0.5s forwards"}}>
+        <section className="mt-24 border border-white/[0.06] p-8 text-center sm:p-12" style={{opacity:0, animation:"fadeUp 0.7s ease 0.5s forwards"}}>
           <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">JOIN THE WAITLIST</div>
-          <h2 className="text-4xl font-bold mb-4">Ready to build with Polysynth?</h2>
+          <h2 className="text-2xl font-bold mb-4 sm:text-4xl">Ready to build with Polysynth?</h2>
           <p className="text-zinc-400 max-w-md mx-auto mb-8 text-sm leading-relaxed">
             Get updates, early access opportunities, and launch details as we bring the P1 to market.
           </p>
