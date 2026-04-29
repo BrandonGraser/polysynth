@@ -108,47 +108,12 @@ export default function ContactPage() {
           </p>
         </div>
 
-        {/* Two-column layout */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2" style={{opacity:0, animation:"fadeUp 0.7s ease 0.25s forwards"}}>
-
-          {/* Left — Direct + Socials */}
-          <div className="flex flex-col gap-4">
-            {/* Direct */}
-            <div className="bg-zinc-900/40 border border-white/[0.06] p-8">
-              <h3 className="text-lg font-bold mb-5">Direct</h3>
-              <div className="flex flex-col gap-3 text-sm text-zinc-400">
-                <div>
-                  Email:{" "}
-                  <a href="mailto:info@polysynth3d.com" className="text-white hover:text-[#f7f727] transition underline underline-offset-4">
-                    info@polysynth3d.com
-                  </a>
-                </div>
-                <div>Location: San Francisco, CA</div>
-              </div>
-            </div>
-
-            {/* Follow us */}
-            <div className="bg-zinc-900/40 border border-white/[0.06] p-8">
-              <h3 className="text-lg font-bold mb-6">Follow Us</h3>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  { label: "Instagram", icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>, href: "https://www.instagram.com/polysynth3d/" },
-                  { label: "YouTube", icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>, href: "https://www.youtube.com/channel/UCZiYvSaKiIzsTeoufnZqMdw" },
-                  { label: "TikTok", icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>, href: "https://www.tiktok.com/@polysynth3d" },
-                ].map((s) => (
-                  <a key={s.label} href={s.href} className="flex items-center gap-2 border border-white/[0.08] px-4 py-2 text-sm text-zinc-400 transition hover:border-white/20 hover:text-white">
-                    {s.icon}{s.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right — Tabbed form */}
-          <div className="bg-zinc-900/40 border border-white/[0.06] p-8">
+        {/* Form — full width */}
+        <div className="bg-zinc-900/40 border border-white/[0.06] p-8 mb-4" style={{opacity:0, animation:"fadeUp 0.7s ease 0.25s forwards"}}>
 
             {/* Tabs */}
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+
               <button
                 onClick={() => setTab("loop")}
                 className={`px-5 py-2 text-sm font-medium transition border ${tab === "loop" ? "border-[#f7f727] text-[#f7f727] bg-[#f7f727]/08" : "border-white/10 text-zinc-400 hover:text-white hover:border-white/20"}`}
@@ -204,9 +169,11 @@ export default function ContactPage() {
                       <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">SOCIAL HANDLE <span className="text-zinc-600 font-normal normal-case tracking-normal">optional</span></label>
                       <input type="text" name="social" placeholder="@yourhandle" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
                     </div>
-                    <button type="submit" className="w-full bg-[#f7f727] py-3 text-sm font-bold text-[#1a1a00] transition hover:bg-[#f5f545]">
-                      Subscribe
-                    </button>
+                    <div className="flex justify-center">
+                      <button type="submit" className="bg-[#f7f727] px-10 py-3 text-sm font-bold text-[#1a1a00] transition hover:bg-[#f5f545]">
+                        Subscribe
+                      </button>
+                    </div>
                     <p className="text-xs text-zinc-600 text-center">By continuing, you agree to our <a href="/terms" className="text-zinc-400 hover:text-[#f7f727] transition">Terms</a> and <a href="/privacy" className="text-zinc-400 hover:text-[#f7f727] transition">Privacy Policy</a>.</p>
                   </form>
                 </div>
@@ -219,7 +186,7 @@ export default function ContactPage() {
                 {/* Step 1 — Contact info */}
                 {reserveStep === 1 && (
                   <div>
-                    <p className="text-sm text-zinc-400 mb-6">Reserve your spot on the waitlist now with a fully refundable deposit. Spots are filling up fast.</p>
+                    <p className="text-sm text-zinc-400 mb-6 text-center">Reserve your spot on the waitlist now with a fully refundable deposit. Spots are filling up fast.</p>
                     <form onSubmit={(e) => { e.preventDefault(); setReserveStep(2); }} className="flex flex-col gap-4">
                       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div>
@@ -262,9 +229,11 @@ export default function ContactPage() {
                           <option>Other</option>
                         </select>
                       </div>
-                      <button type="submit" className="w-full bg-[#f7f727] py-3 text-sm font-bold text-[#1a1a00] transition hover:bg-[#f5f545]">
-                        Continue with Reservation
-                      </button>
+                      <div className="flex justify-center">
+                        <button type="submit" className="bg-[#f7f727] px-10 py-3 text-sm font-bold text-[#1a1a00] transition hover:bg-[#f5f545]">
+                          Continue with Reservation
+                        </button>
+                      </div>
                       <p className="text-xs text-zinc-600 text-center">By continuing, you agree to our <a href="/terms" className="text-zinc-400 hover:text-[#f7f727] transition">Terms</a> and <a href="/privacy" className="text-zinc-400 hover:text-[#f7f727] transition">Privacy Policy</a>.</p>
                     </form>
                   </div>
@@ -345,6 +314,41 @@ export default function ContactPage() {
               </div>
             )}
           </div>
+        </div>
+
+        {/* Direct + Follow Us — below form */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2" style={{opacity:0, animation:"fadeUp 0.7s ease 0.4s forwards"}}>
+
+          {/* Direct */}
+          <div className="bg-zinc-900/40 border border-white/[0.06] p-8">
+            <h3 className="text-lg font-bold mb-5">Direct</h3>
+            <div className="flex flex-col gap-3 text-sm text-zinc-400">
+              <div>
+                Email:{" "}
+                <a href="mailto:info@polysynth3d.com" className="text-white hover:text-[#f7f727] transition underline underline-offset-4">
+                  info@polysynth3d.com
+                </a>
+              </div>
+              <div>Location: San Francisco, CA</div>
+            </div>
+          </div>
+
+          {/* Follow Us */}
+          <div className="bg-zinc-900/40 border border-white/[0.06] p-8">
+            <h3 className="text-lg font-bold mb-6">Follow Us</h3>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Instagram", icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>, href: "https://www.instagram.com/polysynth3d/" },
+                { label: "YouTube", icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>, href: "https://www.youtube.com/channel/UCZiYvSaKiIzsTeoufnZqMdw" },
+                { label: "TikTok", icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>, href: "https://www.tiktok.com/@polysynth3d" },
+              ].map((s) => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/[0.08] px-4 py-2 text-sm text-zinc-400 transition hover:border-white/20 hover:text-white">
+                  {s.icon}{s.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
         </div>
       </main>
 
