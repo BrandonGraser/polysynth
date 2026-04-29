@@ -122,7 +122,7 @@ export default function PolysynthLandingPage() {
             <div className="mb-4 text-sm uppercase text-[#f7f727]" style={{opacity:0,transform:"translateY(10px)",animation:"fadeUp 0.6s ease 0.1s forwards"}}>
               Polysynth P1 Printer
             </div>
-            <h1 className="max-w-3xl text-6xl font-semibold leading-tight md:text-7xl" style={{opacity:0,transform:"translateY(16px)",animation:"fadeUp 0.7s ease 0.25s forwards"}}>
+            <h1 className="max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl md:text-7xl" style={{opacity:0,transform:"translateY(16px)",animation:"fadeUp 0.7s ease 0.25s forwards"}}>
               The first{" "}
               <span className="text-[#f7f727]">multi-material</span> resin
               printer.
@@ -134,12 +134,12 @@ export default function PolysynthLandingPage() {
               and higher fidelity output.
             </p>
 
-            <div className="mt-8 flex gap-4" style={{opacity:0,transform:"translateY(8px)",animation:"fadeUp 0.6s ease 0.6s forwards"}}>
+            <div className="mt-8 flex flex-wrap gap-3" style={{opacity:0,transform:"translateY(8px)",animation:"fadeUp 0.6s ease 0.6s forwards"}}>
               <a href="/contact?tab=reserve"><button className="rounded-full bg-[#f7f727] px-6 py-3 font-medium text-[#1a1a00] transition hover:bg-[#f5f545]">Pre Order Now</button></a>
               <a href="/contact"><button className="rounded-full border border-white/30 px-6 py-3 transition hover:border-white/60 hover:bg-white/10">Talk to Sales</button></a>
             </div>
 
-            <div className="mt-10 grid max-w-2xl grid-cols-3 gap-6" style={{opacity:0,transform:"translateY(8px)",animation:"fadeUp 0.6s ease 0.75s forwards"}}>
+            <div className="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6" style={{opacity:0,transform:"translateY(8px)",animation:"fadeUp 0.6s ease 0.75s forwards"}}>
               {stats.map((s) => (
                 <div key={s.label}>
                   <div className="text-xl font-bold">{s.value}</div>
@@ -156,8 +156,8 @@ export default function PolysynthLandingPage() {
 
         {/* Conductive Parts Banner */}
         <section className="mx-auto max-w-7xl px-6 pt-8 pb-0" {...revealConductive}>
-          <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-16 py-20 text-center">
-            <div ref={conductiveHeadingRef} className="mb-6 text-8xl font-bold leading-none tracking-tight">
+          <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-6 py-12 text-center md:px-16 md:py-20">
+            <div ref={conductiveHeadingRef} className="mb-6 text-5xl font-bold leading-none tracking-tight sm:text-6xl md:text-8xl">
               <div className="overflow-hidden">
                 {"Functional".split("").map((ch, i) => (
                   <span
@@ -192,7 +192,7 @@ export default function PolysynthLandingPage() {
             <span className="text-xs tracking-[0.25em] text-zinc-500">APPLICATIONS</span>
             <div className="h-px flex-1 bg-white/10" />
           </div>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {[revealCard0, revealCard1, revealCard2, revealCard3].map((reveal, i) => {
               const u = useCases[i];
               return (
@@ -212,10 +212,7 @@ export default function PolysynthLandingPage() {
                 <div className="absolute inset-0 bg-zinc-950/50" />
                 <div className="relative z-10 flex flex-col items-center text-center">
                   <img src={u.icon} alt="" className="w-8 h-8 object-contain mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
-                  <h3
-                    className="text-2xl font-semibold leading-snug mb-3 transition-all duration-300"
-                    style={i === 0 ? undefined : undefined}
-                  >
+                  <h3 className="text-xl font-semibold leading-snug mb-3 transition-all duration-300 md:text-2xl"
                     {i === 0 ? (
                       <span className="relative inline-block">
                         <span className="absolute inset-0 bg-clip-text text-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{backgroundImage: "linear-gradient(90deg, #ff0000, #f928ee, #f7f727, #00ff12)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"}}>
@@ -253,14 +250,14 @@ export default function PolysynthLandingPage() {
 
         {/* Software Section */}
         <section id="software" className="mx-auto max-w-7xl px-6 py-16" {...revealSoftware}>
-          <div className="grid grid-cols-2 overflow-hidden rounded-2xl bg-zinc-950" style={{minHeight: "420px"}}>
+          <div className="grid grid-cols-1 overflow-hidden rounded-2xl bg-zinc-950 md:grid-cols-2" style={{minHeight: "420px"}}>
 
             {/* Left — copy + features */}
-            <div className="flex flex-col justify-center border-r border-white/[0.07] px-10 py-12">
+            <div className="flex flex-col justify-center border-b border-white/[0.07] px-6 py-10 md:border-b-0 md:border-r md:px-10 md:py-12">
               <div className="mb-4 text-xs tracking-[0.25em] text-zinc-500">SOFTWARE</div>
               <div className="flex items-center gap-4 mb-8">
                 <img src={POLYSLICER_LOGO} alt="Polysynth" className="h-14 w-auto object-contain flex-shrink-0" />
-                <h2 className="text-5xl font-bold leading-none text-white">PolySlicer</h2>
+                <h2 className="text-3xl font-bold leading-none text-white md:text-5xl">PolySlicer</h2>
               </div>
               <div className="mb-10 flex flex-col gap-5">
                 <div className="flex items-start gap-3">
