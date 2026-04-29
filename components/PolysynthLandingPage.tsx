@@ -286,7 +286,7 @@ export default function PolysynthLandingPage() {
             </div>
 
             {/* Right — video placeholder */}
-            <div className="relative flex items-center justify-center overflow-hidden bg-zinc-900/50">
+            <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden bg-zinc-900/50 md:min-h-0">
               <div className="absolute inset-0" style={{backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255,255,255,0.02) 32px, rgba(255,255,255,0.02) 33px), repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255,255,255,0.02) 32px, rgba(255,255,255,0.02) 33px)"}} />
               <div className="relative z-10 flex flex-col items-center gap-3 text-zinc-600">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700">
