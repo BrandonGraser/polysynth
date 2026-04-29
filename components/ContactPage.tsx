@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
 
 const nav = [
   { label: "Products", href: "/products" },
@@ -175,24 +176,33 @@ export default function ContactPage() {
               ) : (
                 <div>
                   <p className="text-sm text-zinc-400 mb-6">Get updates and hear about all of the latest developments.</p>
-                  <form onSubmit={(e) => { e.preventDefault(); setLoopSubmitted(true); }} className="flex flex-col gap-4">
+                  <form onSubmit={async (e) => {
+                    e.preventDefault();
+                    const form = e.currentTarget as HTMLFormElement;
+                    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+                    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+                    const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
+                    const social = (form.elements.namedItem("social") as HTMLInputElement).value;
+                    await supabase.from("subscribers").insert({ name, email, phone, social_handle: social || null });
+                    setLoopSubmitted(true);
+                  }} className="flex flex-col gap-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">NAME <span className="text-[#f7f727]">*</span></label>
-                        <input required type="text" placeholder="First Last" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
+                        <input required type="text" name="name" placeholder="First Last" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
                       </div>
                       <div>
                         <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">EMAIL <span className="text-[#f7f727]">*</span></label>
-                        <input required type="email" placeholder="you@example.com" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
+                        <input required type="email" name="email" placeholder="you@example.com" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">PHONE <span className="text-[#f7f727]">*</span></label>
-                      <input required type="tel" placeholder="+1 (555) 000-0000" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
+                      <input required type="tel" name="phone" placeholder="+1 (555) 000-0000" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
                     </div>
                     <div>
                       <label className="block text-xs tracking-[0.15em] text-zinc-500 mb-2">SOCIAL HANDLE <span className="text-zinc-600 font-normal normal-case tracking-normal">optional</span></label>
-                      <input type="text" placeholder="@yourhandle" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
+                      <input type="text" name="social" placeholder="@yourhandle" className="w-full bg-zinc-950/80 border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-[#f7f727]/40 transition" />
                     </div>
                     <button type="submit" className="w-full bg-[#f7f727] py-3 text-sm font-bold text-[#1a1a00] transition hover:bg-[#f5f545]">
                       Subscribe
