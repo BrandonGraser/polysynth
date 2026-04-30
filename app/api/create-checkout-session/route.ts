@@ -21,6 +21,10 @@ const TIERS = {
 };
 
 export async function POST(req: NextRequest) {
+  console.log("STRIPE_SECRET_KEY present:", !!process.env.STRIPE_SECRET_KEY);
+  console.log("SUPABASE_URL present:", !!process.env.NEXT_PUBLIC_SUPABASE_URL);
+  console.log("SUPABASE_KEY present:", !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: "2026-04-22.dahlia",
   });
@@ -78,6 +82,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ url: session.url });
   } catch (err) {
     console.error("Stripe error:", err);
-    return NextResponse.json({ error: "Failed to create checkout session" }, { status: 500 });
+    return NextResponse.json({ error: err instanceof Error ? err.message : String(err) }, { status: 500 });
   }
 }
