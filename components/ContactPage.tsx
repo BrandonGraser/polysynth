@@ -47,11 +47,11 @@ function CheckoutButton({ tier, price, name, email, country }: { tier: string; p
       if (data.url) {
         window.location.href = data.url;
       } else {
-        setError(data.error || "Something went wrong. Please try again.");
+        setError(data.error || `Error ${res.status}: Something went wrong. Please try again.`);
         setLoading(false);
       }
-    } catch {
-      setError("Network error. Please check your connection and try again.");
+    } catch (err) {
+      setError("Request failed: " + (err instanceof Error ? err.message : String(err)));
       setLoading(false);
     }
   };
