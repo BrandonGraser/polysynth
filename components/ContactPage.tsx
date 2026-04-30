@@ -43,11 +43,20 @@ function CheckoutButton({ tier, price, name, email, country }: { tier: string; p
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ tier, name, email, country }),
       });
-      const data = await res.json();
+      const text = await res.text();
+      let data: { url?: string; error?: string };
+      try {
+        data = JSON.parse(text);
+      } catch {
+        setError(`Server error (${res.status}). Please try again or contact us directly.`);
+        console.error("Non-JSON response:", text.substring(0, 300));
+        setLoading(false);
+        return;
+      }
       if (data.url) {
         window.location.href = data.url;
       } else {
-        setError(data.error || `Error ${res.status}: Something went wrong. Please try again.`);
+        setError(data.error || `Error ${res.status}: Something went wrong.`);
         setLoading(false);
       }
     } catch (err) {
