@@ -2,34 +2,34 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-04-22.dahlia",
-});
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
-
 const TIERS = {
   reserve: {
     name: "The Reserve",
-    amount: 10000, // $100.00 in cents
+    amount: 10000,
     description: "Fully refundable deposit. Secures your place in line for the Polysynth P1.",
   },
   priority: {
     name: "Our Priority",
-    amount: 75000, // $750.00 in cents
+    amount: 75000,
     description: "Priority queue placement. Non-refundable. Credited toward final purchase.",
   },
   founders: {
     name: "Founders",
-    amount: 250000, // $2,500.00 in cents
+    amount: 250000,
     description: "Highest priority placement with founder recognition. Non-refundable. Credited toward final purchase.",
   },
 };
 
 export async function POST(req: NextRequest) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: "2026-04-22.dahlia",
+  });
+
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
   try {
     const { tier, name, email, country } = await req.json();
 
