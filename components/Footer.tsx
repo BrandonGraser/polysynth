@@ -5,12 +5,13 @@ const nav = [
   { label: "Applications", href: "/#applications" },
   { label: "Software", href: "/#software" },
   { label: "Roadmap", href: "/roadmap" },
+  { label: "Company", href: "#" },
 ];
 
 export default function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-zinc-950">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-8 border-b border-white/[0.06]">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 border-b border-white/[0.06]">
         <a href="/" className="text-base font-semibold tracking-[0.2em] text-white">POLYSYNTH</a>
         <nav className="hidden gap-8 md:flex">
           {nav.map((item) => (
@@ -25,8 +26,8 @@ export default function Footer() {
           </button>
         </a>
       </div>
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-5">
-        <span className="text-xs text-zinc-600">© 2025 Polysynth. All rights reserved.</span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+        <span className="text-xs text-zinc-600">© 2026 Polysynth. All rights reserved.</span>
         <div className="flex items-center gap-5">
           <a href="https://www.youtube.com/channel/UCZiYvSaKiIzsTeoufnZqMdw" aria-label="YouTube" target="_blank" rel="noopener noreferrer" className="text-zinc-600 transition hover:text-white">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
