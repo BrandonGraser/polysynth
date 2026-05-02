@@ -118,7 +118,7 @@ export default function ContactPage() {
             <div className="bg-zinc-900/40 border border-white/[0.06] p-8">
               <h3 className="text-lg font-bold mb-5">Direct</h3>
               <div className="flex flex-col gap-3 text-sm text-zinc-400">
-                <div>Email:{" "}<a href="mailto:info@polysynth3d.com" className="text-white hover:text-[#f7f727] transition underline underline-offset-4">info@polysynth3d.com</a></div>
+                <div>Email:{" "}<a href="mailto:contact@polysynth.io" className="text-white hover:text-[#f7f727] transition underline underline-offset-4">contact@polysynth.io</a></div>
                 <div>Location: San Francisco, CA</div>
               </div>
             </div>
