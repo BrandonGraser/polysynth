@@ -238,8 +238,8 @@ export default function TermsPage() {
               <h3 className="text-base font-bold text-[#f7f727] mb-3">Contact</h3>
               <p className="text-sm text-zinc-400">
                 Email:{" "}
-                <a href="mailto:info@polysynth3d.com" className="text-white underline underline-offset-4 hover:text-[#f7f727] transition">
-                  info@polysynth3d.com
+                <a href="mailto:contact@polysynth.io" className="text-white underline underline-offset-4 hover:text-[#f7f727] transition">
+                  contact@polysynth.io
                 </a>
               </p>
             </div>
