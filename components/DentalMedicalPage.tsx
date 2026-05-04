@@ -20,12 +20,12 @@ export default function DentalMedicalPage() {
 
   // Icon configs for dental list: [src, filter, rotation]
   const dentalIcons: [string, string, number][] = [
-    [ICON_3, "hue-rotate(140deg) saturate(2) brightness(1.1)", 0],        // Red
-    [ICON_1, "hue-rotate(185deg) saturate(3) brightness(1.2)", 90],       // Yellow (X-shape)
-    [ICON_2, "hue-rotate(60deg) saturate(1.5) brightness(1.1)", 0],       // Green
-    [ICON_4, "hue-rotate(290deg) saturate(2.5) brightness(1.2)", 180],    // Blue
-    [ICON_1, "hue-rotate(0deg) saturate(1.5) brightness(1.1)", 0],        // Magenta (X-shape)
-    [ICON_3, "hue-rotate(250deg) saturate(2) brightness(1.2)", 270],      // Blue rotated
+    [ICON_3, "brightness(0) saturate(100%) invert(16%) sepia(98%) saturate(7404%) hue-rotate(0deg)", 0],          // #ff0000 red
+    [ICON_1, "brightness(0) saturate(100%) invert(91%) sepia(96%) saturate(1100%) hue-rotate(1deg)", 0],           // #ffea00 yellow (X solid)
+    [ICON_2, "brightness(0) saturate(100%) invert(44%) sepia(99%) saturate(5000%) hue-rotate(108deg)", 90],        // #00ff0c green
+    [ICON_4, "brightness(0) saturate(100%) invert(11%) sepia(99%) saturate(7448%) hue-rotate(231deg)", 0],         // #0018ff blue
+    [ICON_1, "brightness(0) saturate(100%) invert(13%) sepia(99%) saturate(7000%) hue-rotate(295deg)", 90],        // #ff00f6 magenta (X solid)
+    [ICON_3, "brightness(0) saturate(100%) invert(11%) sepia(99%) saturate(7448%) hue-rotate(231deg)", 180],       // #0018ff blue rotated
   ];
 
   return (
@@ -136,13 +136,8 @@ export default function DentalMedicalPage() {
               className="flex flex-col gap-4 px-6 py-7 sm:flex-row sm:gap-8 sm:py-8 transition-colors hover:bg-white/[0.02]"
               style={{opacity:0, animation:`fadeUp 0.6s ease ${0.1 + i * 0.07}s forwards`}}
             >
-              {/* Content — right aligned */}
-              <div className="flex-1 text-right">
-                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">{feature.description}</p>
-              </div>
               {/* Icon + number */}
-              <div className="flex items-center gap-4 sm:flex-col sm:items-end sm:gap-2 flex-shrink-0 sm:w-14">
+              <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-2 flex-shrink-0 sm:w-14">
                 <img
                   src={dentalIcons[i][0]}
                   alt=""
@@ -153,6 +148,11 @@ export default function DentalMedicalPage() {
                   }}
                 />
                 <span className="text-xs font-mono text-zinc-600">{String(i + 1).padStart(2, "0")}</span>
+              </div>
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">{feature.description}</p>
               </div>
             </div>
           ))}
