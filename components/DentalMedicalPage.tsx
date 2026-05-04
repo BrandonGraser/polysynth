@@ -152,7 +152,6 @@ export default function DentalMedicalPage() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">{feature.description}</p>
               </div>
             </div>
           ))}
