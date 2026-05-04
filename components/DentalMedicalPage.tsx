@@ -3,7 +3,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-import { DENTAL_ICON as ICON, ICON_2, ICON_3, ICON_4 } from "@/components/imageAssets";
+import { DENTAL_ICON as ICON, ICON_1, ICON_2, ICON_3, ICON_4 } from "@/components/imageAssets";
 
 const VIDEO_URL = "https://www.dropbox.com/scl/fi/5ewqsiyd2mcxgj1alzymg/202604-10-1.mp4?rlkey=a4qqqu67szdv4c1tjetdkwqv9&raw=1";
 
@@ -20,12 +20,12 @@ export default function DentalMedicalPage() {
 
   // Icon configs for dental list: [src, filter, rotation]
   const dentalIcons: [string, string, number][] = [
-    [ICON_3, "hue-rotate(140deg) saturate(2) brightness(1.1)", 0],      // Red
-    [ICON_4, "hue-rotate(185deg) saturate(3) brightness(1.2)", 90],     // Yellow
-    [ICON_2, "hue-rotate(60deg) saturate(1.5) brightness(1.1)", 180],   // Green (already green-ish, slight shift)
-    [ICON_3, "hue-rotate(290deg) saturate(2) brightness(1.2)", 90],     // Blue
-    [ICON_4, "hue-rotate(0deg) saturate(1.5) brightness(1.1)", 0],      // Magenta (ICON_4 is already magenta)
-    [ICON_2, "hue-rotate(140deg) saturate(2) brightness(1.1)", 270],    // Red rotated
+    [ICON_3, "hue-rotate(140deg) saturate(2) brightness(1.1)", 0],        // Red
+    [ICON_1, "hue-rotate(185deg) saturate(3) brightness(1.2)", 90],       // Yellow (X-shape)
+    [ICON_2, "hue-rotate(60deg) saturate(1.5) brightness(1.1)", 0],       // Green
+    [ICON_4, "hue-rotate(290deg) saturate(2.5) brightness(1.2)", 180],    // Blue
+    [ICON_1, "hue-rotate(0deg) saturate(1.5) brightness(1.1)", 0],        // Magenta (X-shape)
+    [ICON_3, "hue-rotate(250deg) saturate(2) brightness(1.2)", 270],      // Blue rotated
   ];
 
   return (
@@ -87,7 +87,18 @@ export default function DentalMedicalPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 divide-y divide-white/[0.06] border border-white/[0.06]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+          {/* Left: media placeholder */}
+          <div className="lg:sticky lg:top-24 w-full aspect-[3/4] border border-white/[0.08] bg-zinc-900/40 flex flex-col items-center justify-center gap-3" style={{opacity:0, animation:"fadeUp 0.7s ease 0.1s forwards"}}>
+            <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L14 9L7 14V4Z" fill="rgba(255,255,255,0.3)"/></svg>
+            </div>
+            <span className="text-xs tracking-[0.2em] text-zinc-600">VIDEO / IMAGE</span>
+          </div>
+
+          {/* Right: feature list */}
+          <div className="grid grid-cols-1 divide-y divide-white/[0.06] border border-white/[0.06]">
           {[
             {
               icon: "⬡",
@@ -122,11 +133,16 @@ export default function DentalMedicalPage() {
           ].map((feature, i) => (
             <div
               key={feature.title}
-              className="flex flex-col gap-4 px-8 py-8 sm:flex-row sm:gap-10 sm:py-10 transition-colors hover:bg-white/[0.02]"
+              className="flex flex-col gap-4 px-6 py-7 sm:flex-row sm:gap-8 sm:py-8 transition-colors hover:bg-white/[0.02]"
               style={{opacity:0, animation:`fadeUp 0.6s ease ${0.1 + i * 0.07}s forwards`}}
             >
+              {/* Content — right aligned */}
+              <div className="flex-1 text-right">
+                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">{feature.description}</p>
+              </div>
               {/* Icon + number */}
-              <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-2 flex-shrink-0 sm:w-16">
+              <div className="flex items-center gap-4 sm:flex-col sm:items-end sm:gap-2 flex-shrink-0 sm:w-14">
                 <img
                   src={dentalIcons[i][0]}
                   alt=""
@@ -138,14 +154,10 @@ export default function DentalMedicalPage() {
                 />
                 <span className="text-xs font-mono text-zinc-600">{String(i + 1).padStart(2, "0")}</span>
               </div>
-              {/* Content */}
-              <div className="flex-1">
-                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">{feature.description}</p>
-              </div>
             </div>
           ))}
-        </div>
+          </div>{/* end feature list */}
+        </div>{/* end 2-col grid */}
 
         {/* CTA */}
         <div className="mt-12 text-center" style={{opacity:0, animation:"fadeUp 0.7s ease 0.6s forwards"}}>
