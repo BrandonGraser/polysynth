@@ -3,7 +3,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-import { DENTAL_ICON as ICON } from "@/components/imageAssets";
+import { DENTAL_ICON as ICON, ICON_2, ICON_3, ICON_4 } from "@/components/imageAssets";
 
 const VIDEO_URL = "https://www.dropbox.com/scl/fi/5ewqsiyd2mcxgj1alzymg/202604-10-1.mp4?rlkey=a4qqqu67szdv4c1tjetdkwqv9&raw=1";
 
@@ -17,6 +17,17 @@ const nav = [
 ];
 
 export default function DentalMedicalPage() {
+
+  // Icon configs for dental list: [src, filter, rotation]
+  const dentalIcons: [string, string, number][] = [
+    [ICON_3, "hue-rotate(140deg) saturate(2) brightness(1.1)", 0],      // Red
+    [ICON_4, "hue-rotate(185deg) saturate(3) brightness(1.2)", 90],     // Yellow
+    [ICON_2, "hue-rotate(60deg) saturate(1.5) brightness(1.1)", 180],   // Green (already green-ish, slight shift)
+    [ICON_3, "hue-rotate(290deg) saturate(2) brightness(1.2)", 90],     // Blue
+    [ICON_4, "hue-rotate(0deg) saturate(1.5) brightness(1.1)", 0],      // Magenta (ICON_4 is already magenta)
+    [ICON_2, "hue-rotate(140deg) saturate(2) brightness(1.1)", 270],    // Red rotated
+  ];
+
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white">
 
@@ -116,7 +127,15 @@ export default function DentalMedicalPage() {
             >
               {/* Icon + number */}
               <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-2 flex-shrink-0 sm:w-16">
-                <span className="text-2xl text-[#f7f727]">{feature.icon}</span>
+                <img
+                  src={dentalIcons[i][0]}
+                  alt=""
+                  className="w-8 h-8 object-contain"
+                  style={{
+                    filter: dentalIcons[i][1],
+                    transform: `rotate(${dentalIcons[i][2]}deg)`,
+                  }}
+                />
                 <span className="text-xs font-mono text-zinc-600">{String(i + 1).padStart(2, "0")}</span>
               </div>
               {/* Content */}
