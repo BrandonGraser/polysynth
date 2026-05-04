@@ -65,6 +65,81 @@ export default function DentalMedicalPage() {
         </div>
       </section>
 
+      {/* Dental Workflow Section */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+
+        <div className="mb-16 text-center" style={{opacity:0, animation:"fadeUp 0.7s ease 0.1s forwards"}}>
+          <div className="text-xs tracking-[0.25em] text-zinc-500 mb-4">CLINICAL WORKFLOW</div>
+          <h2 className="text-4xl font-bold leading-tight sm:text-5xl">Every Layer.<br /><span className="text-[#f7f727]">Every Detail.</span></h2>
+          <p className="mt-4 text-zinc-400 max-w-xl mx-auto text-base leading-relaxed">
+            Polysynth P1 Dental handles the full complexity of clinical printing — from shade matching to material transitions — in a single uninterrupted build.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 divide-y divide-white/[0.06] border border-white/[0.06]">
+          {[
+            {
+              icon: "⬡",
+              title: "Preparation Color",
+              description: "The preparation color directly influences the final restoration result. P1 Dental sequences materials to reproduce accurate preparation shading using biocompatible resin blends — no manual color correction required.",
+            },
+            {
+              icon: "◈",
+              title: "Framework Construction",
+              description: "Multi-material sequencing allows the framework and its staining layers to be printed in a single build. Precise material transitions at every layer change eliminate the need for separate firing or assembly steps.",
+            },
+            {
+              icon: "◉",
+              title: "Dentin Layer",
+              description: "Accurate dentin representation requires material transitions that match the optical properties of natural tooth structure. P1 Dental prints dentin layers with micron-level precision, matched to your case specifications.",
+            },
+            {
+              icon: "✦",
+              title: "Internal Effects",
+              description: "Mamelons, light absorption gradients, enamel canvas, and cervical translucency are handled automatically through material sequencing — producing internal characterization that mirrors natural dentition.",
+            },
+            {
+              icon: "◌",
+              title: "Skin Enamel",
+              description: "Surface enamel layers are printed with tunable translucency profiles — milky, translucent, or transparent — giving clinicians control over the final optical result without post-processing.",
+            },
+            {
+              icon: "◎",
+              title: "Final Surface & Polish",
+              description: "The final material layer seals the restoration with a surface finish optimized for clinical use. Parts exit the printer ready for post-cure and delivery — no staining studio required.",
+            },
+          ].map((feature, i) => (
+            <div
+              key={feature.title}
+              className="flex flex-col gap-4 px-8 py-8 sm:flex-row sm:gap-10 sm:py-10 transition-colors hover:bg-white/[0.02]"
+              style={{opacity:0, animation:`fadeUp 0.6s ease ${0.1 + i * 0.07}s forwards`}}
+            >
+              {/* Icon + number */}
+              <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-2 flex-shrink-0 sm:w-16">
+                <span className="text-2xl text-[#f7f727]">{feature.icon}</span>
+                <span className="text-xs font-mono text-zinc-600">{String(i + 1).padStart(2, "0")}</span>
+              </div>
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12 text-center" style={{opacity:0, animation:"fadeUp 0.7s ease 0.6s forwards"}}>
+          <a href="/contact?tab=reserve">
+            <button className="rounded-full bg-[#f7f727] px-8 py-3 text-sm font-bold text-[#1a1a00] transition hover:bg-[#f5f545]">
+              Pre Order P1 Dental
+            </button>
+          </a>
+          <p className="mt-4 text-xs text-zinc-600">Fully refundable deposit. Limited early access slots.</p>
+        </div>
+
+      </section>
+
       {/* Footer */}
       <Footer />
     </div>
