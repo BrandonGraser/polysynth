@@ -288,15 +288,16 @@ export default function PolysynthLandingPage() {
 
             </div>
 
-            {/* Right — video placeholder */}
-            <div className="relative flex items-center justify-center overflow-hidden bg-zinc-900/50">
-              <div className="absolute inset-0" style={{backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255,255,255,0.02) 32px, rgba(255,255,255,0.02) 33px), repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255,255,255,0.02) 32px, rgba(255,255,255,0.02) 33px)"}} />
-              <div className="relative z-10 flex flex-col items-center gap-3 text-zinc-600">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700">
-                  <div className="ml-0.5 h-0 w-0 border-b-[6px] border-t-[6px] border-l-[10px] border-b-transparent border-t-transparent border-l-zinc-600" />
-                </div>
-                <span className="text-xs tracking-widest">VIDEO COMING SOON</span>
-              </div>
+            {/* Right — PolySlicer video */}
+            <div className="relative flex items-center justify-center overflow-hidden bg-zinc-950">
+              <video
+                src="https://www.dropbox.com/scl/fi/m48ziolr3rbxlf0nxcay5/28e91f2a-852e-458e-960b-22331f0c2492.mov?rlkey=wmk4ngh7aexv1i5wanah02sr2&raw=1"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
             </div>
 
           </div>
