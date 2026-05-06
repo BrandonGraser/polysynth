@@ -1,7 +1,9 @@
 "use client";
 
+import React from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ToothDiagram from "@/components/ToothDiagram";
 
 import { DENTAL_ICON as ICON, ICON_1, ICON_2, ICON_3, ICON_4 } from "@/components/imageAssets";
 
@@ -17,6 +19,7 @@ const nav = [
 ];
 
 export default function DentalMedicalPage() {
+  const [hoveredLayer, setHoveredLayer] = React.useState<number | null>(null);
 
   // Icon configs for dental list: [src, filter, rotation]
   const dentalIcons: [string, string, number][] = [
@@ -89,12 +92,13 @@ export default function DentalMedicalPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-          {/* Left: media placeholder */}
-          <div className="lg:sticky lg:top-24 w-full aspect-[3/4] border border-white/[0.08] bg-zinc-900/40 flex flex-col items-center justify-center gap-3" style={{opacity:0, animation:"fadeUp 0.7s ease 0.1s forwards"}}>
-            <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L14 9L7 14V4Z" fill="rgba(255,255,255,0.3)"/></svg>
+          {/* Left: interactive tooth diagram */}
+          <div className="lg:sticky lg:top-24 w-full flex flex-col items-center gap-4" style={{opacity:0, animation:"fadeUp 0.7s ease 0.1s forwards"}}>
+            <ToothDiagram onHover={setHoveredLayer} />
+            <div className="h-5 text-xs tracking-[0.15em] font-mono transition-colors duration-150"
+              style={{ color: hoveredLayer !== null ? ["#ff0000","#0018ff","#ffea00","#00ff0c","#ff00f6"][hoveredLayer] : "transparent" }}>
+              {hoveredLayer !== null ? ["Preparation Color","Framework Construction","Dentin Layer","Internal Effects","Skin Enamel"][hoveredLayer] : "·"}
             </div>
-            <span className="text-xs tracking-[0.2em] text-zinc-600">VIDEO / IMAGE</span>
           </div>
 
           {/* Right: feature list */}
@@ -133,8 +137,14 @@ export default function DentalMedicalPage() {
           ].map((feature, i) => (
             <div
               key={feature.title}
-              className="flex flex-col gap-4 px-6 py-7 sm:flex-row sm:gap-8 sm:py-8 transition-colors hover:bg-white/[0.02]"
-              style={{opacity:0, animation:`fadeUp 0.6s ease ${0.1 + i * 0.07}s forwards`}}
+              className="flex flex-col gap-4 px-6 py-7 sm:flex-row sm:gap-8 sm:py-8 transition-colors"
+              style={{
+                opacity: 0,
+                animation: `fadeUp 0.6s ease ${0.1 + i * 0.07}s forwards`,
+                background: hoveredLayer === i ? "rgba(255,255,255,0.04)" : undefined,
+              }}
+              onMouseEnter={() => setHoveredLayer(i)}
+              onMouseLeave={() => setHoveredLayer(null)}
             >
               {/* Icon + number */}
               <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-2 flex-shrink-0 sm:w-14">
