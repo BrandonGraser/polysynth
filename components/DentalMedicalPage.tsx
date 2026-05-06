@@ -23,12 +23,12 @@ export default function DentalMedicalPage() {
 
   // Icon configs for dental list: [src, filter, rotation]
   const dentalIcons: [string, string, number][] = [
-    [ICON_3, "brightness(0) saturate(100%) invert(16%) sepia(98%) saturate(7404%) hue-rotate(0deg)", 0],          // #ff0000 red
-    [ICON_1, "brightness(0) saturate(100%) invert(91%) sepia(96%) saturate(1100%) hue-rotate(1deg)", 0],           // #ffea00 yellow (X solid)
-    [ICON_2, "brightness(0) saturate(100%) invert(44%) sepia(99%) saturate(5000%) hue-rotate(108deg)", 90],        // #00ff0c green
-    [ICON_4, "brightness(0) saturate(100%) invert(11%) sepia(99%) saturate(7448%) hue-rotate(231deg)", 0],         // #0018ff blue
-    [ICON_1, "brightness(0) saturate(100%) invert(13%) sepia(99%) saturate(7000%) hue-rotate(295deg)", 90],        // #ff00f6 magenta (X solid)
-    [ICON_3, "brightness(0) saturate(100%) invert(11%) sepia(99%) saturate(7448%) hue-rotate(231deg)", 180],       // #0018ff blue rotated
+    [ICON_3, "brightness(0) saturate(100%) invert(16%) sepia(98%) saturate(7404%) hue-rotate(0deg)", 0],          // #ff0000 red    — Preparation Color
+    [ICON_1, "brightness(0) saturate(100%) invert(11%) sepia(99%) saturate(7448%) hue-rotate(231deg)", 0],        // #0018ff blue   — Framework Staining
+    [ICON_2, "brightness(0) saturate(100%) invert(91%) sepia(96%) saturate(1100%) hue-rotate(1deg)", 90],         // #ffea00 yellow — Dentin
+    [ICON_4, "brightness(0) saturate(100%) invert(44%) sepia(99%) saturate(5000%) hue-rotate(108deg)", 0],        // #00ff0c green  — Internal Effects
+    [ICON_1, "brightness(0) saturate(100%) invert(13%) sepia(99%) saturate(7000%) hue-rotate(295deg)", 90],       // #ff00f6 magenta — Skin Enamel
+    [ICON_3, "brightness(0) saturate(100%) invert(16%) sepia(98%) saturate(7404%) hue-rotate(0deg)", 90],         // #ff0000 red    — Staining Studio
   ];
 
   return (
@@ -95,10 +95,7 @@ export default function DentalMedicalPage() {
           {/* Left: interactive tooth diagram */}
           <div className="lg:sticky lg:top-24 w-full flex flex-col items-center gap-4" style={{opacity:0, animation:"fadeUp 0.7s ease 0.1s forwards"}}>
             <ToothDiagram onHover={setHoveredLayer} />
-            <div className="h-5 text-xs tracking-[0.15em] font-mono transition-colors duration-150"
-              style={{ color: hoveredLayer !== null ? ["#ff0000","#0018ff","#ffea00","#00ff0c","#ff00f6"][hoveredLayer] : "transparent" }}>
-              {hoveredLayer !== null ? ["Preparation Color","Framework Construction","Dentin Layer","Internal Effects","Skin Enamel"][hoveredLayer] : "·"}
-            </div>
+
           </div>
 
           {/* Right: feature list */}
@@ -111,12 +108,12 @@ export default function DentalMedicalPage() {
             },
             {
               icon: "◈",
-              title: "Framework Construction",
+              title: "Framework-Framework Staining",
               description: "Multi-material sequencing allows the framework and its staining layers to be printed in a single build. Precise material transitions at every layer change eliminate the need for separate firing or assembly steps.",
             },
             {
               icon: "◉",
-              title: "Dentin Layer",
+              title: "Dentin",
               description: "Accurate dentin representation requires material transitions that match the optical properties of natural tooth structure. P1 Dental prints dentin layers with micron-level precision, matched to your case specifications.",
             },
             {
@@ -131,7 +128,7 @@ export default function DentalMedicalPage() {
             },
             {
               icon: "◎",
-              title: "Final Surface & Polish",
+              title: "Staining Studio",
               description: "The final material layer seals the restoration with a surface finish optimized for clinical use. Parts exit the printer ready for post-cure and delivery — no staining studio required.",
             },
           ].map((feature, i) => (
