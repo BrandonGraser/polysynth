@@ -101,7 +101,7 @@ export default function PolysynthLandingPage() {
 
       <main>
         {/* Hero — full viewport height, video starts at very top behind navbar */}
-        <section className="relative flex min-h-screen items-end overflow-hidden pb-20">
+        <section className="relative flex min-h-screen items-end overflow-hidden pb-20 pt-24 sm:pt-0">
           {/* Background video — covers entire section including behind navbar */}
           <video
             autoPlay
@@ -156,8 +156,8 @@ export default function PolysynthLandingPage() {
 
         {/* Conductive Parts Banner */}
         <section className="mx-auto max-w-7xl px-6 pt-8 pb-0" {...revealConductive}>
-          <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-16 py-20 text-center">
-            <div ref={conductiveHeadingRef} className="mb-6 text-8xl font-bold leading-none tracking-tight">
+          <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-6 py-14 sm:px-16 sm:py-20 text-center">
+            <div ref={conductiveHeadingRef} className="mb-6 text-5xl sm:text-7xl md:text-8xl font-bold leading-none tracking-tight">
               <div className="overflow-hidden">
                 {"Functional".split("").map((ch, i) => (
                   <span
@@ -192,7 +192,7 @@ export default function PolysynthLandingPage() {
             <span className="text-xs tracking-[0.25em] text-zinc-500">APPLICATIONS</span>
             <div className="h-px flex-1 bg-white/10" />
           </div>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {[revealCard0, revealCard1, revealCard2, revealCard3].map((reveal, i) => {
               const u = useCases[i];
               return (
@@ -253,10 +253,10 @@ export default function PolysynthLandingPage() {
 
         {/* Software Section */}
         <section id="software" className="mx-auto max-w-7xl px-6 py-16" {...revealSoftware}>
-          <div className="grid grid-cols-2 overflow-hidden rounded-2xl bg-zinc-950" style={{minHeight: "420px"}}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-2xl bg-zinc-950" style={{minHeight: "420px"}}>
 
             {/* Left — copy + features */}
-            <div className="flex flex-col justify-center border-r border-white/[0.07] px-10 py-12">
+            <div className="flex flex-col justify-center border-b border-r-0 sm:border-b-0 sm:border-r border-white/[0.07] px-8 py-10 sm:px-10 sm:py-12">
               <div className="mb-4 text-xs tracking-[0.25em] text-zinc-500">SOFTWARE</div>
               <div className="flex items-center gap-4 mb-8">
                 <img src={POLYSLICER_LOGO} alt="Polysynth" className="h-14 w-auto object-contain flex-shrink-0" />
@@ -289,7 +289,7 @@ export default function PolysynthLandingPage() {
             </div>
 
             {/* Right — PolySlicer video */}
-            <div className="relative flex items-center justify-center overflow-hidden bg-zinc-950">
+            <div className="relative flex items-center justify-center overflow-hidden bg-zinc-950 min-h-[280px] sm:min-h-0">
               <video
                 src="https://www.dropbox.com/scl/fi/m48ziolr3rbxlf0nxcay5/28e91f2a-852e-458e-960b-22331f0c2492.mov?rlkey=wmk4ngh7aexv1i5wanah02sr2&raw=1"
                 autoPlay
