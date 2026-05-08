@@ -157,25 +157,18 @@ export default function PolysynthLandingPage() {
         {/* Conductive Parts Banner */}
         <section className="mx-auto max-w-7xl px-6 pt-8 pb-0" {...revealConductive}>
           <div className="relative overflow-hidden rounded-2xl bg-zinc-950 px-6 py-14 sm:px-16 sm:py-20 text-center">
-            <div ref={conductiveHeadingRef} className="mb-6 text-5xl sm:text-7xl md:text-8xl font-bold leading-none tracking-tight">
-              <div className="overflow-hidden">
-                {"Functional".split("").map((ch, i) => (
-                  <span
-                    key={i}
-                    className="letter inline-block text-white"
-                    style={{opacity: 0, transform: "translateY(20px)", transition: "opacity 0.4s ease, transform 0.4s ease"}}
-                  >{ch === " " ? " " : ch}</span>
-                ))}
-              </div>
-              <div className="overflow-hidden">
-                {"Conductive Parts".split("").map((ch, i) => (
-                  <span
-                    key={i + 10}
-                    className="letter inline-block text-[#f7f727]"
-                    style={{opacity: 0, transform: "translateY(20px)", transition: "opacity 0.4s ease, transform 0.4s ease"}}
-                  >{ch === " " ? " " : ch}</span>
-                ))}
-              </div>
+            <div ref={conductiveHeadingRef} className="mb-6 text-5xl sm:text-7xl md:text-8xl font-bold leading-tight tracking-tight">
+              {([{word:"Functional",color:"text-white"},{word:"Conductive",color:"text-[#f7f727]"},{word:"Parts",color:"text-[#f7f727]"}] as {word:string,color:string}[]).map(({word,color},wi) => (
+                <div key={wi} className="overflow-hidden">
+                  {word.split("").map((ch, i) => (
+                    <span
+                      key={i}
+                      className={`letter inline-block ${color}`}
+                      style={{opacity: 0, transform: "translateY(20px)", transition: "opacity 0.4s ease, transform 0.4s ease"}}
+                    >{ch}</span>
+                  ))}
+                </div>
+              ))}
             </div>
             <p className="mx-auto mb-10 max-w-lg text-base leading-relaxed text-zinc-400">
               Print with conductive resin to unlock embedded electronics,
